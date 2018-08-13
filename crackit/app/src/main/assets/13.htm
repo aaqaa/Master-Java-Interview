@@ -1,0 +1,201 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>LEGACY CLASSES and INTERFACES</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+	<!--bootstrap-->
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<!--custom css-->
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<!--component-css-->
+</head>
+<body>
+<div class="body-back"> <div class="second">Ques. : What are Legacy Classes ?<br>
+Ans :	Legacy classes and interfaces are the classes and interfaces that formed the collections framework in the earlier versions of Java and now been restructured / re-engineered to be use with todays Collection Framework. They are rarely used and not been formally deprecated.
+Eg.Dictionary , HashTable , Properties , Vector , Stack etc.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is Dictionary Class ?<br>
+Ans :	abstract class Dictionary extends Object.<br>
+1. Dictionary is an abstract class that represents a key : value storage repository and operates much like Map.
+Given a key and value, you can store the value in a Dictionary object. Once the value is stored, you can retrieve it by using its key. Thus, like a map, a dictionary can be thought of as a list of key-value pairs.<br>
+2. The Dictionary class is the abstract parent of any classwhich maps keys to values eg. HashTable. Every key and every value is an object. In any one Dictionary object, every key is associated with at most one value. Any non-null object can be used as a key and as a value.<br>
+3. As a rule, the equals() method should be used by implementations of this class to decide if two keys are the same.<br>
+NOTE :	Dictionary Class is obsolete (no more expanding). New implementations should implement the Map interface, rather than extending this class.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is HashTable Class ?<br>
+Ans :HashTable extends Dictionary implements Map , Cloneable , Serializable.<br>
+1. HashTable implements Hash-table which maps keys into values where any non-null object can be used as a key or as a value.<br>
+To successfully store and retrieve objects from a hashtable, the objects used as keys must implement the hashCode() method and the equals() method.<br>
+2. Following are the constructors to create a HashTable instance.<br>
+    <table>
+            <tr><td>HashTable()</td><td>Constructs an emptyHashTable with initial capacity (11) and the default load factor (0.75).</td></tr>
+        <tr><td>HashTable(int Capacity)</td><td>Constructs an emptyHashTable with the specified initial capacity and the default load factor (0.75).</td></tr>
+        <tr><td>HashTable(int Capacity , float LF)</td><td>Constructs an emptyHashTable with the specifiedinitial capacity and load factor.</td></tr>
+        <tr><td>HashTable(Map m)</td><td>Constructs a new HashTable with the same mappings as the specified Map.</td></tr>
+    </table>
+3. Performance of a HashTable depends upon its initial Capacity given at the time of creation and the Load Factor defined for it.<br>
+4. Iterators are Fail-Fast. However it is not a guarantee.<br>
+5. HashTable is Synchronized.<br><br>
+After Java 2 , The HashTable was Re-Engineered to implement Map interface and then was made part of the Collection FrameWork.
+Though HashTable is Synchronized but if a thread-safe implementation is not needed, it is recommended to use HashMapand If a thread-safe highly-concurrent implementation is desired, then ConcurrentHashMap.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Differentiate between Dictionary and HashTable ? Also mention Similarities between them.<br>
+Ans :	Similarities:<br>
+* Both are internally hashtablesthat allows fast retrieval of data.<br>
+* Keys of both need own GetHashCode() method.<br>
+Difference :
+    <table>
+        <tr><th>Dictionary</th><th>HashTable</th></tr>
+    <tr><td>Dictionary is a generic type which means we can use it with any data type.</td><td>Hashtable is non-generic type.</td></tr>
+        <tr><td>Needs own thread synchronization</td><td>Offers thread safe version through Synchronized() method.</td></tr>
+        <tr><td>Only public static members are thread safe.</td><td>All the members in a Hashtable are thread safe</td></tr>
+        <tr><td>It is faster than a Hashtable because there is no boxing and unboxing</td><td>It is slower than dictionary because it requires boxing and unboxing.</td></tr>
+        <tr><td>It returns error if we try to find a key which does not exist.</td><td>It returns null if we try to find a key which does not exist.</td></tr>
+            <tr><td>Dictionary is an abstract class.</td><td>HashTable is a concrete class.</td></tr>
+
+</table>
+
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is Properties Class ?<br>
+Ans :Properties extends HashTable implements Map , Cloneable , Serializable.<br>
+1. Properties class is a subclass of HashTable and represents a persistent set of properties. The Properties are key-value pairs that can be saved to a stream or loaded from a stream. Each key and its corresponding value in the property list is a string. The Properties class offers you the capability to specify a default property that will be returned if no value is associated with a certain key.<br>
+2. Following are the Constructors to create a property.<br>
+       <table>
+    <tr><td>Properties ()</td><td>Creates an empty property list with no default values.</td></tr>
+    <tr><td>Properties(Properties default)</td><td>Creates an empty property list with the specified defaults.</td></tr>
+
+</table>
+
+
+
+ 
+
+3. Following are the Methods provided by Properties.<br>
+           
+    <table>
+    <tr><td></td><td></td></tr>
+            <tr><td>String getProperty(String Key)</td><td>Searches for the property with the specified key in this property list.</td></tr>
+            <tr><td>String getProperty(String Key , String DefValue)</td><td>Searches for the property with the specified key in this property list.</td></tr>
+            <tr><td>ObjectsetProperty(String Key , String Value)</td><td>Calls the HashTable put() method.</td></tr>
+            <tr><td>void list (PrintStream out)<br>
+void list (PrintWriter out)</td><td>Prints this property list out to the specified output stream.</td></tr>
+            <tr><td>void load (inputStream in)</td><td>Reads a property list (key and element pairs) from the input byte stream</td></tr>
+            <tr><td>void load (Reader reader)</td><td>Reads a property list (key and element pairs) from the input character stream in a simple line-oriented format.</td></tr>
+            <tr><td>void store(OutputStream out ,String Comments)
+</td><td>Writes this property list (key and element pairs) in this Properties table to the output stream in a format suitable for loading into a Properties table using the load(InputStream) method.</td></tr>
+          <tr><td>void store(Writer writer ,String Comments)</td><td>Writes this property list (key and element pairs) in this Properties table to the output character stream in a format suitable for using the load(Reader) method.</td></tr>
+        
+</table>
+<table>
+    <tr><td>public class PropertiesExample<br>
+{<br>
+public static void main(String args[])<br>
+{<br>
+       try {<br>
+	Properties grades = new Properties();<br>
+	grades.setProperty("Geometry", "20");<br>
+	grades.setProperty("Algebra", "20");<br>
+	grades.setProperty("Physics", "18");<br>
+	grades.setProperty("Chemistry", "17");<br>
+	grades.setProperty("Biology", "19");<br>
+// Save the grades properties using store() and an output stream<br>
+	FileOutputStream out = new FileOutputStream(<br>
+					"schoolGrades.properties");<br>
+	grades.store(out, null);<br>
+	out.close();<br>
+// load the properties file using load() and an input stream<br>
+	FileInputStream in = new FileInputStream(<br>
+"schoolGrades.properties");<br>
+	grades.load(in);<br>
+	in.close();<br>
+// iterate properties file to get key-value pairs<br>
+	for (String key : grades.stringPropertyNames())<br>
+{<br>
+		String value = grades.getProperty(key);<br>
+		System.out.println("The grade in " + key + " is: " + value);<br>
+	}<br>
+// Let us try to getProperty from an invalid key – History.
+// But While passing the invalid key we will also pass a default property i.e “No Grade” which will be returned if the key passed is not found anywhere.<br>
+	String str = grades.getProperty("History", "No grade");<br>
+	System.out.println("The grade in History is " + str);<br>
+	} catch (IOException e) {<br>
+			e.printStackTrace();<br>
+		}<br>
+}<br>
+}<br>
+Output : The grade in Physics is: 18<br>
+The grade in Algebra is: 20<br>
+The grade in Geometry is: 20<br>
+The grade in Biology is: 19<br>
+The grade in Chemistry is: 17<br>
+The grade in History is: No grade// Default property returned 
+</td></tr>
+</table>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is Vector Class ?<br>
+Ans :	Vector extends AbstractList implements Collection , Iterable , List, RandomAccess , Serializable , Cloneable
+1. The Vector class implements a dynamic array<br>
+2. Following are the Constructors to create a property.<br>
+       <table>
+    <tr><td>Vector()</td><td>Constructs an empty vector so that its internal data array has size 10 and its standard capacity increment is zero.</td></tr>
+    <tr><td>Vector(Collection C)</td><td>Constructs a vector containing the elements of the specified collection, in the order they are returned by the collection's iterator.</td></tr>
+    <tr><td>Vector(int initialCapacity)</td><td>Constructs an empty vector with the specified initial capacity and with its capacity increment equal to zero.</td></tr>
+    <tr><td>Vector(int initialCapacity ,int capacityIncrement )</td><td>Constructs an empty vector with the specified initial capacity and capacity increment.</td></tr>
+
+</table>
+ 
+3. Performance of a Vector depends upon its initialCapacity i.e capacity to hold elements initially and capacityIncrement i.e The amount by which the capacity of the vectoris automatically incremented when its size becomes greater than its capacity.<br>
+4. Iterators are Fail-Fast. However the behaviour is not guranteed.<br>
+5. Vector is Synchronized.<br><br>
+After Java 2 , The Vector was Re-Engineered to implement List interface and then was made part of the Collection FrameWork.
+Though Vector is Synchronized but if a thread-safe implementation is not needed, it is recommended to use ArrayList.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Differentiate between Vector and ArrayList ? Also mention Similarities between them.
+Ans :	Similarities:<br>
+* Both implements dynamic array.<br>
+* Both maintains insertion-order.<br>
+* Iterators of both are fail-fast.<br>
+* Both allows Duplicate and null values.<br>
+Difference :
+    <table>
+    <tr><th>Vector</th><th>ArrayList</th></tr>
+    <tr><td>Synchronized</td><td>Non-Synchronized</td></tr>
+ <tr><td>Resizing : Increments itself by double of its current size.</td><td>Resizing : Increments itself by half of its current size.</td></tr>
+ <tr><td>Can be traverse using both enums and iterators.</td><td>Can be traversed using iterator only.</td></tr>
+ <tr><td>enums returned by vector are not fail-fast.</td><td>Iterators of ArrayList are fail-fast.</td></tr>
+ <tr><td>Slower because of Synchronization.</td><td>Faster because non-synchronized.</td></tr>
+ 
+</table>
+
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is Stack Class ?<br>
+Ans :	Stack extends Vector implements Collection , Iterable , List, RandomAccess , Serializable , Cloneable<br>
+1. The Stack class implements a stack (LIFO) mechanism over Vectors. It extends class Vector with five operations that allow a vector to be treated as a stack i.e push() , pop() , peek() , empty() and search().<br>
+2. Constructor Stack() is used to create instance of Stack.<br>
+3. Stack is not at all used these days instead ArrayDeque implementation of Deque interface provides a consistent set for LIFO stack operations. 
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is Enumeration Interface ?<br>
+Ans :	Enumeration is a legacy interfacethat defines the methods by which you can enumerate (obtain one at a time) the elements in a collection of objects.<br>
+An object that implements the Enumeration interface generates a series of elements, one at a time. Successive calls to the nextElement() method return successive elements of the series.<br>
+It has only two methods hasMoreElements() and nextElement().
+Now a days Iterator is implemented in place of Enumeration as it provides additional methods remove() elements and much easy to use.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is StringTokenizer Class ?<br>
+Ans :	StringTokenizer extends Object implements Enumeration<br>
+StringTokenizer is a legacy class which is used to break a String into tokens on basis of either a specified delimiter or whitespace bydefault.
+Now a days split() method of String is used in place of StringTokenizer.
+
+<div class="clearfix"></div>   
+                  </div></div>
+          </body>
+         </html>

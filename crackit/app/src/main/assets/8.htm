@@ -1,0 +1,173 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CONSTRUCTORS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--bootstrap-->
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+	<!--custom css-->
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<!--component-css-->
+</head>
+<body>
+<div class="body-back"> <div class="first">Ques. : What is Constructor?<br>
+Ans :	A constructor is a special method whose task is to initialize the object of its class.<br>
+* It is special because its name is the same as the class name. <br>
+* They do not have return types, not even void and therefore they cannot return values.<br>
+* They cannot be inherited, though a derived class can call the base class constructor. <br>
+* Constructor is invoked whenever an object of its associated class is created.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What are the Rules in defining a constructor?<br>
+Ans :	Following are the rules to define a constructor.	<br>
+* Constructor name should be same as class name.<br>
+* It should not contain return type.<br>
+* It should not contain Non Access Modifiers: final ,static, abstract, synchronized<br> 
+* In it logic return statement with value is not allowed.<br>
+* It can have all four accessibility modifiers: private , public, protected, default<br>
+* It can have parameters.<br>
+* It can have throws clause: we can throw exception from constructor.<br>
+* It can have logic, as part of logic it can have all java legal statement except return statement with value.<br>
+* We cannot place return in constructor. 
+ 
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Is Constructor definition is mandatory in class?<br>
+Ans :	NO, it is optional . If we do not define a constructor compiler will define a default constructor.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. :  Why compiler given constructor is called as default constructor?<br>
+Ans :	Because it obtain all its default properties from its class.<br>
+* Its accessibility modifier is same as its class accessibility modifier<br> 
+* Its name is same as class name.<br>
+* It does not have parameters and logic.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : When compiler provides default constructor?<br> 
+Ans :	Only if there is no explicit constructor defined by developer.<br>
+
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques : When developer must provide constructor explicitly?<br>
+Ans :	If we want do execute some logic at the time of object creation, that logic may be object initialization logic or some other useful logic.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : If class has explicit constructor , will it has default constructor?<br>
+Ans :	No. compiler places default constructor only if there is no explicit constructor.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can we define a method with same name of class?<br>
+Ans :	Yes, it is allowed to define a method with same class name. No compile time error and no runtime error is raised, but it is not recommended as per coding standards.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Why constructor name is same as class name ?<br>
+Ans :	Every class object is created using the same new keyword , so it must have information about the class to which it must create object .For this reason constructor name should be same as class name.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : If we place return type in constructor prototype will it leads to Error?<br>
+Ans :	NO, because compiler and JVM considers it as a method.But compiler gives a warning saying that method has a constructor name.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Why return type is not allowed for constructor?<br>
+Ans :	As there is a possibility to define a method with same class name , return type is not allowed to constructor to differentiate constructor block from method block.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. :  How compiler and JVM can differentiate constructor and method definitions of both have same class name?<br>
+Ans :	By using return type , if there is a return type it is considered as a method else it is considered as constructor. 
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : How compiler and JVM can differentiate constructor and method invocations of both have same class name?<br>
+Ans :	By using new keyword, if new keyword is used in calling then constructor is executed else method is executed.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What are the differences between Contructors and Methods? <br>
+Ans :	Following are the differences between Constructors and Methods.<br>
+
+    <table><tr><th>Constructors</th><th>Methods</th></tr>
+        <tr><td>Create an instance of a class</td><td>Group Java statements</td></tr>
+        <tr><td>Cannot be abstract, final, native, static, or synchronized</td><td>Can be abstract, final, native, static, or synchronized</td></tr>
+        <tr><td>No return type, not even void</td><td>void or a valid return type</td></tr>
+    <tr><td>Same name as the class (first letter is capitalized by convention) -- usually a noun</td><td>Any name except the class. Method names begin with a lowercase letter by convention -- usually the name of an action</td></tr>
+    <tr><td>this keyword refers to another constructor in the same class. If used, it must be the first line of the constructor</td>this keyword refers to an instance of the owning class. Cannot be used by static methods.<td>Refers to an instance of the owning class. Cannot be used by static methods.</td></tr>
+    <tr><td>Calls the constructor of the parent class. If used, must be the first line of the constructor</td><td>Calls an overridden method in the parent class</td></tr>
+    <tr><td>Constructors are not inherited</td><td>Methods are inherited</td></tr>
+    
+    
+    </table>
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. :  what is default accessibility modifier of default constructor?<br>
+Ans :	It is assigned from its class.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can we declare constructor as private?<br>
+Ans :	Yes we can declare constructor as private.All four access modifiers are allowed toconstructor.<br>
+Private constructors can be used in the singleton design pattern<br>
+A singleton is a design pattern that allows only one instance of your class to be created, and this can be accomplished by using a private constructor.<br>
+Private constructors can prevent creation of objects<br>
+If a class contains only static members then it doesn’t make sense to create an object of that class ever. So we just provide a private constructor to prevent any object creation<br>
+    <table>
+    
+        <tr><td>public class Singleton<br>
+{<br>
+private static final Singleton instance = new Singleton();<br>
+// Private constructor prevents instantiation from other classes<br>
+private Singleton() { }<br>
+public static Singleton getInstance()<br>
+{<br>
+return instance;<br>
+}<br>
+}
+</td></tr>
+    </table>
+ In the above example , we have created an instance of a Singleton Class and also provided a private constructor. Now no other class would be able to create instance of this Singleton class. They can just use its instance by calling the getInstance() method.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : How are this() , super() used with constructors?<br>
+Ans : Constructors use this to refer to another constructor in the same class with a different parameter list.Constructors use super to invoke the superclass's constructor. If a constructor uses super, it must use it in the first line; otherwise, the compiler will complain. 
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can we use this() and super() in a method ?<br>
+Ans :	NO, We can’t use this() and super() in a method. It will give a compile time error.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is constructor chaining?<br>
+Ans :	Constructor Chaining is a technique of calling another constructor from one constructor. this() is used to call same class constructor where as super() is used to call super class constructor.<br>
+    <table><tr><td>class SuperClass<br>
+{<br>
+    public SuperClass(int i)<br>
+    {<br>
+        System.out.println("Super Class Constructor");<br>
+    }<br>
+}<br><br>
+ 
+class SubClass extends SuperClass<br>
+{<br>
+    public SubClass()<br>
+   {<br>
+        this(10);      /*Calling same class constructor defined below*/<br>
+    }<br>
+ <br>
+    public SubClass(int i)<br>
+    {<br>
+        super(i);      /*Calling super class constructor*/<br>
+    }<br>
+}
+</td></tr></table>
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can constructor be inherited ? <br>
+Ans :	NO, constructor cannot be inherited, though a derived class can call the base class constructor.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Can we call sub class constructor from super class constructor?<br>
+Ans :	No. There is no way in java to call sub class constructor from a super class constructor.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can abstract class have Constructor in Java ?<br>
+Ans :	YES, abstract class can have constructor in Java. The rules for constructor are same for every class whether it is abstract or concrete.
+
+
+<div class="clearfix"></div>
+                    </div></div>
+          </body>
+         </html>

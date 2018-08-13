@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>COLLECTION FRAMEWORK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+    <!--bootstrap-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!--custom css-->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!--component-css-->
+</head>
+<body>
+<div class="body-back"> <div class="second">Ques. : What is Collection Framework in Java ?<br>
+    Ans :	Collection framework represents a unified architecture for storing and manipulating Collection. We achieve this by Interfaces and the classes implementing those interfaces.
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is the Hierarchy of Collection Framework ?<br>
+    Ans :	The java.util package contains all the classes and interfaces for Collection framework.<br>
+    <img src="images/image013.jpg" alt="java" width="180" height="180"/>
+
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is the root interface in collection hierarchy ?<br>
+    Ans :	Root interface in collection hierarchy is Collection interface  which is present in java.util package. Though it extends Iterable interface which is present injava.lang package but Iterable interface is notmentioned as part of Java Collection Framework in Oracle Docs.
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is Collection Interface in Java ?<br>
+    Ans :	Java Collection simply means a group of objects collected together. Java Collection Framework provides a collection interface which has methods declared for manipulating collection data.<br>
+    Following are the methods declared in the Collection interface.<br>
+    <table>
+        <tr><th>Method</th><th>Description</th></tr>
+        <tr><td>public boolean add(Object element)</td><td>to add element to the collection.</td></tr>
+        <tr><td>public boolean addAll(collection c)</td><td>Add all the elements of collection "c" to the invoking collection.</td></tr>
+        <tr><td>public boolean remove(Object element)</td><td>To delete a specified object from invoking collection</td></tr>
+        <tr><td>public boolean removeAll(Collection c)</td><td>is used to delete all the elements of specified collection from the invoking collection.</td></tr>
+
+        <tr><td>public boolean retainAll(Collection c)</td><td>is used to delete all the elements of invoking collection except the specified collection.</td></tr>
+        <tr><td>public int size()</td><td>Returns no. of elements in coll.</td></tr>
+        <tr><td>public void clear()</td><td>Removes all elements from coll.</td></tr>
+        <tr><td>public boolean contains(object element)</td><td>is used to search an element.</td></tr>
+        <tr><td>public boolean containsAll(Collection c)</td><td>is used to search the specified collection in this collection.</td></tr>
+        <tr><td>public Iterator iterator()</td><td>returns an iterator.</td></tr>
+        <tr><td>public Object[] toArray()</td><td>converts collection into array.</td></tr>
+        <tr><td>public boolean isEmpty()</td><td>checks if collection is empty.</td></tr>
+        <tr><td>public boolean equals(Object element)</td><td>matches two collection.</td></tr>
+        <tr><td>public int hashCode()</td><td>returns the hashcode number for collection.</td></tr>
+
+    </table>
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is Collections in Java ?<br>
+    Ans :	Collections is a utility class that consist static methods that operate on or return collections. The methods of this class all throw a NullPointerException if the collections or class objects provided to them are null.<br>
+    public class Collections extends Object<br>
+    Following are the important methods available with Collections.<br>
+
+    <table>
+        <tr><th>Method</th><th>Description</th></tr>
+        <tr><td>void sort(List L);<br>
+            void sort(List L , Comparator C);
+        </td>
+            <td>Sort elements of List either using the natural ordering defined in compareTo() or using overriden compare() method of class that has implemented comparator.
+            </td></tr>
+
+        <tr><td>int binarySearch(List L, Key K );<br>int binarySearch(List L , Key K , Comparator C);</td>
+            <td>Searches the specified list for the specified key using the binary search algorithm.</td></tr>
+        <tr><td>void shuffle(List L) ;<br>void shuffle(List L , Random Rnd) ;</td>
+            <td>Randomly permutes the specified list using a default source or a specified source of randomness.</td></tr>
+        <tr><td>void reverse(List L) ;</td>
+            <td>Reverses the order of the elements in the specified list.</td></tr>
+        <tr><td>Collection synchronizedCollection(Collection C)</td>
+            <td>Returns a synchronized (thread-safe) collection backed by the specified collection.</td></tr>
+        <tr><td>Collection unModifiableCollection(Collection C)</td>
+            <td>Returns an unmodifiable view of the specified collection.</td></tr>
+        <tr><td>boolean disjoint(Collection c1 , Collection c2)</td>
+            <td>Returns true if the two specified collections have no elements in common.</td></tr>
+        <tr><td>void copy (List dest , List src)</td><td>Copy elements of one list into another.</td></tr>
+
+    </table>
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is the difference between Collection and Collections ?<br>
+    Ans :	Collection is an interface whereas Collections is a class. Collection interface provides normal functionality of data structure to List, Set and Queue. But, Collections class is to sort and synchronize collection elements.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What are common algorithms implemented in Collection Framework / Collections Class ?<br>
+    Ans :	Java Collections Framework provides algorithm implementations that are commonly used such as sorting and searching. Collections class contain these method implementations. Most of these algorithms work on List but some of them are applicable for all kinds of collections.
+    Some of them are sorting, searching, shuffling, min-max values.
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : How can we create a synchronized collection from given collection ?<br>
+    Ans :We can use Collections.synchronizedCollection(Collection c) to get a synchronized (thread-safe) collection backed by the specified collection.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : How to reverse the List in Collections ?<br>
+    Ans :	Using reverse method in Collections class .<br>
+    ArrayList ArrLst = new ArrayList() ;<br>
+    ArrLst.add(10); ArrLst.add(30); ArrLst.add(30); ArrLst.add(40);<br>
+    Collections.reverse(ArrLst);<br>
+    // Output : 40 30 20 10<br>
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : While passing a Collection as argument to a function, how can we make sure the function will not be able to modify it ?<br>
+    Ans :	We can create a read-only collection using Collections.unmodifiableCollection(Collection c) method before passing it as argument, this will make sure that any operation to change the collection will throw UnsupportedOperationException.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is Iterator interface ?<br>
+    Ans :Iterator interface provides the facility of iterating the elements in forward direction only.
+    There are only three methods in the Iterator interface. They are: <br>
+    * public boolean hasNext() it returns true if iterator has more elements.<br>
+    * public object next() it returns the element and moves the cursor pointer to the next element.<br>
+    * public void remove() it removes the last elements returned by the iterator. It is rarely used.<br>
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : Which design pattern is followed by Iterator ?<br>
+    Ans :	It follows iterator design pattern. Iterator design pattern provides us to navigate through the collection of objects by using a common interface without letting us know about the underlying implementation.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : Why there is no method like Iterator.add() to add elements to the collection ?<br>
+    Ans :	The semantics are unclear, given that the contract for Iterator makes no guarantees about the order of iteration. Note, however, that ListIterator does provide an add operation, as it does guarantee the order of the iteration.
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : Why Iterator don't have a method to get next element directly without moving the cursor ?<br>
+    Ans :	It can be implemented on top of current Iterator interface but since it's use will be rare, it doesn't make sense to include it in the interface that everyone has to implement.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : Why there are no concrete implementations of Iterator interface ?<br>
+    Ans :	Iterator interface declare methods for iterating a collection but it's implementation is responsibility of the Collection implementation classes. Every collection class that returns an iterator for traversing has it's own Iterator implementation nested class.<br>
+    This allows collection classes to chose whether iterator is fail-fast or fail-safe. For example ArrayList iterator is fail-fast whereas CopyOnWriteArrayList iterator is fail-safe.
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What do you understand by iterator fail-fast property ?<br>
+    Ans :	Iterator fail-fast property checks for any modification in the structure of the underlying collection everytime we try to get the next element. If there are any modifications found, it throws ConcurrentModificationException. All the implementations of Iterator in Collection classes are fail-fast by design except the concurrent collection classes like ConcurrentHashMap and CopyOnWriteArrayList.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is difference between fail-fast and fail-safe?<br>
+    Ans :	Iterator fail-safe property work with the clone of underlying collection, hence it's not affected by any modification in the collection. By design, all the collection classes in java.util package are fail-fast whereas collection classes in java.util.concurrent are fail-safe.
+    Fail-fast iterators throw ConcurrentModificationException whereas fail-safe iterator never throws ConcurrentModificationException.
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : When does ConcurrentModificationException occur on iteration ?<br>
+    Ans :	When you remove object using Collection's or List's remove method e.g. remove(Object element) or remove(int index), instead of Iterator's remove() method than ConcurrentModificationException occur. As per Iterator's contract, if it detect any structural change in Collection e.g. adding or removing of element, once Iterator begins, it can throw ConcurrentModificationException.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is ArrayList ? What are the methods available to manipulate its data ?<br>
+    Ans :	Following are the characteristics of Array List :<br>
+    * Java ArrayList class uses a dynamic array for storing the elements.Itextends AbstractList class and implements List interface.<br>
+    * Java ArrayList class can contain duplicate elements.<br>
+    * Java ArrayList class maintains insertion order.<br>
+    * Java ArrayList class is non synchronized.<br>
+    * Java ArrayList allows random access because array works at the index basis.<br><br>
+    * In Java ArrayList class, manipulation is slow because a lot of shifting needs to be occurred if any element is removed from the array list.
+    Note : ArrayList can be Generic or Non-Generic depending upon our need. If we try to add any object other than the type specified in Generic ArrayList. It will give a compile time error.<br><br>
+    ArrayList():This constructor builds an empty array list.<br>
+    ArrayList(Collection c):This constructor builds an array list that is initialized with the elements of the collection c.<br>
+    ArrayList(int capacity):This constructor builds an array list that has the specified initial capacity. The capacity is the size of the underlying array that is used to store the elements. The capacity grows automatically as elements are added to an array list.<br>
+
+    <table>
+        <tr><td>ArrLst.get(index);</td><td>Returns element at specified index in ArrList.</td></tr>
+        <tr><td>ArrLst.size();</td><td>Returns Total No. of Elements in ArrayList.</td></tr>
+        <tr><td>ArrLst.add("Owais");</td><td>Will add Owais at the next available index.</td></tr>
+        <tr><td>ArrLst.add(2,"Ok")</td><td>Will add Ok at index 2.</td></tr>
+        <tr><td>AL1.addAll(AL2);</td><td>Copy all elements of AL2 to AL1.</td></tr>
+        <tr><td>AL1.addAll(5,AL2);</td><td>Copy all elements of AL2 to AL1 starting from index 5.</td></tr>
+        <tr><td>ArrLst.remove("Owais");</td><td>Removes Owais from the ArrayList.</td></tr>
+        <tr><td>ArrLst.removeRange(2,5);</td><td>Removes element from index 2 to 5.</td></tr>
+        <tr><td>ArrLst.clear();</td><td>Remove all the elements and empty the ArrLst.</td></tr>
+        <tr><td>ArrLst.isEmpty();</td><td>Returns Boolean result of the check performed.</td></tr>
+        <tr><td>ArrLst.contains("Owais");</td><td>Returns Boolean result of the search performed.</td></tr>
+        <tr><td>ArrLst.indexOf("Owais");</td><td>Returns index of ArrayList where Owais is stored.</td></tr>
+        <tr><td>ArrLst.set(2,"Owais");</td><td>Replace element at index 2 by "Owais".</td></tr>
+        <tr><td>ArrLst.clone();</td><td>Returns a shallow copy of ArrayList.</td></tr>
+        <tr><td>ArrLst.toArray(ArrRef);</td><td>Converts ArrLst to Array and Returns an Array.</td></tr>
+        <tr><td>Collections.sort(ArrList);</td><td>Will sort the ArrayList.</td></tr>
+        <tr><td>new HashSet(ArrList) ;</td><td>Convert ArrLst to Hashset and Returns a Hashset</td></tr>
+
+    </table>
+
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is LinkedList ? What are the methods available to manipulate its data ?<br>
+    Ans :	Following are the characteristics of Linked List :<br>
+    * Java LinkedList class uses doubly linked list to store the elements. It extends the AbstractList class and implements List and Deque interfaces.<br>
+    * Java LinkedList class can contain duplicate elements.<br>
+    * Java LinkedList class maintains insertion order.<br>
+    * Java LinkedList class is non synchronized.<br>
+    * In Java LinkedList class, manipulation is fast because no shifting needs to be occurred.<br>
+    * Java LinkedList class can be used as list, stack or queue.<br><br>
+    LinkedList(): Constructor builds an empty LinkedList.<br>
+    LinkedList(Collection c):This constructor builds a linked list that is initialized with the elements of the collection c.<br>
+
+    <table>
+        <tr><td>LinkLst.get(index);</td><td>Returns element at specified index in ArrList.</td></tr>
+        <tr><td>LinkLst.getFirst();</td><td>Returns first element and Throws NoSuchElementException if LinkList is empty.</td></tr>
+        <tr><td>LinkLst.getLast();</td><td>Returns lasst element and Throws NoSuchElementException if LinkList is empty.</td></tr>
+        <tr><td>LinkLst.size();</td><td>Returns Total No. of Elements in ArrayList.</td></tr>
+        <tr><td>LinkLst.add("Owais");</td><td>Append"Owais" at the end of the list.</td></tr>
+        <tr><td>LinkLst.add(2,"Ok");</td><td>Will add Ok at index 2. Throws IndexOutOfBoundsException if the specified index is is out of range</td></tr>
+        <tr><td>LL.addAll(Collection c);</td><td>Appends all the element of collection at the end of the LinkedList. Throws NullPointerException if the specified collection is null</td></tr>
+        <tr><td>LinkLst.addAll(5,AL2);</td><td>Inserts all the element of collection starting from the specified index. Throws NullPointerException if the specified collection is null</td></tr>
+        <tr><td>LinkLst.addFirst("Owais");</td><td>Insert "Owais" at beginning of the LinkList.</td></tr>
+        <tr><td>LinkLst.addLast("Owais");</td><td>Appends "Owais" at the end of the LinkList.</td></tr>
+        <tr><td>LinkLst.remove(Object o);</td><td>Removes first occurrence of "Owais" from the LinkedList , Throws NoSuchElementException if this list is empty.</td></tr>
+        <tr><td>LinkLst.remove(int index);</td><td>Remove element at specified index from the LinkedList. Throws NoSuchElementException if this list is empty. Throws IndexOutOfBoundsException if the specified index is is out of range.</td></tr>
+        <tr><td>LinkLst.removeFirst();</td><td>Remove first element from LinkList. Throws NoSuchElementException if this list is empty.</td></tr>
+        <tr><td>LinkLst.removeLast();</td><td>Remove Last element from LinkList Throws NoSuchElementException if this list is empty.</td></tr>
+        <tr><td>LinkLst.clear();</td><td>Remove all elements and empty the LinkList.</td></tr>
+        <tr><td>LinkLst.contains("Owais");</td><td>Returns True if atleast one element matches.</td></tr>
+        <tr><td>LinkLst.indexOf("Owais");</td><td>Returns first occurence of element at some index inside List , Returns -1 if not found.</td></tr>
+        <tr><td>LinkLst.lastindexOf("OK");</td><td>Returns last occurence of element at some index inside List , Returns -1 if not found.</td></tr>
+        <tr><td>LinkLst.set(2,"Owais");</td><td>Replace element at index 2 by "Owais". Throws IndexOutOfBoundsException if the specified index is is out of range.</td></tr>
+        <tr><td>LinkLst.clone();</td><td>Returns a shallow copy of LinkedList.</td></tr>
+
+    </table>
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : Differentiate between ArrayList and LinkedList ?<br>
+    Ans :	ArrayList and LinkedList both implements List interface and maintains insertion order. Both are non synchronized classes. But there are many differences between ArrayList and LinkedList classes that are given below.<br>
+
+    <table>
+        <tr><th>ArrayList</th><th>LinkedList</th></tr>
+        <tr><td></td><td></td></tr>
+
+        <tr><td>ArrayList internally uses dynamic array to store the elements.</td><td>LinkedList internally uses doubly linked list to store the elements.</td></tr>
+        <tr><td>Manipulation with ArrayList is slow because it internally uses array. If any element is removed from the array, all the bits are shifted in memory.</td><td>Manipulation with LinkedList is faster than ArrayList because it uses doubly linked list so no bit shifting is required in memory.</td></tr>
+        <tr><td>ArrayList class can act as a list only because it implements List only.</td><td>LinkedList class can act as a list and queue both because it implements List and Deque interfaces.</td></tr>
+        <tr><td>ArrayList is better for storing and accessing data.</td><td>LinkedList is better for manipulation.</td></tr>
+    </table>
+
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is the difference between Array and ArrayList in Java ? In what scenarios should we make use of one over the other ?<br>
+    Ans :	Array is static in size while ArrayList is dynamic in size.<br>
+    Array can contain primitive data types while ArrayList can not contain primitive data types.<br>
+    Although ArrayList is the obvious choice when we work on list, there are few times when array are good to use.<br>
+    * If the size of list is fixed and mostly used to store and traverse them.<br>
+    * For list of primitive data types, although Collections use autoboxing to reduce the coding effort but still it makes them slow when working on fixed size primitive data types.<br>
+    * If you are working on fixed multi-dimensional situation, using [][] is far more easier than List>
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : How to convert the array of strings into the list ?<br>
+    Ans :	Using asList() method of Arrays class of java.util package.<br>
+    String[] WordArray = {"My","Name","is","Owais"} ;<br>
+    List WordList = Arrays.asList(WordArray);<br>
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is List Interface ?<br>
+    Ans :	List Interface is the subinterface of Collection.It contains methods to insert and delete elements on index basis.It is a factory of ListIterator interface.<br>
+    In addition to the methods defined by Collection, List defines some of its own methods also. Several of the list methods will throw an UnsupportedOperationException if the collection cannot be modified, and a ClassCastException is generated when one object is incompatible with another.<br>
+
+
+    <table>
+        <tr><td>List1.add(5,"Owais");</td><td>Insert "Owais" at index 5 without overwriting any elements. Elements present at index and all others after that shifts up by 1 position.</td></tr>
+        <tr><td>List1.addAll(5,ArrList);</td><td>Insert ArrayList into List starting from index 5 without overwriting any elements. Returns True if insertion is success, false otherwise.</td></tr>
+        <tr><td>List1.indexOf("Owais");</td><td>Returns first occurrence of "Owais" in the List. Returns 1 if "Owais" is not found.</td></tr>
+        <tr><td>L1.lastindexOf("OK");</td><td>Returns last occurrence of "OK" in the List. Returns 1 if "OK" is not found.</td></tr>
+        <tr><td>L1.remove(int index);</td><td>Removes element at specified index. Returns the deleted element. The invoking list gets compacted.</td></tr>
+        <tr><td>L1.subList(2,5);</td><td>Create and Returns a new sublist formed out of invoking list L1 from index 2 to 5. </td></tr>
+        <tr><td>L1.listIterator();</td><td>Create and return a listIterator to the start of the invoking list.</td></tr>
+        <tr><td>L1.listIterator(index);</td><td>Create and return a listIterator pointing to the specified index of the invoking list.</td></tr>
+    </table>
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is ListIterator Interface used for ?<br>
+    Ans :ListIterator Interface is the subinterface of Iterator.<br>
+    A ListIterator is an iterator for lists that allows the programmer to traverse the list in either direction, modify the list during iteration, and obtain the iterator's current position in the list. A ListIterator has no current element ; its cursor position always lies between the element that would be returned by a call to previous() and the element that would be returned by a call to next(). An iterator for a list of length n has n+1 possible cursor positions.<br>
+
+    <table>
+        <tr><td>E next() ;</td><td>Returns the next element in the list and advances the cursor position. This method may be called repeatedly to iterate through the list, or intermixed with calls to previous() to go back and forth.<br>NoSuchElementException - if the iteration has no next element</td></tr>
+        <tr><td>boolean hasNext() ;</td><td>Returns true if this list iterator has more elements when traversing the list in the forward direction.</td></tr>
+        <tr><td>E previous() ;</td><td>Returns the previous element in the list and moves the cursor position backwards. This method may be called repeatedly to iterate through the list backwards, or intermixed with calls to next() to go back and forth.</td></tr>
+        <tr><td>boolean hasPrevious();</td><td>Returns true if this list iterator has more elements when traversing the list in the reverse direction.</td></tr>
+        <tr><td>int nextIndex() ;</td><td>Returns the index of the element that would be returned by a subsequent call to next().Returns -1 if the list iterator is at the end of the list.)</td></tr>
+        <tr><td>int previousIndex();</td><td>Returns the index of the element that would be returned by a subsequent call to previous().Returns -1 if the list iterator is at the beginning of the list.)</td></tr>
+        <tr><td>void add(E e) ;</td><td>The element is inserted immediately before the element that would be returned by next(), if any, and after the element that would be returned by previous().After addition , a subsequent call to next would be unaffected, and a subsequent call to previous would return the new element.</td></tr>
+        <tr><td>void remove() ;</td><td>Removes from the list the last element that was returned by next() or previous().This call can only be made once per call to next or previous. It can be made only if add(E) has not been called after the last call to next or previous.</td></tr>
+        <tr><td>void set(E e) ;</td><td>Replaces the last element returned by next() or previous() with the specified element. This call can be made only if neither remove() nor add(E) have been called after the last call to next or previous.</td></tr>
+    </table>
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is the differnce between Iterator and ListIterator Interface ?<br>
+    Ans :Following are the differences between Iterator and ListIterator Interface :<br>
+    <table>
+        <tr><th>Iterator</th><th>ListIterator</th></tr>
+        <tr><td>It's a superinterface to ListIterator.</td><td>It is a subinterface to Iterator.</td></tr>
+        <tr><td>It traverse through collection in forward direction only.</td><td>It allows List to traverse in backward direction.</td></tr>
+        <tr><td>Iterator doesn't provide methods to manipulate data while traversing.</td><td>ListIterator has methods to manipulate list while traversing.</td></tr>
+        <tr><td>Iterator can be used in List, Set and Queue.</td><td>ListIterator can be used in List only.</td></tr>
+    </table>
+
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is Comparable Interface ?<br>
+    Ans :	Comparable Interface is present in java.lang package and contains only one method public intcompareTo(Object).<br>
+    The main use of Comparable interface is to provide a Comparing Logic for two Objects of a user-defined class.<br>
+    When a user-defined class implements Comparable Interface and provides implementation of compareTo() method inside it. That comparison logic is often called as the natural ordering of the objects of that user-defined class.<br>
+    <table><tr><td>Class Studentimplements Comparable<br>
+        {<br>
+        public String Name ;<br>
+        public int Age ;<br>
+        .... // Constructor to initialize fields.<br>
+        /* providing implementation of compareTo method which compares two
+        Student objects on the basis of their age */<br>
+        public int compareTo(Object Obj)<br>
+        {<br>
+        Student st = (Student) Obj ;<br>
+        if (Age = st.Age)<br>
+        return 0 ;<br>
+        else if (Age> st.Age)<br>
+        return 1 ;<br>
+        else<br>
+        return -1 ;<br>
+        }<br>
+        public static void main(String[] args)<br>
+        {<br>
+        Student s1 = new Student("Owais" , 38039 , 24);<br>
+        Student s2 = new Student("Khan" , 4000 , 25);<br>
+        // calling compareTo method of class Student<br>
+        if (s1.compareTo(s2) == 0)<br>
+        System.out.println("Both the Students have Same Age") ;<br>
+        else if (s1.compareTo(s2) == 1)<br>
+        System.out.println("s1 is older than s2") ;<br>
+        else if<br>
+        System.out.println("s2 is older than s1");<br>
+        }<br>
+        }</td></tr></table>
+
+
+
+    <br>
+    class String implements Comparable Interface and provides implementation of compareTo() method which compare two String Objects lexographically (in dictionary order).<br>
+    Wrapper Classes also implements Comparable. Thus Objects of Wrapper classes i.e Integer , Float , Boolean , Character etc are comparable.
+    sort() method of class Collections requires compareTo() implementation to sort elements inside it. If any collection (eg. ArrayList) contains objects of user-defined class , then that user-defined class must implements Comparable interface and provide implementation of compareTo() method in order to sort elements.<br>
+    NOTE :The compareTo() method must be implemented inside the same class, objects of which requires comparison logic. Some other class can't provide comparing logic of Student Object by overridingcompareTo().
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is Comparator Interface ?<br>
+    Ans :	ComparatorInterface is present in java.util package and contains two methodsint compare(Object Obj1 ,Object Obj2) and booleanequals(Object).<br>
+    The main use of Comparator interface is to provide a Multiple Comparing Logics for two Objects of a user-defined class. These Comparing logics could be defined in separate classes that are declare to be implementing comparator. Objects of these implementing classes can be passed to sorting methods as an argument so that sorting based on different comparison logics can be achieved.
+    sort() method of class Collections has another variation for sorting elements of collection that usesoverriden compare() method of the class that implements Comparator Interface. We pass Object of the class implementing the Comparator interface to sort()method to achieve sorting based on different comparison logics.<br>
+
+    <table>
+        <tr colSpan ="2"><th>Student.java</th></tr>
+        <tr><td>Class Student<br>
+            {<br>
+            public String Name ;<br>
+            public int Age ;<br>
+            .... // Constructor to initialize fields.<br>
+            }</td>
+        </tr>
+        <tr colSpan ="2"><th>NameComparator.java</th></tr>
+        <tr><td>class NameComparator implements Comparator<br>
+            {  <br>
+            public int Compare(Object o1,Object o2)<br>
+            {  <br>
+            Student s1=(Student)o1;<br>  
+            Student s2=(Student)o2;  <br>
+            // calling compareTo method of String Class<br>
+            return s1.name.compareTo(s2.name);  <br>
+            }  <br>
+            } </td></tr>
+        <tr colSpan ="2"><th>AgeComparator.java</th></tr>
+        <tr><td>class AgeComparator implements Comparator<br>
+            {  <br>
+            public int Compare(Object o1,Object o2)<br>
+            {  <br>
+            Student s1=(Student)o1;<br>  
+            Student s2=(Student)o2;  <br>
+            // calling compareTo method of Wrapper Class Integer<br>
+            return s1.Age.compareTo(s2.Age);  <br>
+            }}</td></tr>
+        <tr colSpan ="2"><th>Demo.java</th></tr>
+        <tr><td>class Demo<br>
+            {  <br>
+            public static void main(String args[])<br>
+            {  <br>
+            ArrayList al=new ArrayList();  <br>
+            al.add(new Student( 100 , "Muhammad",22));<br>  
+            al.add(new Student( 101 , "Owais", 21));  <br>
+            al.add(new Student( 102 , "Khan",23));  <br>
+                
+            Collections.sort(al,new NameComparator());  <br>
+            // Output : Khan , Muhammad , Owais i.e Lexographical order<br>
+            Collections.sort(al,new AgeComparator());<br>
+            // Output :   21 22 23<br>
+            }       <br>
+            }  </td></tr>
+    </table>
+
+
+
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : Differentiate between Comparable and Comparator Interface ?<br>
+    Ans :	Following are the differences between the two<br>
+    <table>
+        <tr><th>Comparable</th><th>Comparator</th></tr>
+        <tr><td>Sorting logic must be in same class whose objects are being sorted. Hence this is called natural ordering of objects</td><td>Sorting logic is in separate class. Hence we can write different sorting based on different attributes of objects to be sorted. E.g. Sorting using id,name etc.</td></tr>
+        <tr><td>Class whose objects is to be sorted must implement this interface.</td><td>Class whose objects is to be sorted do not need to implement this interface. Some other class can implement this interface. </td></tr>
+        <tr><td>sorting method :int compareTo(o1)<br>positive if this Obj>o1<br>zero if this Obj == o1<br>negative ifthis Obj is less than ob1</td><td>int compare(o1,o2)<br>positive ifo1>o2<br>zero if o1 == o2<br>negative if o1 is less than o2</td></tr>
+        <tr><td>Collections.sort(List)<br>Here objects will be sorted on the basis of CompareTo() method.</td><td>Collections.sort( List , Comp)
+            Here objects will be sorted on the basis of Compare() method in Comparator</td></tr>
+        <tr><td>Present in package Java.lang.Comparable</td><td>Present in package Java.util.Comparator </td></tr>
+
+    </table>
+
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is Set Interface used for ? What are the methods declared within Set Interface ?<br>
+    Ans :	A Set is a Collection that cannot contain duplicate elements. The Set interface contains only methods inherited from Collection and adds the restriction that duplicate elements are prohibited. Set also adds a stronger contract on the behavior of the equals and hashCode operations, allowing Set instances to be compared meaningfully even if their implementation types differ.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : Explain HashSet Class and methods of it to manipulate the data  ?<br>
+    Ans :	HashSet extends AbstractSet and implements the Set interface. It creates a collection that uses a hash table for storage.
+    HashSet( ) : This constructor constructs a default HashSet.<br>
+    HashSet(Collection c) : This constructor initializes the hash set by using the elements of the collection c.
+    HashSet(int capacity) : This constructor initializes the capacity of the hash set to the given integer value capacity. The capacity grows automatically as elements are added to the HashSet.
+    HashSet(int capacity, float LoadCapacity)  : This constructor initializes both the capacity and the Load Capacity (also called fill Ratio) of the hash set from its arguments
+    Here the Load Capacity must be between 0.0 and 1.0, and it determines how full the hash set can be before it is resized upward. Specifically, when the number of elements is greater than the capacity of the hash set multiplied by its fill ratio, the hash set is expanded
+    Apart from the methods inherited from its parent classes, HashSet defines following methods:
+    <table>
+        <tr><td>boolean add(Object o) </td><td>Adds the specified element to this set if it is not already present.</td></tr>
+        <tr><td>void clear() </td><td>Removes all of the elements from this set.</td></tr>
+        <tr><td>Object clone() </td><td>Returns a shallow copy of this HashSet instance: the elements themselves are not cloned.</td></tr>
+        <tr><td>boolean contains(Object o)</td><td>Returns true if this set contains the specified element</td></tr>
+        <tr><td>boolean isEmpty() </td><td>Returns true if this set contains no elements.</td></tr>
+        <tr><td>Iterator iterator() </td><td>Returns an iterator over the elements in this set.</td></tr>
+        <tr><td>boolean remove(Object o) </td><td>Removes the specified element from this set if it is present.</td></tr>
+        <tr><td>int size() </td><td>Returns the number of elements in this set (its cardinality).</td></tr>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : Explain LinkedHashSet Class and methods of it to manipulate the data  ?<br>
+    Ans :	This class extends HashSet, but adds no members of its own.<br>
+    LinkedHashSet maintains a linked list of the entries in the set, in the order in which they were inserted. This allows insertion-order iteration over the set.<br>
+    That is, when cycling through a LinkedHashSet using an iterator, the elements will be returned in the order in which they were inserted.
+    The hash code is then used as the index at which the data associated with the key is stored. The transformation of the key into its hash code is performed automatically.<br>
+    Below given is the list of constructors supported by the LinkedHashSet.<br>
+    LinkedHashSet( ) : This constructor constructs a default LinkedHashSet.<br>
+    LinkedHashSet(Collection c) : This constructor initializes the LinkedHashSet by using the elements of the collection c.<br>
+    LinkedHashSet(int capacity) : This constructor initializes the capacity of the linkedhashset to the given integer value capacity. The capacity grows automatically as elements are added to the HashSet. <br>
+    LinkedHashSet(int capacity, float fillRatio) : This constructor initializes both the capacity and the fill ratio (also called load capacity) of the hash set from its arguments.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : Explain TreeSet Class and methods of it to manipulate the data  ?<br>
+    Ans :	TreeSet provides an implementation of the Set interface that uses a tree for storage. Objects are stored in sorted, ascending order.
+    Access and retrieval times are quite fast, which makes TreeSet an excellent choice when storing large amounts of sorted information that must be found quickly.<br>
+    TreeSet() : This constructor constructs an empty tree set that will be sorted in ascending order according to the natural order of its elements.<br>
+    TreeSet(Collection c): This constructor builds a tree set that contains the elements of the collection c.<br>
+    TreeSet(Comparator comp): This constructor constructs an empty tree set that will be sorted according to the given comparator.<br>
+    TreeSet(SortedSet ss) :This constructor builds a TreeSet that contains the elements of the given SortedSet<br>
+    <!--
+       <table>
+           <tr><th></th><th></th></tr>
+           <tr><td></td><td></td></tr>
+       </table>
+   -->
+    <table>
+        <tr><td>void add(Object o)</td><td>Adds the specified element to this set if it is not already present.</td></tr>
+        <tr><td>boolean addAll(Collection c)</td><td>Adds all of the elements in the specified collection to this set.</td></tr>
+        <tr><td>void clear()</td><td>Removes all of the elements from this set.</td></tr>
+        <tr><td>Object clone()</td><td>Returns a shallow copy of this TreeSet instance.</td></tr>
+        <tr><td>Comparator comparator()</td><td>Returns the comparator used to order this sorted set, or null if this tree set uses its elements natural ordering.</td></tr>
+        <tr><td>boolean contains(Object o)</td><td>Returns true if this set contains the specified element.</td></tr>
+        <tr><td>Object first()</td><td>Returns the first (lowest) element currently in this sorted set.</td></tr>
+        <tr><td>SortedSet headSet(Object toElement)</td><td>Returns a view of the portion of this set whose elements are strictly less than toElement.</td></tr>
+        <tr><td>boolean isEmpty()</td><td>Returns true if this set contains no elements.</td></tr>
+        <tr><td>Iterator iterator()</td><td>Returns an iterator over the elements in this set.</td></tr>
+        <tr><td>Object last()</td><td>Returns the last (highest) element currently in this sorted set.</td></tr>
+        <tr><td>Boolean remove(Object o)</td><td>Removes the specified element from this set if it is present.</td></tr>
+        <tr><td>int size()</td><td>Returns the number of elements in this set (its cardinality).</td></tr>
+        <tr><td>SortedSet subSet(Object fromElement, Object toElement)</td><td>Returns a view of the portion of this set whose elements range from fromElement, inclusive, to toElement, exclusive.</td></tr>
+        <tr><td>SortedSet tailSet(Object fromElement)</td><td>Returns a view of the portion of this set whose elements are greater than or equal to fromElement.
+    </table>
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is the difference between Set and List Interface ?<br>
+    Ans :	Following are the differences between the two<br>
+    <table>
+        <tr><th>List</th><th>Set</th></tr>
+        <tr><td>List is an ordered Collection , it maintains the insertion order</td><td>Set is an unordered collection ; it does not maintain any insertion order (except for LinkedHashSet).</td></tr>
+        <tr><td>Allow duplicate values.</td><td>Doesn't allow duplicate values.</td></tr>
+        <tr><td>ListIterator allows traversing in both the directions.</td><td>Iterator for Set let us only traverse in the forward direction.</td></tr>
+        <tr><td>List interface has one legacy class called Vector.</td><td>Set Interface does not have any legacy class.</td></tr>
+    </table>
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is the difference b/wHashSet and TreeSet ?<br>
+    Ans :	Following are the differences between the two<br>
+
+
+    <table>
+        <tr><th>HashSet</th><th>TreeSet</th></tr>
+        <tr><td>HashSet uses HashMap internally to store its elements.</td><td>TreeSet used TreeMap internally to store its elements.</td></tr>
+        <tr><td>HashSet is unordered.</td><td>TreeSet orders the elements according to supplied comparator. If no comparator is supplied the elements are maintained in ascending order.</td></tr>
+        <tr><td>HashSet uses equals() and hashCode() methods to compare the elements and thus removing the possible duplicate elements.</td>TreeSet uses compare() or compareTo() methods to compare te elements and thus removing the possible duplicate elements.
+            <td>TreeSet uses compare() or compareTo() methods to compare te elements and thus removing the possible duplicate elements.
+
+            </td></tr>
+        <tr><td>HashSet allows maximum one null element.
+        </td><td>TreeSet doesn't allow any null element. If inserted forecefully , it throws NullPointerException.</td></tr>
+        <tr><td>HashSet occupies less memory as it uses only HashMap to store elements.</td><td>TreeSet occupies more memory as it also maintains Comparator to sort the elements along with TreeMap.
+
+        </td></tr>
+    </table>
+
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : Are HashSet/LinkedHashSet/TreeSet thread-safe ?<br>
+    Ans :	None of them is thread-safe. They cannot be shared between multiple threads unless they are made synchronized. We can create a Synchronized Set by using methods of Collections class.<br>
+    Set s = Collections.synchronizedSet(new HashSet(...)) ;<br>
+    Set s = Collections.synchronizedSet(new LinkedHashSet(...)) ;<br>
+    Set s = Collections.synchronizedSet(new TreeSet(...)) ;
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is the difference b/w ArrayList and HashSet ?<br>
+    Ans :	Following are the differences between the two<br>
+    <table>
+        <tr><th>ArrayList</th><th>HashSet</th></tr>
+        <tr><td>Implements List Interface</td><td>Implements Set Interface.</td></tr>
+        <tr><td>Allow duplicate values.</td><td>Doesn't allow duplicate values.</td></tr>
+        <tr><td>Maintains Insertion Order.</td><td>Maintains Insertion Order.</td></tr>
+        <tr><td>We can operate any random location and retrieve element by get(index) and remove(index) methods.</td><td>HashSet is object based and doesn't have get() method for operations.</td></tr>
+    </table>
+
+
+
+
+
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is Queue Interface ? What are different methods provided by Queue Interface ?<br>
+    Ans :	A collection designed to hold elements untill they are used / processed. However Queues doesn't necessarily follows the FIFO rule.
+    Eg. Priority Queues order elements according to a supplied comparator. LIFO Queues / Stacks orders the elements in LIFO format.<br>
+    A Queue interface apart from providing 3 operational methods from Collection interface ? add() , remove() , element()also provides3 additional methods - offer(e) , poll() , and peek().Since it was not possible to use add() , remove() , or element() methods with capacity-restricted queues the above 3 methods were introduced.<br>
+    Following are the important methods and their differences explained :<br>
+    <table>
+        <tr><td>boolean add(E e)</td><td>Inserts an element. If fail to insert due to capacity restriction it thrown an unchecked exception.</td></tr>
+        <tr><td>boolean offer(E e)</td><td>Inserts an element. If fail to insert due to capacity restriction it returns a false.</td></tr>
+        <tr><td>E remove()</td><td>Retrieves and removes the head of this queue , throws an exception if queue is null.</td></tr>
+        <tr><td>E poll()</td><td>Retrieves and removes the head of this queue, or returns null if this queue is empty.</td></tr>
+        <tr><td>E element()</td><td>Retrieves, but does not remove, the head of this queue.</td></tr>
+    </table>
+
+    <br>
+
+    Retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.<br>
+    Apart from these , Queue also provied 14 other methods from Collection Interface ? addAll , clear, contains, containsAll, equals, hashCode, isEmpty, iterator, remove, removeAll, retainAll, size, toArray, toArray.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is ArrayBlockingQueue class ?<br>
+    Ans :	The class "ArrayBlockingQueues" extends AbstractQueueand implementsBlockingQueue , Serializableis a member of JavaCollection Framework. Object of this class representsbounded blocking queue backed by an array.This is a classic "bounded buffer", in which a fixed-sized array holds elements inserted by producers and extracted by consumers. Once created, the capacity cannot be increased. Attempts to put an element into a full queue will result in the operation blocking; attempts to take an element from an empty queue will similarly block.<br>
+    The insertion order is maintined in FIFO i.e The elements are inserted from tail-end and removed from the head-end.<br>
+    <table>
+        <tr><td>public class QueueExample<br>
+            {<br>
+            public static void main(String[] args)<br>
+            {// Creating a Capacity-Restricted Queue with Capcity 2.<br>
+            Queue queue = new ArrayBlockingQueue(2);<br>
+            queue.add(1) ;// queue : [1]<br>
+            queue.add(2) ;// queue : [1,2]<br>
+            //queue.add(3) ;                  <br>  // IllegalStateException<br>
+            Boolean isAdded = queue.offer(3) ;// trying to insert<br>
+            System.out.println("isAdded" + isAdded);// isAdded :false<br>
+            queue.remove();// queue : [2] i.e 1 is removed<br>
+            Object RemObj = queue.poll() ;<br>
+            System.out.println(RemObj);// [2]<br>
+            queue.isEmpty() ;                                             <br>
+            Object RemObj2 = queue.poll() ;<br>
+            System.out.println(RemObj2);// null<br>
+            // queue.remove() ;// NoSuchElementException<br>
+            queue.add(4) ;queue.add(5) ;// queue : [4,5]<br>
+            Object LastElement1 = queue.element() ;<br>
+            System.out.println(LastElement1);// [4]<br>
+            Object LastElement2 = queue.peek() ;<br>
+            System.out.println(LastElement2);// [4]<br>
+            queue.remove();<br>
+            queue.remove();<br>
+            queue.isEmpty() ;  <br>
+            Object LastElement3 = queue.peek() ;<br>
+            System.out.println(LastElement3);// null<br>
+            //Object LastElement4 = queue.element() ;<br>
+            // NoSuchElementException	<br>
+            }<br>
+            }
+        </td></tr>
+    </table>
+
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is Deque Interface ? What are different methods provided by Deque Interface ?<br>
+    Ans :	SuperInterfaces : Iterable , Collection , Queue.<br>
+    SubInterfaces : BlockingDeque.<br>
+    Capacity Free Implementing Classes : ArrayDeque , LinkedList etc.<br>
+    Capacity Restricted Implementing Classes : LinkedBlockingDeques<br><br>
+    A Deque interface is designed to use Double Ended Queues. It supports element insertion and removal on both the sided. Deque supports both restricted and free capacity double ended queues. Though most of the implementation are free from capacity restrictions.<br>
+    Apart from general operational methods of Collection , Deque provides some special methods to perform same operation on capacity restricted double ended queues.<br>
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is ArrayDeque class ?<br>
+    Ans :	Theclass "ArrayDeque"extends AbstractCollectionimplements Deque ,Cloneable, Serializable. The objects of this class are double ended queue backed by dynamic arrays. They don't have any capacity restrictions ; though they can be given an initial capacity through constructor at the time of creation.<br>
+    * They are not thread-safe.<br>
+    * Their iterators are fail-first (though not guaranteed).<br>
+    * Null elements are prohibited.<br>
+    * This class is likely to be faster thanStack when used as a stack.<br>
+    * This class is alsofaster thanLinkedList when used as a queue.
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is PriorityQueue class ?<br>
+    Ans :	Theclass"PriorityQueue"extends AbstractQueueimplements Serializable. The objects of this class are capacity-free dynamically growing priority queues based on priority heap.<br>
+    The elements of the priority queue are ordered according to their natural ordering, or by a Comparator provided at queue construction time, depending on which constructor is used.<br>
+    The head of this queue is the least element with respect to the specified ordering. If multiple elements are tied for least value, the head is one of those elements -- ties are broken arbitrarily.<br>
+    A priority queue does not permit null elements. A priority queue relying on natural ordering also does not permit insertion of non-comparable objects (doing so may result in ClassCastException).<br>
+    PriorityQueues are notthread-safe.<br>
+    For thread-safenessPriorityBlockingQueues are used.<br>
+    Iterator doesn't guarantee traversal in a particular order. For guaranteed ordered traversal we have to first convert the PriorityQueue into Array and then perform sorting needed.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is Map Interface ?<br>
+    Ans :	A Map is an object formed of pair of Keys and Values. Given a Key and a Value you can store the pair inside Map object. A key is always unique and can represent only a single value.<br>
+    SuperInterfaces :None (Present in java.util package).<br>
+    SubInterfaces : SortedMap , NavigableMap , ConcurrentNavigableMap , ConcurrentMap etc.<br>
+    Implementing Classes :	AbstractMap , HashMap , LinkedHashMap , TreeMap, EnumMap , HashTable ,  Properties etc.<br>
+    Following are the Methods available as a part of Map Interface :<br>
+
+    <table>
+        <tr><td>Object put(Object k, Object v)</td><td>Puts an entry in the invoking map, overwriting any previous value associated with the key. The key and value are k and v, respectively. Returns null if the key did not already exist. Otherwise, the previous value linked to the key is returned.</td></tr>
+        <tr><td>Object get(Object k)
+        </td><td>Returns the value associated with the key k.</td></tr>
+        <tr><td>Object remove(Object k)</td><td>Removes the entry whose key equals k.</td></tr>
+        <tr><td>Boolean containsKey(Object k)</td><td>Returns true if the invoking map contains k as a key. Otherwise, returns false.</td></tr>
+        <tr><td>boolean containsValue(Object v)</td><td>Returns true if the map contains v as a value. Otherwise, returns false</td></tr>
+        <tr><td>int size( )</td><td>Returns the number of key/value pairs in the map.</td></tr>
+        <tr><td>boolean isEmpty( )</td><td>Returns true if the invoking map is empty. Otherwise, returns false.</td></tr>
+        <tr><td>void putAll(Map m)</td><td>Puts all the entries from m into this map.</td></tr>
+        <tr><td>void clear( )</td><td>Removes all key/value pairs from the invoking map.</td></tr>
+        <tr><td>Set keySet( )</td><td>Returns a Set that contains the keys in the invoking map. This method provides a set-view of the keys in the invoking map.</td></tr>
+        <tr><td>Set entrySet( )</td><td>Returns a Set that contains the entries in the map. The set contains objects of type Map.Entry. This method provides a set-view of the invoking map.</td></tr>
+        <tr><td>Collection values( )</td><td>Returns a collection containing the values in the map. This method provides a collection-view of the values in the map.The order of key-value pairs inside map depends upon its implementing class.</td></tr>
+    </table>
+
+    <br>
+    Following is the Hierarchy of the Map Interface :<br>
+    <img src="images/image014.jpg" alt="java" width="180" height="180"/>
+    A map cannot contain itself as Key , but it can contain itself as Values. However providing map itself as values disturbs the behaviour of equals() and hashCode() method.<br>
+    All of the implementing classes of Map Interface contains two Standard Constructors , One is a default constructor which creates an Empty Map Object , And other is a Constructor with single argument constructor of type Map which creates a new Map with same key-value mappings as of the map provided in argument.<br>
+    Some implementing classes possess restrictions over key and values a map contains. If restriction is violated an exception is thrown.<br>
+    * NoSuchElementException : if no such key / value exist in the map.<br>
+    * ClassCastException : if try to insert invalid key / value.<br>
+    * NullPointerException : if try to insert null as key / value on a null restricted map.
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is Map.Entry Interface ?<br>
+    Ans :	Map.Entry is a nested interface defined inside Map interface. The purpose for defining this interface was to introduce a new reference type that can hold key-value pairs contained in a Map.<br>
+    A key-value pair inside a map is called a map entry. The entrySet()method of the Map Interface returns a Collection-view (Set) of the Map object. Each individual element of that Set is referred using the reference of type Map.Entry.<br>
+    The objects contained inside Map.Entry are valid only for the duration of iteration.<br>
+    Following are the methods which we can invoke with Map.Entry while iterating through set of key-value pairs.<br>
+
+    <table>
+        <tr><td>Booleanequals(Object o)</td><td>Compares the specified object with this entry for equality.</td></tr>
+        <tr><td>K getKey() </td><td>Returns the key corresponding to this entry.</td></tr>
+        <tr><td>V getValue()</td><td>Returns the value corresponding to this entry.</td></tr>
+        <tr><td>int hashCode()</td><td>Returns the hash code value for this map entry.</td></tr>
+        <tr><td>V setValue()</td><td>Replaces the value corresponding to this entry with the specified value (optional operation).</td></tr>
+
+    </table>
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is HashMap Class?<br>
+    Ans :	HashMapextends AbstractMap implements Map , Clonable , Serializable.<br>
+    1. It is a Hash-table based implementation of the Map interface.The HashMap class is roughly equivalent to Hashtable class, except that it is unsynchronized and permits nulls.HashMap  contains unique elements and maintains no insertion order.<br><br>
+    2. Following are the constructors to create a HashMap instance.<br>
+    HashMap()<br>
+    Constructs an emptyHashMap with initial capacity (16) and the default load factor (0.75).<br>
+    HashMap(int Capacity) <br>
+    Constructs an emptyHashMap with the specified initial capacity and the default load factor (0.75).<br>
+    HashMap<br>
+    (int Capacity , float LF)<br>
+    Constructs an emptyHashMap with the specifiedinitial capacity and load factor.<br>
+    HashMap(Map m) <br>
+    Constructs a new HashMap with the same mappings as the specified Map.<br><br>
+    3. An instance of HashMap has two parameters that affect its performance: initial capacity and load factor. The capacity is the number of buckets in the hash table. The load factor is a measure of how full the hash table is allowed to get before its capacity is automatically increased. When the number of entries in the hash table exceeds the product of the load factor and the current capacity, the hash table is rehashed (i.e internal data structures are rebuilt) so that the hash table has approximately twice the number of buckets.
+    Default Load Factor = 0.75offers a good tradeoff between time and space costs.Higher values decrease the space overhead but increase the lookup cost i.e time taken by get() and put() methods.<br>
+    Highinitial capacity decreases number of ReHashing operations.<br><br>
+    4. Iterator for all methods that gives a collection-view of HashMap are Fail-Fast i.e After creation of iterator if Map is structurally modified by any method other than methods provided by iterator , the iterator will throw a ConcurrentModificationException.
+    5. Methods inside HashMap class are not synchronized and thus Objects of HashMap are notthread-safe. However we can create a synchronized thread-safe HashMap object using following method of Collections class.<br>
+    Map m = Collections.synchronizedMap(new HashMap(...));<br>
+
+    <table>
+        <tr><td>public class HashMapDemo<br>
+            {<br>
+            public static void main(String args[])<br>
+            {<br>
+            // Create a hash map with integer type keys and String Values.<br>
+            HashMaphm = new HashMap();<br>
+            // Inserting Key-Value Pairs inside map<br>
+            hm.put( 100 , "Owais" );<br>
+            hm.put(200 , "Yusuf" ) ;<br>
+            hm.put( 300 , "Zai" ) ;<br>
+            hm.put( 400 , "Khan" ) ;<br>
+            // Get a set of the entries<br>
+            Set set = hm.entrySet();<br>
+            // Get an iterator<br>
+            Iterator i = set.iterator();<br>
+            // Traverse using iterator<br>
+            while(i.hasNext())<br>
+            {// Receiving Map elements into Map.Entry instance<br>
+            Map.Entry me = (Map.Entry)i.next();<br>
+            System.out.print(me.getKey() + ": " + me.getValue());<br>
+            }<br>
+            }<br>
+            Output : 100 : Owais<br>
+            200 : Yusuf<br>
+            300 : Zai<br>
+            400 : Khan<</td></tr>
+    </table>
+
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is LinkedHashMap Class ?<br>
+    Ans :	LinkedHashMapextends HashMapand implements Map.<br>
+    1. A LinkedHashMap is a Hash-table and LinkedList implementation of the Map interface. A LinkedHashMap is different from HashMap in the sense that it uses a Doubly Linked List to maintain insertion order within O(1) time i.eEach entry in the LinkedHashMap is connected through a doubly linked list which defines the iteration ordering. Thus its iteration is predictable.<br><br>
+    2. LinkedHashMap provides 5 Constructors ; 4 of which works exactly same as HashMap constructors and maintains the insertion order by defaultwhile the extra constructor is for defining the accessOrder.<br>
+    LinkedHashMap<br>
+    (int Capacity , float LF , boolean accessOrder)<br>
+    Constructs an emptyHashMap with initial capacity (16) and the default load factor (0.75).<br>
+    The 3rd argument accessOrderrepresents what type of order should be maintained for LinkedHashMap. true value represents accessOrder while false value represents insertionOrder.<br>
+    get(key) , put(key,value) , putAll() methods affects the accessOrder and moves the last accessed element to the end of the DoublyLinkedList.
+    Addition / Deletion of any new mapping affects the insertionOrder while updating value for an existing key in a map doesn't affect insertionOrder.<br><br>
+    3. The performance of LinkedHashMap also depends upon its InitialCapacity and the Load Factor the same way as it affects HashMap except that High Initial Capacitydoesn't affectlook-up cost as the look-up cost is proportional to size of the map and not the capacity of the map as in HashMap.<br><br>
+    4. Iterator for LinkedHashMap are also fail-fast. Iterator will throw a ConcurrentModificationException if accessOrder / insertionOrder is changed after creating iterator.<br><br>
+    5. LinkedHashMap are also not thread-safe. However to use in a synchronized environment we can create a synchronizedLinkedHashMapobject using the method of Collections class.<br><br>
+    Map m= Collections.synchronizedMap(newLinkedHashMap(...));<br>
+    <table>
+        <tr><td>public class LinkedHashMapDemo<br>
+            {<br>
+            public static void main(String[] args)<br>
+            {<br>
+            // Creating LHM whose DoublyLinkedList maintains access order.<br>
+            MapLHM =<br>
+            newLinkedHashMap(16,0.75f,true) ;<br>
+            LHM.put(100, "Owais") ;             // accessOrder : 100<br>
+            LHM.put(200, "Yusuf") ;              // accessOrder : 100 , 200<br>
+            LHM.put(300, "Zai") ;                 // accessOrder : 100 , 200 , 300<br>
+            LHM.put(100, "Muhammad");      // accessOrder : 200 , 300 , 100<br>
+            LHM.put(400, "Khan");               // accessOrder : 200 , 300 , 100 , 400<br>
+            LHM.put(200, "Pathan");            // accessOrder : 300 , 100 , 400 , 200<br>
+            LHM.get(100) ;                         // accessOrder : 300 , 400 , 200 , 100<br>
+            System.out.println(LHM);<br>
+            }<br>
+            }<br>
+            Output for insertionOrder:{100=Muhammad, 200=Pathan, 300=Zai, 400=Khan}<br>
+            Output for accessOrder : {300=Zai, 400=Khan, 200=Pathan, 100=Muhammad}<br>
+        </td></tr>
+    </table>
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : Why iteration through LinkedHashMap is faster than iteration through HashMap?<br>
+    Ans :	Let us suppose we have a HashMap and a LinkedHashMap object both with initialCapacity 16 and 0.LoadFactor75.<br>
+    hm.put(1,"Obj1") -> inserts Obj1 into HashMap at Key 1.<br>
+    hm.put(15,"Obj2") -> inserts Obj2 into HashMap at Key 15.<br>
+    Rest of the 13 Key-Value Pairs between Key 1 and Key 15 remains null.<br>
+    When we iterate through this HashMap , Iterator would have to pass through all the null key-valuepairs between Key 1 and Key 15.<br>
+    Let us Consider another Scenario now.<br>
+    LHM.put(1,"Obj1") -> inserts Obj1 into LinkedHashMap at Key 1 , and creates the first node of DoublyLinkedList whose head points to itself while tail points to null.<br>
+    LHM.put(15,"Obj2") -> inserts Obj2 into LinkedHashMap at Key 15 , and creates another node of DoublyLinkedList whose head points to the first node , tail points to the firstnode and are interconnected with next and previous pointers.<br>
+    Iteration of such a LinkedHashMap would take place through nodes of DoublyLinkedList and would take cost of looking up two nodes of DLL only.
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is SortedMap Interface?<br>
+    Ans :	A SortedMap is a Map that maintains its entries in ascending order, sorted according to the keys' natural ordering, or according to a Comparatorprovided at the time of the SortedMap creation.<br>
+    All keys inserted into a SortedMapmust implement the Comparableinterface because the natural ordering is maintained by compareTo() method defined for the key.<br>
+    If the keys of the SortedMap are consistent with equals() operation then SortedMap implementation would be said to completely following its contract with the Map interface otherwise not.This is so because the Map interface is defined in terms of the equals() operation, but a sorted map performs all key comparisons using its compareTo() or compare() method, so two keys that are deemed equal by this method are, from the standpoint of the sorted map and not Map.<br>
+
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is TreeMap Class ?<br>
+    Ans :	TreeMapextends AbstractMapand implements Navigable Map , SortedMap , Map , Serializable , Cloneable.<br>
+    1. TreeMap is Red-Black Tree based implementation of NavigableMap. The TreeMap by default sorts according to the natural ordering of its keys. However a user-defined ordering of keys can be provided by a Comparator by passing it at the time of Treemap creation.<br>
+    Keys contained in the TreeMap must be consistent with equals() operation else the TreeMap implementation would be said as not following its contract with the Map interface. However inconsistency with equals() operation would not affect the ordering of keys.<br><br>
+    2. Following are the constructors to create a TreeMap instance.<br>
+
+    <table>
+        <tr><td>TreeMap()</td><td>Constructs a new, empty TreeMap, using the natural ordering of its keys.</td></tr>
+        <tr><td>TreeMap(Comparator C)</td><td>Constructs a new, empty TreeMap, ordered according to the given comparator.</td></tr>
+        <tr><td>TreeMap(SortedMap sm)</td><td>Constructs a new tree map containing the same mappings and using the same ordering as the specified sorted map.</td></tr>
+        <tr><td>TreeMap(Map m)</td><td>Constructs a new tree map containing the same mappings as the given map, ordered according to the natural ordering of its keys.</td></tr>
+    </table>
+    <br>
+
+    3. The TreeMap Object guarantees log(n) time cost for the containsKey(), get(), put() and remove() operations.<br><br>
+    4. Iterator for TreeMap are also fail-fast. Iterator will throw a ConcurrentModificationException if accessOrder / insertionOrder is changed after creating iterator.<br><br>
+    5. TreeMap are also not thread-safe. However to use in a synchronized environment we can create a synchronizedTreeMapobject using the method of Collections class.<br>
+    SortedMap m= Collections.synchronizedMap(newTreeMap(...)) ;<br>
+    <table>
+        <tr><th>Student.java</th></tr>
+        <tr><td>public class Student implements Comparable<br>
+            {<br>
+            public String Name ;<br>
+            public Integer Roll ;<br>
+            public Integer Age ;<br>
+            ... // Constructor to initialize fields<br>
+            // Defining natural ordering for Students on basis of their Roll No.<br>
+            @Override<br>
+            publicint compareTo(Object o)<br>
+            {<br>
+            Student s1 = (Student) o ;<br>
+            if( Roll > s1.Roll)<br>
+            return 1 ;<br>
+            elseif (Roll < s1.Roll)<br>
+            return -1 ;<br>
+            else<br>
+            return 0 ;<br>
+            }<br>
+            }</td></tr>
+        <tr><th>AgeComparator.java</th></tr>
+        <tr><td>public class AgeComparator implements Comparator<br>
+            {<br>
+            @Override
+            public int compare(Object o1, Object o2)<br>
+            {<br>
+            Student s1 = (Student) o1 ;<br>
+            Student s2 = (Student) o2 ;<br>
+            // calling compareTo method of Wrapper Class Integer<br>
+            int Ans = s1.Age.compareTo(s2.Age) ;<br>
+            return Ans ;<br>
+            }<br>
+            }
+        </td></tr>
+        <tr><th>TreeMapDemo.java</th></tr>
+        <tr><td>publicclass TreeMapSample<br>
+            {
+            public String Grades ;<br>
+            publicstaticvoid main(String[] args)<br>
+            {<br>
+            Map TM = new TreeMap() ;<br>
+            Student S1 = new Student("Owais100", 100 , 24) ;<br>
+            Student S2 = new Student("Owais101", 101 , 21) ;<br>
+            Student S3 = new Student("Owais102", 102 , 25) ;<br>
+            Student S4 = new Student("Owais103", 103 , 22) ;<br>
+            TM.put(S1, "ValueOfS1") ;<br>
+            TM.put(S4, "ValueOfS4") ;<br>
+            TM.put(S2, "ValueOfS2") ;<br>
+            TM.put(S3, "ValueOfS3") ;<br>
+            .... // Code to Display TreeMap<br>
+            <br>	}
+            }<br>
+            // Output of TM created using TreeMap() :<br>
+            { S1=ValueOfS1 , S2=ValueOfS2 , S3=ValueOfS3 , S4=ValueOfS4 } <br>
+            // Output of TM created using TreeMap(new AgeComparator()):<br>
+            { S2=ValueOfS2 , S4=ValueOfS4 , S1=ValueOfS1 , S3=ValueOfS3 }<br>
+        </td></tr>
+
+    </table>
+
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What do you mean by "consistent with equals()"?
+    Ans :	The natural ordering for a class C is said to be consistent with equals if and only if e1.compareTo(e2) == 0 has the same boolean value as e1.equals(e2) for every e1 and e2 of class C except nulls.<br>
+    NOTE :null is not an instance of any class, and e.compareTo(null) should throw a NullPointerException even though e.equals(null) returns false.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : Differentiate between HashMap / LinkedHashMap / TreeMap Class ?<br>
+    Ans :	Following are the differences between the three.<br>
+    <table>
+        <tr><th>HashMap</th><th>LinkedHashMap</th><th>TreeMap</th></tr>
+        <tr><td>No guarantee that order will remain constant overtime.</td><td>Maintains insertion-order by default and also provide access-order if needed.</td><td>Sort elements accourding to natural ordering of Key or Comparator if provided</td></tr>
+        <tr><td>get() , put() , remove() , containsKey() in O(1)</td><td>get() , put() , remove() , containsKey() in O(1)</td><td>get() , put() , remove() , containsKey() in O(log(n))</td></tr>
+        <tr><td>Inherit interface Map</td><td>Inherit interface Map</td><td>Inherit interface Map , SortedMap , NavigableMap</td></tr>
+        <tr><td>Its implementation is Buckets</td><td>Its implementation is Doubly Linked Buckets</td><td>Its implementation is Red-Black Tree</td></tr>
+    </table>
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is EnumMap Class ?<br>
+    Ans :	EnumMapextends AbstractMapand implementsMap.<br>
+    1. A specialized Map implementation for use with enum type keys. All of the keys in an enum map must come from a single enum type that is specified, explicitly or implicitly, when the map is created. Enum maps are represented internally as arrays.
+    Null keys are not permitted while Null Values are permitted. Attempts to insert a null key will throw NullPointerException. Attempts to test for the presence of a null key or to remove one will, however, function properly.<br><br>
+    2. Following are the constructors to create a TreeMap instance.<br><br>
+    EnumMap<br>
+    (ClassKeyType)<br>
+    Creates an empty enum map with the specified key type.<br>
+    EnumMap(EnumMapEM) <br>
+    Creates an enum map with the same key type as the specified EnumMap, initially containing the same mappings (if any).<br>
+    EnumMap(Map M)<br>
+    Creates an enum map initialized from the specified map.<br>
+    3. Iterators returned by the collection views are weakly consistent: they will never throw ConcurrentModificationException and they may or may not show the effects of any modifications to the map that occur while the iteration is in progress.<br><br>
+    4. EnumMap are also not thread-safe. However to use in a synchronized environment we can create a synchronized EnumMap object using the method of Collections class.<br>
+    Mapm
+    = Collections.synchronizedMap(new EnumMap(...));<br>
+    <table>
+        <tr><td>public class EnumMapDemo<br>
+            {<br>
+            enum Size<br>
+            {<br>
+            S, M, L, XL, XXL, XXXL;<br>
+            }<br>
+            public static void main(String[] args)<br>
+            {<br>
+            EnumMap EM = new EnumMap(Size.class);<br>
+            EM.put(Size.S, "Size S");<br>
+            EM.put(Size.M, "Size M");<br>
+            EM.put(Size.L, "Size L");<br>
+            EM.put(Size.XL, "Size XL");<br>
+            EM.put(Size.XXL, "Size XXL");<br>
+            EM.put(Size.XXXL, "Size XXXL");<br>
+            for (Size DiffSizes : Size.values() )<br>
+            {<br>
+            System.out.println(size + ":" + EM.get(DiffSizes));<br>
+            }<br>
+            }<br>
+            }<br>
+            // Output : Size S ,  Size M  , Size L ,  Size XL , Size XXL , Size XXXL</td></tr>
+
+    </table>
+
+
+    <br>
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What are Collection related features in Java 8 ?
+    Ans :	Java 8 has brought major changes in the Collection API. Some of the changes are:<br>
+    1. Java Stream API for collection classes for supporting sequential as well as parallel processing.<br>
+    2. Iterable interface is extended with forEach() default method that we can use to iterate over a collection. It is very helpful when used with lambda expressions because it's argument Consumer is a function interface.<br>
+    3. Miscellaneous Collection API improvements such as forEachRemaining(Consumer action) method in Iterator interface, Map replaceAll(), compute(), merge() methods.
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is the benefit of Generics in Collections Framework?<br>
+    Ans :	Java 1.5 came with Generics and all collection interfaces and implementations use it heavily. Generics allow us to provide the type of Object that a collection can contain, so if you try to add any element of other type it throws compile time error.<br>
+    This avoids ClassCastException at Runtime because you will get the error at compilation. Also Generics make code clean since we don't need to use casting and instanceof operator.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : Why can't we write code as<br>
+    Ans :	Generics doesn't support sub-typing because it will cause issues in achieving type safety.<br>
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What are best practices related to Java Collections Framework?<br>
+    Ans :	Following are some best practices to follow with Collection.<br>
+    * Chosing the right type of collection based on the need, for example if size is fixed, we might want to use Array over ArrayList. If we have to iterate over the Map in order of insertion, we need to use TreeMap. If we don't want duplicates, we should use Set.<br>
+    * Some collection classes allows to specify the initial capacity, so if we have an estimate of number of elements we will store, we can use it to avoid rehashing or resizing.<br>
+    * Write program in terms of interfaces not implementations, it allows us to change the implementation easily at later point of time.<br>
+    * Always use Generics for type-safety and avoid ClassCastException at runtime.<br>
+    * Use immutable classes provided by JDK as key in Map to avoid implementation of hashCode() and equals() for our custom class.<br>
+    * Use Collections utility class as much as possible for algorithms or to get read-only, synchronized or empty collections rather than writing own implementation. It will enhance code-reuse with greater stability and low maintainability.<br>
+
+
+    <div class="clearfix"></div>
+</div></div></div>
+</body>
+</html>

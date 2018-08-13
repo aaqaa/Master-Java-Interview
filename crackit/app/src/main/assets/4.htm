@@ -1,0 +1,302 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Strings</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+	<!--bootstrap-->
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<!--custom css-->
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<!--component-css-->
+</head>
+<body>
+<div class="body-back"> <div class="second">Ques. : What is String in Java ? Is String a data type ?<br>
+Ans :	String is a Class in java and defined in java.lang package which wraps its content in a character array , more precisely it’s a user defined type. Class String provides some inbuilt methods to manipulate the content of the String.<br>
+String provides equals() method to compare two Strings , toUpperCase() to convert String into upper case, replace()to replace String contents, substring() to get substring, split() to split String into multiple Strings.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is String Constant pool (String literal pool) ?<br>
+Ans :	String Constant pool is separate block of memory where the string object is held by JVM.<br><br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What do you mean by immutability ?<br>
+Ans :	Immutability means when object is defined once it never be change.<br><br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Why String Objects are immutable or final in Java ?<br>
+Ans :	There are several benefits of String bcoz ofits immutability.<br><br>
+* String Pool is possible because String is immutable in java.<br>
+* It increases security because any hacker can’t change its value and it’s used for storing sensitive information such as database username, password etc.<br>
+* Since String is immutable, it’s safe to use in multi-threading and we don’t need any synchronization.<br>
+* Strings are used in java classloader and immutability provides security that correct class is getting loaded by Classloader.<br><br>
+public static void main(String args[])<br>
+{  <br>
+String str1= "Owais";<br>  
+str1.concat( "Khan");// manipulating string present in pool<br>
+System.out.println(str1);// will output only Owais<br>
+String str2 = “Owais” ;<br>
+str2 = str2.concat("Khan");//making reference point to new string in pool<br>
+System.out.println(str2);// will output OwaisKhan<br>
+}   <br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Why Char array is preferred over String for storing password ?<br>
+Ans :	String is immutable in java and stored in String pool. Once it’s created it stays in the pool until unless garbage collected, so even though we are done with password it’s available in memory for longer duration and there is no way to avoid it. It’s a security risk because anyone having access to memory dump can find the password as clear text. If we use char array to store password, we can set it to blank once we are done with it. So we can control for how long it’s available in memory that avoids the security threat with String.<br><br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : How many objects will be created in the following code ?<br>
+Ans :One object in string literal pool and three references to the same object would be created.<br>
+State 1 will create the String Object and assign object reference s1 to it. State 2 will create an Object reference and copy the object reference of s1 to s2.<br>
+State 3 also follows the same. No new object created in the later statement because the String already exist in the pool. <br><br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : How many objects will be created in the following code ?<br>
+Ans :One String object in Heapand One Object Reference.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : How do you check if two Strings are equal in Java?<br>
+Ans :	There are two ways to check if two Strings are equal or not -<br><br>
+* using “==” operator : Check for both value and reference<br>
+* using equals() method : Check for value only.<br>
+There is another function equalsIgnoreCase() that ignores the case while checking.<br>
+String Str1 = “Owais” ;<br>                                  
+String Str2 = “Owais” ;<br>
+String Str3 = new String(“Owais”);<br>
+String Str4 = new String(“Owais”);<br>
+String Str5 = new String(“Owais”).intern();<br>
+String Str6 = null ;<br>
+String Str7 = null ;<br>
+Str1 == Str2// True<br>
+Str1 == Str3// False<br>
+Str1 == Str5         // True<br>
+Str3 == Str4// False<br>
+Str3 == Str5// False<br>
+Str4 == Str5// False<br>
+Str6 == Str7          // True<br>
+Str6.equals(Str7)// Exception<br>
+<br>
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : How to compare two Strings in java program?<br>
+Ans :	Java String implements Comparable interface and it has two variants of compareTo() methods.<br> 
+Str1.compareTo(Str2)compares the two string lexicographically. <br>
+Returns 0 , if both Strings are Same.<br>
+Returns –ve value . if Strings doesn’t match.<br>
+Return –ve value , if Length of Str1 is greater than or equal to that of Str2.<br>
+Return +ve value , if Length of Str1 is lesser than Str2.<br>
+Str1.compareToIgnoreCase(Str2)If two Strings matches without Case Consideration then the method returns the following value. <br>
+Return –ve value , if Length of Str1 is greater than or equal to that of Str2.<br>
+Return +ve value , if Length of Str1 is lesser than Str2.<br><br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Write a method that will remove given character from the String?<br>
+Ans :	We can use replaceAll method to replace all the occurrence of a String with another String. We will use Character class to create String and use it to replace all the characters with empty String.<br>
+privatestaticString removeChar(String str, charc)<br>
+{<br>
+    if(str == null)<br>
+        return null;<br>
+    returnstr.replaceAll(Character.toString(c), "");<br>
+}<br><br>
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques : How can we make String upper case or lower case?<br>
+Ans :	Using toUpperCase() and toLowerCase() methods.<br>
+String Str  = “Owais” ;<br>
+String Str2 = Str.toUpperCase() ;// OWAIS<br>
+String Str3 = Str.toLowerCase() ;// owais<br>
+<br>
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is String subSequence method?<br>
+Ans :	This method returns a new character sequence that is a subsequence of this sequence.<br><br>
+public CharSequence subSequence(int beginIndex,int endIndex)<br>
+String Str = “My Name is Owais Khan” ;<br>
+CharSequenceChS = Str.subSequence(3,12);// ”Name is Ow”<br>
+<br>
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What substring() method does?<br>
+Ans :	There are two variants of the substring() method.<br>
+1. public String substring(int startIndex): This method returns new String object containing the substring of the given string from specified startIndex (inclusive).<br>
+2. public String substring(int startIndex, int endIndex): This method returns new String object containing the substring of the given string from specified startIndex to endIndex.<br>
+In case of string:<br>
+* startIndex: inclusive<br>
+* endIndex: exclusive <br>
+String Str   = “My Name is Owais Khan”<br>
+String Str2 = Str.substring(3) ;                        // “ame is Owais Khan”<br>
+String Str3 = Str.substring(3,6) ;                     // “Name”<br>
+<br>
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What does String intern() method do ?<br>
+Ans :	Java automatically provides intern() method for String created using literals. However if we create String using new keyword , we have to explicitly call the intern() method. If we want to check the String existence in the String Pool first before creating the string.<br><br>
+String Str1 = “Owais” ;      // String created in pool<br>
+String Str2 = “Owais” ;      // No New String Created<br>
+String Str4 = new String(“Owais”).intern() ;      // No New String Created<br>
+String Str3 = new String(“Owais”);// String created in pool<br><br>
+Here . Statement 3 will check for a similar String in the pool first and will not create if a match is found , instead it will assign another reference to the same string in the pool , like it assigns in case of string literals.<br><br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is the purpose of toString() method in java ?<br>
+Ans :	The toString() method returns the string representation of any object. If you print any object, java compiler internally invokes the toString() method on the object.<br>
+returns getClass.getName() + “@” + Integer.HexValueOf(hashcode()) ;<br>
+However we can ovveride the method for debugging purpose.<br><br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : How to convert String to char and vice versa?<br>
+Ans :	We can either take out a character at any index from String using charAt() method or we can also convert entire String into character array using toCharArray() method.<br>
+To Convert Character array to String we can use copyValueOf() or valueOf() method.<br>
+String Str  = “Owais” ;<br>
+char ch = Str.charAt(2) ;   // ‘a’ <br>                                                    
+char[] city = { ‘B’, ‘A’ , ‘N’ , ‘G’ , ‘A’ , ‘L’ , ‘O’ , ‘R’ , ‘E’ } ;<br>
+String Capital = String.valueOf(city) ;                            // “BANGALORE”<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : How to convert String to byte array and vice versa?<br>
+Ans :	We can use String getBytes() method to convert String to byte array. There are two variations of getByte() method.<br>
+* getBytes(String charsetName): Encodes this String into a sequence of bytes using the named charset, storing the result into a new byte array.<br>
+* getBytes(): Encodes this String into a sequence of bytes using the platform's default charset, storing the result into a new byte array.<br><br>
+String Str1 = “Owais” ;<br>
+String Str2 = Str1.getByte() ;                               // [B@192d342<br>
+String Str3 = Str1.getByte( “UTF-8” ) ;                  // [B@15ff48b<br>
+String Str4 = Str1.getByte( “ISO-8859-1” ) ;          //[B@1b90b39<br>
+String Str5 = new String(Str4);// using String(byte[] arr)to decode again<br><br>
+and we can use String constructor new String(byte[] arr) to convert byte array to String.<br>
+<br>
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : How to Split String in java?<br>
+Ans :	We can use split(String regex) to split the String into String array based on the provided regular expression.<br><br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. :How to count # of occurrences of a character in a string?<br>
+Ans :	Use countMatches() of StringUtils from apache commons lang package.<br>
+intn = StringUtils.countMatches("11112222", "1");<br>
+System.out.println(n);//Output : 4<br><br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : How to repeat a string?<br>
+Ans :	Using repeat() method of StringUtils from Apache Commons Lang package.<br>
+String str = "abcd";<br>
+String repeated = StringUtils.repeat(str,3);// Output : abcdabcdabcd<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can we use String in switch case?<br>
+Ans:		Java7 or Higher supports Strings in switch cases.<br>
+<br>
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is CharSequence  ? How is it different from String / StringBuilder ?<br>
+Ans :	CharSequence is readable sequence of Char values. Different implementing classes can define different characterstics , properties and restriction on that CharSequence Interface to make it useful and meaningful as per their need. However , we also have some inbuilt classes implementing the CharSequence interface in their own way.<br>
+String class implements CharSequence as immutable Strings. While StringBuffer and StringBuilder implements it as mutable Strings.
+Methods available with CharSequence Interface : charAt() , length() , subSequence() , toString().<br><br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is StringBuilder Class ?<br>
+Ans :	StringBuilderobjects are like Stringobjects, except that they can be modified. Internally, these objects are treated like variable-length arrays that contain a sequence of characters. At any point, the length and content of the sequence can be changed through method invocations.
+The StringBuilder class, like the String class, has a length() method that returns the length of the character sequence in the builder.
+Unlike strings, every string builder also has a capacity, the number of character spaces that have been allocated. The capacity, which is returned by the capacity() method, is always greater than or equal to the length (usually greater than) and will automatically expand as necessary to accommodate additions to the string builder.<br>
+        <table style="width:100%">
+<tr>    <th colspan=2>StringBuilder Constructors</th></tr>
+            <tr>
+    <th>Constructor</th>
+    <th>Description</th> 
+  </tr>
+  <tr>
+      <td>StringBuilder()</td>
+      <td>Creates an empty string builder with a capacity of 16 (16 empty elements).</td>     
+  </tr>
+            <tr>
+      <td>StringBuilder(CharSequence cs)</td>
+      <td>Constructs a string builder containing the same characters as the specified CharSequence, plus an extra 16 empty elements trailing the CharSequence.</td>     
+  </tr>
+  
+            <tr>
+      <td>StringBuilder(int initCapacity)</td>
+      <td>Creates an empty string builder with the specified initial capacity.</td>     
+  </tr>
+  
+            <tr>
+      <td>StringBuilder(String s)</td>
+      <td>Creates a string builder whose value is initialized by the specified string, plus an extra 16 empty elements trailing the string.</td>     
+  </tr>
+  
+    </table>
+        <table style="width:100%">
+ 
+<tr>  <th colspan=2>Length and Capacity Methods</th>
+  </tr>
+ <tr>
+    <th>Method</th>
+    <th>Description</th> 
+  </tr>
+  <tr>
+      <td>void setLength(int newLength)</td>
+      <td>Sets the length of the character sequence. If newLength is less than length(), the last characters in the character sequence are truncated. If newLength is greater than length(), null characters are added at the end of the character sequence.</td>     
+  </tr>
+            <tr>
+      <td>void ensureCapacity(int minCapacity)
+</td>
+      <td>Ensures that the capacity is at least equal to the specified minimum.</td>     
+  </tr>
+  
+    </table>
+        <table style="width:100%">
+  
+            <tr><th colspan=2>Various StringBuilder Methods</th></tr>
+   <tr>
+    
+    <th>Method</th>
+    <th>Description</th> 
+  </tr>
+  <tr>
+      <td>StringBuilder append (SomeDataType Obj)
+</td>
+      <td>Appends the argument to this string builder. The Obj of SomeDataType is converted to a string before the append operation takes place.</td>     
+  </tr>
+            <tr>
+      <td>StringBuilder delete (int start, int end)</td>
+      <td>Deletes the subsequence from start to end-1 (inclusive) / end exclusive in the StringBuilder's char sequence. </td>
+                
+  </tr>
+  
+            <tr>
+      <td>StringBuilder deleteCharAt (int index)</td>
+      <td>Deletes the character located at index.</td>     
+  </tr>
+  
+            <tr>
+      <td>StringBuilder insert (int offset, SomeDataTypeObj)</td>
+      <td>Converts Obj into String and Inserts into the string builder. Offset represents the index before which Obj is to be inserted.</td>     
+  </tr>
+            <tr>
+      <td>StringBuilder replace (int start, int end, String s)</td>
+      <td>Replaces the specified character(s) in this string builder.</td>     
+  </tr>
+            <tr>
+      <td>void setCharAt(int index, char c)</td>
+      <td>Set character c at specified index.</td>     
+  </tr>
+            <tr>
+      <td>StringBuilder reverse()</td>
+      <td>Reverses the sequence of characters in this string builder.</td>     
+  </tr>
+            <tr>
+      <td>String toString()</td>
+      <td>Returns a string that contains the character sequence in the builder.</td>     
+  </tr>
+  
+    </table>
+  
+    <br>
+NOTE :Strings should always be used unless string builders offer an advantage in terms of simpler code or better performance. As an example we can use StringBuilder over String while Checking if the String is Palindrome. StringBuilder will provide a simpler code while with String , we have to save String into CharArray[] and then check.<br><br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is StringBuffer Class ?<br>
+Ans :	StringBuffer Objects are thread-safe mutable Strings. The constructors and methods availabe to create object and to manipulate it is same as that of StringBuilder Class except that its methods are non-synchronized.<br><br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Difference b/w StringBuffer and StringBuilder ?<br>
+Ans :	StringBuffer is Thread-Safe because its methods are synchronized i.e When two StringBuilder methods in two different threads try to manipulate the same resouce / StringBuilder object simultaneously ; The StringBuilder class maintains a synchronization (order of execution between method calls) and doesn’t let one method overlap another’s manipulation , Instead they wait untill the other method finishes its execution.<br>
+The overhead of synchronization is speed, but the advantage is guaranteed consistency of data.
+If your application is single threaded though, synchronised has no benefit. That was the reason StringBuilder was introduced after JDK 5 which is faster in execution and is non-synchronized.<br><br>
+
+
+<div class="clearfix"></div>
+                    </div></div>
+          </body>
+         </html>

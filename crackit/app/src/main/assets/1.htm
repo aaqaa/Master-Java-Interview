@@ -1,0 +1,117 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Getting Started with java</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--bootstrap-->
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<!--custom css-->
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<!--component-css-->
+</head>
+<body >
+<div class="body-back"> <div class="first">Ques. : What are different types of Java Application ?<br>
+Ans :	There are mainly 4 type of applications that can be created using java programming:<br><br>
+1) Standalone Application<br>
+It is also known as desktop application or window-based application. An application that we need to install on every machine such as media player, antivirus etc. AWT and Swing are used in java for creating standalone applications.<br><br>
+2) Web Application<br>
+An application that runs on the server side and creates dynamic page, is called web application. Currently, servlet, jsp, struts, jsf etc. technologies are used for creating web applications in java.<br><br>
+3) Enterprise Application<br>
+An application that is distributed in nature, such as banking applications etc. It has the advantage of high level security, load balancing and clustering. In java, EJB is used for creating enterprise applications.<br><br>
+4) Mobile Application<br>
+An application that is created for mobile devices. Currently Android and Java ME are used for creating mobile applications.<br><br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : State Features of Java / Advantage of Using Java ?<br>
+Ans :	There is given many features of java. They are also known as java buzzwords. The Java Features given below are simple and easy to understand.<br><br>
+1. Simple<br>
+Syntax is based on C++.<br>
+Removed many confusing and/or rarely-used features e.g., explicit pointers, operator overloading etc.<br>
+No need to remove unreferenced objects because there is Automatic Garbage Collection in java.<br><br>
+2. Object-Oriented<br>
+Object-oriented means we organize our software as a combination of different types of objects that incorporates both data and behavior.<br><br>
+3. Platform independent<br>
+Java compiler converts source code into bytecode. This bytecode is a platform independent code because it can be run on multiple platforms i.e. Write Once and Run Anywhere(WORA).<br><br>
+4. Secured<br>
+<img src="images/image001.jpg" alt="c++" width="180" height="180"/>
+<img src="images/image003.jpg" alt="java" width="180" height="180"/>
+
+<br>
+Java is secured because:<br>
+* No explicit pointer<br>
+* Programs run inside virtual machine sandbox.<br>
+* Classloader- adds security by separating the package for the classes of the local file system from those that are imported from network sources.<br>
+* Bytecode Verifier- checks the code fragments for illegal code that can violate access right to objects.<br>
+* Security Manager- determines what resources a class can access such as reading and writing to the local disk.<br>
+These security are provided by java language. Some security can also be provided by application developer through SSL,JAAS,cryptography etc.<br><br>
+5. Robust<br>
+Robust simply means strong. Java uses strong memory management. There are lack of pointers that avoids security problem. There is automatic garbage collection in java. There is exception handling and type checking mechanism in java. All these points makes java robust.<br><br>
+6. Architecture neutral<br><br>
+7. Portable<br>
+When we say it is portable it means. Java ByteCode generated can be brought to any platform for execution. When we say it is Architecture Neutral that means JVM take cares that the ByteCode brought to it behaves the same way as it behaves on other machine. (same sizes of primitive types across different JVMs of different machines.)<br><br>
+8. High Performance<br>
+Java is faster than traditional interpretation since byte code is "close" to native code still somewhat slower than a compiled language (e.g., C++)<br><br>
+9. Multithreaded<br>
+A thread is like a separate program, executing concurrently. We can write Java programs that deal with many tasks at once by defining multiple threads. The main advantage of multi-threading is that it shares the same memory. Threads are important for multi-media, Web applications etc.<br><br>
+10. Distributed<br>
+We can create distributed applications in java. RMI and EJB are used for creating distributed applications. We may access files by calling the methods from any machine on the internet.<br><br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is JVM ?<br>
+Ans :	It is:<br>
+1. A specification where working of Java Virtual Machine is specified. But implementation provider is independent to choose the algorithm. Its implementation has been provided by Sun and other companies.<br>
+2. An implementation Its implementation is known as JRE (Java Runtime Environment).<br>
+3. Runtime Instance Whenever you write java command on the command prompt to run the java class, and instance of JVM is created.<br><br>
+What it does ?<br>
+The JVM performs following operation:<br>
+* Loads code<br>
+* Verifies code<br>
+* Executes code<br>
+* Provides runtime environment<br><br>
+JVM provides definitions for the:<br>
+* Memory area<br>
+* Class file format<br>
+* Register set<br>
+* Garbage-collected heap<br>
+* Fatal error reporting etc.<br>
+Internal Architecture of JVM<br><br>
+<center>
+<img src="images/image005.jpg" alt="internal acrhitecture" width="180" height="180"/>
+    </center><br>
+1) Classloader :Classloader is a subsystem of JVM that is used to load class files.<br>
+2) Class(Method) Area :Class(Method) Area stores per-class structures such as the runtime constant pool, field and method data, the code for methods.<br>
+3) Heap :It is the runtime data area in which objects are allocated.<br>
+4) Stack :Java Stack stores frames. It holds local variables and partial results, and plays a part in method invocation and return. Each thread has a private JVM stack, created at the same time as thread. A new frame is created each time a method is invoked. A frame is destroyed when its method invocation completes.<br>
+5) Program Counter Register:PC (program counter) register. It contains the address of the Java virtual machine instruction currently being executed.<br>
+6) Native Method Stack :It contains all the native methods used in the application.<br>
+7) Execution Engine :<br>
+It contains:<br>
+1) A virtual processor<br>
+2) Interpreter:Read bytecode stream then execute the instructions.<br>
+3) Just-In-Time(JIT) compiler:It is used to improve the performance.JIT compiles parts of the byte code that have similar functionality at the same time, and hence reduces the amount of time needed for compilation. Here the term ?compiler? refers to a translator from the instruction set of a Java virtual machine (JVM) to the instruction set of a specific CPU.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is JIT (Just-in-Time) Compilation ?<br>
+Ans :	There are two ways a language can be compiled <br><br>
+a) Compiled Language <br>
+b) Interpreted Language<br><br>
+A machine understands only binary language, so finally a source code has to be compiled in binary format. In compiled way the compiler directly generate the binary file from source code. While in interpreted way it generate the class file which is then run by virtual machine. That means binary file is generated at the run time (compilation is done on need basis) this type of compilation is called JIT (Just-in-Time) compilation.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is classloader?<br>
+Ans :	The classloader is a subsystem of JVM that is used to load classes and interfaces. There are many types of classloaders e.g. Bootstrap classloader, Extension classloader, System classloader, Plugin classloader etc.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is the difference b/w JDK , JRE and JVM ?<br>
+Ans :	JDK- stands for Java Development Kit. It is a group of utilities one needs to develop programs in Java. For example, if you want to make a Hello World program in Java, you need the JDK to convert the source code into bytecode and eventually into binary code so that the computer can execute the tasks. JDK is essential to develop programs.<br>
+JRE- stands for Java Runtime Environment. It is used to run java programs packaged usually as .jar files. Without JRE, all Java programs whether in the form of applet or application will not execute. JRE is essential to run or execute the programs. JRE is essential for JDK, since one cannot test a program without executing it.<br>
+JVM- stands for Java Virtual Machine. Every platform has its own version of JVM. The JVM allows for Java's most important feature- platform independence. Every Java program is compiled into bytecode which can then be distributed. Then JRE processes this bytecode and sends it to the JVM. JVM then creates the machine code based on the platform and creates an executable that the machine can understand. This executable is what we can call the running program. JVM is essential to run Java programs. JVM comes with JRE and is different for different platforms.<br><br>
+
+
+<div class="clearfix"></div>
+                    </div></div>
+					
+					
+          </body>
+         </html>

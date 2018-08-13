@@ -1,0 +1,97 @@
+		/*
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+*/
+
+
+
+	body {
+
+
+
+		margin: 0;
+		padding: 0;
+	}
+	body .second{
+	background-color: #f6f7ff
+
+	}
+	body .first{
+		background-color: #996633
+
+	}
+
+table{
+font-size: .9em;
+letter-spacing: .8px;
+border: 1px solid black;
+background: #ffffff;
+color: #888;
+table-layout: fixed;
+  width:100%;
+      overflow:hidden;
+      word-wrap:break-word;
+
+	}
+	td{
+	padding: 9px;
+    border: 1px solid black;
+    text-align: left;
+
+	}
+	th{
+		text-align: center;
+    		background-color:#827d77;
+    		color:#e8e4e1;
+    	}
+	body p {
+		font-size: 1em;
+		letter-spacing: 1px;
+		margin: 0;
+		padding: 0;
+	}
+
+
+
+
+
+
+
+            .body-back {
+                font-family: 'Inconsolata', monospace;
+                margin: 0;
+            }
+
+    .first {
+                        color: #fff;
+                        line-height: 1.9em;
+                        padding: 1em 1em;
+
+
+    }
+
+
+
+img {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition:transform 0.25s ease;
+}
+
+img:hover {
+    -webkit-transform:scale(2); /* or some other value */
+    transform:scale(2);
+
+}
+
+
+.second {
+    color: #888;
+    line-height: 1.9em;
+    padding: 1em 1em;
+
+}
+																		

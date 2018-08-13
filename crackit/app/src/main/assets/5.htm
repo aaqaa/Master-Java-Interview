@@ -1,0 +1,554 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Basic Syntax</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+	<!--bootstrap-->
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<!--custom css-->
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<!--component-css-->
+</head>
+<body>
+<div class="body-back"> <div class="first">Ques. : How many types of modifiers are there in Java ?<br>
+Ans :	Two types of modifiers are there in java. They are,<br><br>
+* Access Modifiers<br>
+* Non-access Modifiers<br><br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What are access modifiers in java ?<br>
+Ans :	Access modifiers are used to restrict the visibility of a class or a field or a method or a constructor. Java supports 4 access modifiers.<br><br>
+* private : private fields or methods or constructors are visible within the class in which they are defined.<br>
+* protected : Protected members of a class are visible within the package but they can be inherited to sub classes outside the package.<br>
+* public : public members are visible everywhere.<br>
+* default or No-access modifiers : Members of a class which are defined with no access modifiers are visible within the package in which they are defined.<br><br>
+    <table>
+        <th>com.Package.one</th>
+        <th >com.Package.two</th>
+        <tr>
+            <td>MyFamily<br> 
+    {<br>
+public String  MyDog ;<br>
+protected  String  MySon ;<br>
+privateString  MyWife ;<br>
+String  MyDaughter ;<br>
+               }<br>
+            </td>
+            <td rowspan="2">MyFriendsFamily<br>
+    {<br>
+                                 …………<br>
+                            }<br></td>
+        </tr>
+        <tr>
+            <td>MyBrothersFamily<br> {<br>
+                                ………….<br>
+                             }<br><br>
+</td>
+        </tr>
+        
+    </table>
+    
+Let’s say we have two packages as above. Now the accessibility of MyFamilyMembers could be define simply as :<br>
+MyDog visits everyone’s house.<br>
+MyWife is kinda conservative and remains only at home.<br>
+MyDaughter only visits relative’s house.<br>
+MySon visits all the relative’s house and sometimes MyFriendsHouse.<br>
+NOTE :A class can have only 2 types of modifiers (public or default). While members(variables) can have all of the 4 types.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What are non-access modifiers in java ?<br>
+Ans :	Non-access modifiers are used to achieve functionalities like,<br><br>
+* static : This modifier is used to specify whether a member is a class member or an instance member. (can’t be used with class)<br>
+* final : It is used to restrict the further modification of a class or a method or a field.<br>
+* abstract : abstract class or abstract method must be enhanced or modified further.<br>
+* synchronized : It is used to achieve thread safeness. Only one thread can execute a method or a block which is declared as synchronized at any given time.<br>
+* transient : It is used to avoid serialization of a field while serializing a class. The field declared with transient retain its default value upon deserialization.<br>
+* volatile : Ensures that the instance variable is always read from and write to main memory when being modified by two threads simultaneously. Generally each thread has its own copy but volatile are always accessed from main memory and doesn’t let thread copy the volatile variable for use.<br>
+* strictfp modifier : ensured portability w.r.t floating point calculations.<br><br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is the difference between default and protected member ?<br>
+Ans :	A default member may be accessed only if the class accessing the member belongs to the same package, whereas a protected member can be accessed (through inheritance) by a subclass even if the subclass is in a different package.<br>
+    <table>
+        <tr>
+        <th>Access Modifier</th>
+          <th>Same Class</th>
+          <th>Same Package</th>
+          <th>Subclass</th>
+          <th>Other packages</th></tr>
+        <tr>
+            <td>public</td>
+            <td>y</td>
+            <td>y</td>
+            <td>y</td>
+            <td>y</td>
+        </tr>
+        <tr>
+            <td>protected</td>
+            <td>y</td>
+            <td>y</td>
+            <td>y</td>
+            <td>n</td>
+        </tr>
+        <tr>
+            <td>no modifier</td>
+            <td>y</td>
+            <td>y</td>
+            <td>n</td>
+            <td>n</td>
+        </tr>
+        <tr>
+            <td>private</td>
+            <td>y</td>
+            <td>n</td>
+            <td>n</td>
+            <td>n</td>
+        </tr>
+    </table>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Can we declare a class as protected ?<br>
+Ans :	We can’t declare an outer class as protected. But, we can declare an inner class (class as a member of another class) as protected.<br><br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can we declare a class as private ?<br>
+Ans :	We can’t declare an outer class as private. But, we can declare an inner class (class as a member of another class) as private.
+Inner Classes are generally recommended not to be declared as public as it has access to the private members of the outer class. To secure private data from being disclosed publically. We must provide proper encapsulation layer to restrict data access at a controlled layer.<br><br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Can we use a field or a method declared without access modifiers outside the package ?<br>
+Ans :	No, we can’t use a field or a method with no-access (default) specifies outside the package in which their class is defined.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is a Final variable ?<br>
+Ans :	Once initialized, the value of a final variable cannot be changed.<br>
+finalint finalValue =5;<br>
+finalValue = 10; //COMPILER ERROR<br><br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is a final argument ?<br>
+Ans :	Final arguments value cannot be modified. <br>
+void testMethod(finalint finalArgument)<br>{<br>
+//finalArgument = 5;<br>
+}<br>//COMPILER ERROR<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. What is final object ?<br>
+Ans :	Final objects are instantiated only once. i.e <br>
+final Map map = new HashMap();<br>
+map.put("key","value");<br>
+map = new HashMap(); // error<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. What is a final class ?<br>
+Ans :	A Final Class can’t be extended (inherited). A class is declared final to avoid re-usability.<br><br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is a final method ?<br>
+Ans :	Final methods cannot be overridden. Such usability occurs when you want a class to be stable. For Example You can’t subclass the String Class defined in the library(because we need to be able to trust in the behaviour of a String object).<br>
+
+    <table><tr><td>public class Sample<br>{<br>
+final void finalMethod()<br>{<br>}<br>
+}<br>
+class SubClass extends Sample<br>{<br>
+                                       //       final void finalMethod()<br>{<br>}<br>  
+<br>}<br>
+// If above statement be made uncommented then compilation error will occur.
+</td></tr></table>
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. What is static in java ? Why a static method can’t be overridden ?<br>
+Ans :Static means one per class, not one for each object no matter how many instance of a class might exist. This means that you can use them without creating an instance of a class.<br>
+All the static, private and final methods are always binded at compile time ; While overriding gets resolved at runtime. That is the reason a static method can’t be overrriden.<br>
+However a static method with the same signature can be defined inside a SubClass but that SubClass static method will not be the overriden method but the shadow copy of the static method of the SuperClass. Also a Static Method inside a SuperClass can’t be shadowed by a non-static signature inside a SubClass.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is a Static Variable ? <br>
+Ans :	Static variables and methods are class level variables and methods. There is only one copy of the static variable for the entire Class. Each instance of the Class (object) will NOT have a unique copy of a static variable .<br><br>
+    <table><tr><td>public class Cricketer<br>
+{<br>
+private static int count;<br>
+public Cricketer()<br>{<br>
+count++;<br>
+}<br>
+static int getCount()<br>{<br>
+return count;<br>
+}<br>
+public static void main(String[] args)<br>{<br>
+Cricketer cricketer1 =newCricketer();<br>
+Cricketer cricketer2 =newCricketer();<br>
+Cricketer cricketer3 =newCricketer();<br>
+Cricketer cricketer4 =newCricketer();<br>
+System.out.println(Cricketer.getCount());//Print 4<br>
+}<br>
+}<br></td></tr></table><br>
+Four instances of the Cricketer class are created. Variable count is incremented with every instance created in the constructor.
+<br>
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is Static Class ? Can a class be made functionally static without using the keyword ‘static’ ?<br>
+Ans:		A class can’t be declared static. But a class can be functionally made a static class if all the variables and methods of the class are static and the constructor is private. Making the constructor private will prevent the class to be instantiated. So the only possibility to access is using Class name only.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is a static method? <br>
+Ans:		A static method can be accessed without creating the objects. Just by using the Class name the method can be accessed.
+Static method can only access static variables and not local or global non-static variables.<br>
+    <table><tr><td>public class Test<br>
+{<br>
+ public static void printMe()<br>{<br>
+System.out.println("Hello World");<br>
+}<br>
+}<br><br>
+public class MainClass<br>
+{<br>
+ public static void main(String args[])<br>{<br>
+Test.printMe()<br>
+}<br>
+ }</td></tr></table>
+    
+    <br>
+Output :Hello World<br>
+Also static method can call only static methods and not non static methods. But non-static methods can call static methods.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Why static methods cannot access non static variables or methods ?<br>
+Ans:		A static method cannot access non static variables or methods because static methods can be accessed without instantiating the class, so if the class is not instantiated the variables are not initialized and thus cannot be accessed from a static method. <br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. What are abstract classes and abstract methods ? In what scenarios are they used ?<br>
+Ans :	Abstract class<br><br>
+* May or may not include abstract methods.<br>
+* A class must be declared abstract if it contains any abstract methods.<br>
+* Can’t be instantiated but can be subclassed.<br>
+* When an abstract class is subclassed, the subclass usually provides implementations for all of the abstract methods in its parent class. <br>However, if it does not, then the subclass must also be declared abstract.<br><br>
+Abstract method<br>
+Doesn’t have implementation i.e no body defined / no braces before semicolon in declaration statement.<br>
+    <table><tr><td>abstract class Bike<br>{  <br>
+abstract void run();  <br>
+}  <br><br>
+  
+class Honda4 extends Bike<br>
+{ <br> // subclass providing implementation of abstract class<br>
+void run()<br>{<br>
+System.out.println("running safely..");<br>
+}  <br>
+ 
+public static void main(String args[])<br>
+{ <br> // Instantiating subclass of the abstract class<br>
+ Bike obj = new Honda4();  <br>
+ obj.run();  <br>
+}  <br>
+<br>}<br>// If subclass Honda wouldn’t have provided the implementation of methods of abstract class then we would have to declare the subclass also as an abstract class.<br>
+</td></tr></table><br>
+    Abstraction in classes and method is used when we deal with modular programming practice and want to implement co-related procedures simultaneously.E.g I can declare a method abstract and move on with my further implementation considering that method gives me proper functionality and at the same time I can tell my teammate to implement that method inside some subclass.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Can a method or a class be final and abstract at the same time ?<br>
+Ans :	No, it is not possible. A class or a method cannot be final and abstract at the same time. final and abstract are totally opposite in nature. final class or final method must not be modified further where as abstract class or abstract method must be modified further.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can we declare an abstract method as private ?<br>
+Ans :	No, abstract methods cannot be private. They must be public or protected or default so that they can be modified further.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is use of synchronized keyword ?<br>
+Ans:		This keyword is used to prevent concurrency. Synchronized keyword can be applied to static/non-static methods or a block of code. Only one thread at a time can access synchronized methods and if there are multiple threads trying to access the same method then other threads have to wait for the execution of method by one thread. Synchronized keyword provides a lock on the object and thus prevents race condition.<br>
+    <table><tr><td>public void synchronized_method()<br>{<br>}<br>
+  public void synchronized_static_method()<br>{<br>}<br>
+  public void myMethod()<br>
+{<br>
+synchronized (this)<br>  {<br>
+<br>// synchronized keyword on block  of code
+}<br>
+ }</td></tr></table>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : A class cannot be declared with synchronized keyword. Then, why we call classes like Vector, StringBuffer are synchronized classes ?<br>
+Ans :	Any classes which have only synchronized methods and blocks are treated as synchronized classes. Classes like Vector, StringBuffer have only synchronized methods. That’s why they are called as synchronized classes.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Why we use the volatile keyword ?<br>
+Ans :	In general each thread has its own copy of variable, such that one thread is not concerned with the value of same variable in the other thread. But sometime this may not be the case. Consider a scenario in which the count variable is holding the number of times a method is called for a given class irrespective of any thread calling, in this case irrespective of thread access the count has to be increased. In this case the count variable is declared as volatile. The copy of volatile variable is stored in the main memory, so every time a thread access the variable even for reading purpose the local copy is updated each time from the main memory.<br>
+* A volatile variable is one whose value is always writtento and read from "main memory".<br>
+* Volatile can only be applied to instance variables<br>
+* The volatile variable also have performance issues.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is a transient variable ?<br>
+Ans:		If some of the properties of a class are not required to be serialized then the variables are marked as transient. When an object is deserialized the transient variables retains the default value depending on the type of variable declared and hence lost its original value. 
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is a strictfp modifier ?<br>
+Ans:		Strictfp is used with variable only . It is used to restrict floating point calculations ( fp ) to ensure portability ( platform Independent ). When this modifier is specified, the JVM adheres to the Java specifications ( IEEE-754 floating-point specification ) and returns the consistent value independent of the platform. That is, if you want the answers from your code (which uses floating point values) to be consistent in all platforms, then you need to specify the strictfp modifier.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is an Interface ?<br>
+Ans :	An interface defines a contract for responsibilities (methods) of a class. They are implicitly abstract and you need not to use abstract keyword while declaring them.<br>
+An interface is a collection of abstract methods. A class implements an interface, thereby inheriting the abstract methods of the interface.
+Unless the class that implements the interface is abstract, all the methods of the interface need to be defined in the class.
+Note : It is to be noted while overriding methods defined in interfaces that Checked exceptions should not be declared on implementation methods other than the ones declared by the interface method or subclasses of those declared by the interface method. 
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. What is the default behavior of variables and methods inside an interface ?
+Ans :	Variables in an interface are by default public, static, final all together at the same time. They can’t be private.<br>
+    <table><tr><td>interface IF1<br>{<br>
+intv1=10;<br>
+public int v2=15;<br>
+public static int v3=20;<br>
+public static final int v4=25;<br>
+// public static final int v5 ;// VALUE NOT INITIALISED<br>
+//private int v5 = 10 ;//COMPILER ERROR<br>
+}<br>
+// v1,v2,v3,v4 all of them are public static final all together<br>
+Interface methods are by default public and abstract. A concrete method (fully defined method) cannot be created in an interface.<br>
+interface IF1<br>{<br>
+void method1();// public and abstract<br>
+//private void method2();//COMPILER ERROR!<br>
+}</td></tr></table>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. What are the similarities and differences between an interface and a class ?<br>
+Ans :	Similarities :<br>
+* An interface can contain any number of methods.<br>
+* An interface is written in a file with a .java extension, with the name of the interface matching the name of the file.<br>
+* The bytecode of an interface appears in a .class file.<br>
+* Interfaces appear in packages, and their corresponding bytecode file must be in a directory structure that matches the package name.<br><br>
+      Difference :<br>
+* You cannot instantiate an interface. <br>
+* An interface does not contain any constructors.<br>
+* All of the methods in an interface are abstract.<br>
+* An interface cannot contain instance fields. The only fields that can appear in an interface must be declared both static and final.<br>
+* An interface is not extended by a class; it is implemented by a class.<br>
+* An interface can extend multiple interfaces.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Can a class implement multiple interfaces ?<br>
+Ans :	A class can implement multiple interfaces provided it implements all the methods declared in all the interfaces. If we miss out implementation of any method , it would result in a compilation error.<br>
+    <table><tr><td>interface IF1<br>{<br>
+void method1();<br>
+                      …………………………<br>
+}<br>
+interface IF2<br>{<br>
+void method2();<br>
+                       ………………………<br>
+}<br><br>
+Class A implements IF1,IF2<br>{<br>
+public void method1()<br> 
+                                                       {  <br>// Implementation<br>}<br>
+public void method2() <br>
+                                                       {  <br>// Implementation<br>  }<br>
+                                           …………………………………… and so on<br>
+}</td></tr></table><br>
+NOTE :If a class implements two interfaces which contains the same method name , then any one implementation of the class would be sufficient. Two implementation will report a compiler error.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can an Interface extend another Interface ? How about extending multiple Interfaces ?<br>
+Ans :	YES.An interface can extend as many interfaces it wants provided the class implementing the SubInterface implements all the methods inside both the interfaces extended and subinterface unless the class is declared abstract. If declared abstract then the responsibility of the implementation of those methods will get transferred to the class which will extend that responsible abstract class.<br>
+    <table><tr><td>interface IF1<br>{<br>
+void method1();<br>
+}<br>
+interface IF2<br>{<br>
+                      void method2() ;<br>
+}<br>
+interface SUB_IF1 extendsIF1 , IF2<br>{<br>
+void method3();<br>
+}<br>
+Class A implements IF1, IF2, SUB_IF1<br>{<br>
+public void method1() <br>
+                                                       { <br> // Implementation<br>}<br>
+public void method2() <br>
+                                                       {  <br>// Implementation<br>  }<br>
+                                           public void method3() <br>
+                                                       { <br> // Implementation<br>}<br>
+}</td></tr></table><br>
+Here , If any method inside IF1 and IF2 has the same name then a single implementation would work for both of them.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Can an Interface extend a class ?<br>
+Ans :	NO.An interface cannot extend a class.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. What are Tagging / Marker Interfaces ?<br>
+Ans :	An interface with no methods in it is referred to as a tagging interface. There are two basic design purposes of tagging interfaces:<br><br>
+* To Create a common parent between group of interfaces : Let us say we have multiple interfaces working together. Now if we extend each of them with a common parent interface that doesn’t do anything i.e no methods present , It would be easy for JVM to acknowledge what interface is likely to be used in event of delay. This results in a slightly improved performance , nothing else.<br>
+E.g : public interface EventListener{} inside java.util package extended by dozens of other interfaces in the java API.<br>
+* Adds a data type to a class : This situation is where the term tagging comes from. A class that implements a tagging interface does not need to define any methods (since the interface does not have any), but the class becomes an interface type through polymorphism.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Differentiate b/w abstract classes and interface ?<br>
+Ans :	Conceptually an Interface is an empty shell that contains only the signature of the methods. An interface can't do anything. It's just a pattern.Implementing an interface consumes very little CPU, because it's not a class, just a bunch of names, and therefore there is no expensive look-up to do.<br>
+Abstract classes, unlike interfaces, are classes. They are more expensive to use because there is a look-up to do when you inherit from them. Abstract classes look a lot like interfaces, but they have something more : you can define a behavior for them.<br>
+
+    <table>
+        <tr>
+            <th>Abstract class</th>
+            <th>Interface</th>
+        </tr>
+        <tr>
+            <td>Abstract class can have abstract and non-abstract methods.</td>
+            <td>Interface can have only abstract methods.From Java 8, it can have default and static methods also.</td>
+        </tr>
+        <tr>
+            <td>Abstract class doesn't support multiple inheritance.</td>
+            <td>Interface supports multiple inheritance.</td>
+        </tr>
+        <tr>
+            <td>Abstract class can have final, non-final, static and non-static variables.</td>
+            <td>Interface has only static and final variables.</td>
+        </tr>           
+        <tr>
+            <td>Abstract class can have static methods, main method and constructor.</td>
+            <td>Interface can't have static methods, main method or constructor.</td>
+        </tr>
+        <tr>
+            <td>Abstract class can provide the implementation of interface.</td>
+            <td>The abstract keyword is used to declare abstract class.</td>
+        </tr>
+        <tr>
+            <td>The abstract keyword is used to declare abstract class.</td>
+            <td>The interface keyword is used to declare interface.</td>
+        </tr>
+    </table>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What are instance variables ?<br>
+Ans :	Instance variables are those which are defined at the class level. Instance variables need not be initialized before using them as they are automatically initialized to their default values.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : How to define a constant variable in Java ?<br>
+Ans :	The variable should be declared as static and final. So only one copy of the variable exists for all instances of the class and the value can't be changed also.<br>
+static final int MAX_LENGTH = 50;<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is the return type of the main() method ?<br>
+Ans :	Main() method doesn't return anything hence declared void.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Why is the main() method declared static ?<br>
+Ans :	main() method is called by the JVM even before the instantiation of the class hence it is declared as static.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is the argument of main() method ?<br>
+Ans :	main() method accepts an array of String object as argument.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Can a main() method be overloaded ?<br>
+Ans :	Yes. You can have any number of main() methods with different method signature and implementation in the class.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can a main() method be declared final ?<br>
+Ans :	Yes. Any inheriting class will not be able to have its own default main() method.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Does the order of public and static declaration matter in main() method ?<br>
+Ans :	No. It doesn't matter but void should always come before main().
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : When will you define a method as static ?<br>
+Ans :	When a method needs to be accessed even before the creation of the object of the class then we should declare the method as static.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : I want to print "Hello" even before main() is executed. How will you achieve that ?<br>
+Ans :	Print the statement inside a static block of code. Static blocks get executed when the class gets loaded into the memory and even before the creation of an object. Hence it will be executed before the main() method. And it will be executed only once.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can a class be defined inside an Interface ? For What Purpose is a class defined inside an Interface ?<br>
+Ans :	Yes it's possible.Consider an example.<br>
+    <table><tr><td>public interface Input<br>
+{<br>
+    public static class KeyEvent<br> 
+{<br>
+         public static final int KEY_DOWN = 0;<br>
+         public static final int KEY_UP = 1;<br>
+         public int type;<br>
+         public int keyCode;<br>
+         public char keyChar;<br>
+}<br><br>
+    public static class TouchEvent<br>
+{<br>
+         public static final int TOUCH_DOWN = 0;<br>
+         public static final int TOUCH_UP = 1;<br>
+         public static final int TOUCH_DRAGGED = 2;<br>
+         public int type;<br>
+         public int x, y;<br>
+         public int pointer;<br>
+}<br>
+    public boolean isKeyPressed(int keyCode);<br>
+    public boolean isTouchDown(int pointer);<br>
+    public int getTouchX(int pointer);<br>
+    public int getTouchY(int pointer);<br>
+    public float getAccelX();<br>
+    public float getAccelY();<br>
+    public float getAccelZ();<br>
+    public List getKeyEvents();<br>
+    public List getTouchEvents();<br>
+}<br></td></tr></table><br>
+Here the code has two nested classes which are for encapsulating information about event objects which are later used in method definitions like getKeyEvents(). Having them inside the Input interface improves cohesion. We can have simple inner classes inside an interface that basically represents set of same behavioural entities. It allows us to pass a behaviour as a parameter of a method. However we should always avoid complex inner class as it is hard to handle on the debugging part.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What are Nested Interfaces / Inner Interfaces ? Is it possible to define an interface inside another Interface ?<br>
+Ans :	Yes. It’s possible. Any Interface defined inside class or an interface would be called a Nested Interface.<br>
+A good example of an interface inside an interface is Map.Entry interface inside Map interface.<br>
+    <table><tr><td>public interface Map <br>{<br>
+	interface Entry<br>{<br>
+		int getKey();<br>
+	}<br>
+	void clear();<br>
+}<br></td></tr></table><br>
+* Nested interfaces are implicitly static regardless of where they are declared (inside class or another interface).<br>
+* Nested interface declared inside another interface is implicitly public.<br>
+* Nested interface declared inside a class can accept any access modifiers.<br>
+* Nested interface can be implemented by any class (package level, nested or inner) if the access modifiers permit visibility.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can an Interface be defined inside a class ?<br>
+Ans :	Yes it's possible. Let us consider a scenario.<br>
+    <table><tr><td>class OuterClass<br>
+{<br>
+   public interface IF1//Inner Interface<br>
+{<br>
+        …………. // Some Methods and Fields<br>
+   }<br><br>
+   public class InnerClassimplements IF1<br>
+   {<br>
+       ………….. // Overriden Methods of Interface IF1<br>
+   }<br>
+   public void OuterClassMethod()<br>
+   {<br>
+       ………….. // Business Logic<br>
+   }<br>
+   ……………. // Some More Outer Class Methods<br>
+}</td></tr></table><br>
+To make InnerClassmore Cohesive we define an interface for it inside its OuterClass.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is a local, member and a class variable ?<br>
+Ans :	Variables declared within a method are "local" variables.<br>
+Variables declared within the class i.e not within any methods are "member" variables (global variables).<br>
+Variables declared within the class i.e not within any methods and are defined as "static" are class variables.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can an anonymous class be declared as implementing an interface and extending a class ?<br>
+Ans :	An anonymous class may implement an interface or extend a superclass, but cannot not be declared to do both. Due to complex syntactical reasons. However even if its allowed I don’t find it much useful.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is a Java package and how is it used ?<br>
+Ans :	A package is a separate name space for groups of classes and interfaces. Packages are also used to organize related classes and interfaces into a single API unit and to control accessibility to these classes and interfaces.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Which package is imported by default ?Do I need to import java.lang package everytime time ?<br>
+Ans :	java.lang packageis imported by default even without a package declaration.<br>
+No. It is by default loaded internally by the JVM. The java.lang package is always imported by default.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Can I import same package/class twice? Will the JVM load the package twice at runtime?<br>
+Ans :	JVM will only load once no matter how many times you import it.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Does importing a package imports the sub packages as well ?<br>
+Ans :	No you will have to import the sub packages explicitly.
+
+
+<div class="clearfix"></div>
+                    </div></div>
+          </body>
+         </html>

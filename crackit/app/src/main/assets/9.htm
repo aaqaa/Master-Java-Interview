@@ -1,0 +1,73 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>INHERITANCE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--bootstrap-->
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<!--custom css-->
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<!--component-css-->
+</head>
+<body>
+<div class="body-back"> <div class="first">Ques. : What is inheritance ?<br>
+Ans :	Inheritance in java is a mechanism in which one object acquires all the properties and behaviors of parent object.When you inherit from an existing class, you can reuse methods and fields of parent class, and you can add new methods and fields also.<br>
+Inheritance represents the IS-A relationship, also known as parent-child relationship.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : How Inheritance can be implemented in java ?<br>
+Ans :	Inheritance can be implemented in JAVA using two keywords :<br>
+* extends is used for developing inheritance between two classes and two interfaces.<br>
+* implements keyword is used to developed inheritance between interface and class.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Why we need to use Inheritance ?<br>
+Ans :	For Code Re usability andMethod Overriding.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can a class extend itself ?<br>
+Ans :	NO,A class can't extend itself.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Can we reduce the visibility of the inherited or overridden method ?<br>
+Ans:		NO.The visibility of the inherited method could either be set to same as the parent class of more opened visible mode than the parent class.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Does a class inherit the constructor of its super class?<br>
+Ans :	NO.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Does Java support Multiple Inheritance ?<br>
+Ans :NO. Java doesn't support multiple inheritance. Interfaces doesn't facilitate inheritance and hence implementation of multiple interfaces doesn't make multiple inheritance. 
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Why java doesn't support multiple Inheritance ?<br>
+Ans :To reduce the complexity and simplify the language, multiple inheritance is not supported in java. 
+  <br>
+    <table><tr><td>class A{  <br>
+void msg(){System.out.println("Hello");}  <br>
+}  <br>
+class B{  <br>
+void msg(){System.out.println("Welcome");}  <br>
+}<br><br>
+  
+class C extends A,B{
+        //suppose if it were  <br>
+                              public static void main(String args[]){  <br>
+   C obj=new C();  <br>
+   obj.msg();<br>
+//Now which msg() method would be invoked ?  <br>
+}  <br>
+}</td></tr></table>
+If A and B classes have same method and you call it from child class object, there will be ambiguity to call method of A or B class.
+Since compile time errors are better than runtime errors, java renders compile time error if you inherit 2 classes. So whether you have same method or different, there will be compile time error now.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Which of the following is tightly bound ? Inheritance or Composition ?<br>
+Ans :		Inheritance
+
+<div class="clearfix"></div>   
+                  </div></div>
+          </body>
+         </html>

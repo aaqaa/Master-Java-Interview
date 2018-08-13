@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="Titles">
+        <item>Getting Started with Java</item>
+        <item>Data Types and Operators</item>
+        <item>Looping and decision control</item>
+        <item>Strings</item>
+        <item>Basic Syntax</item>
+        <item>Java OOPs Concepts</item>
+        <item>Classes , Objects , Methods</item>
+        <item>Constructor</item>
+        <item>Inheritance</item>
+        <item>Exceptional Handling</item>
+        <item>Java Serialization</item>
+        <item>Java Collections , Generics</item>
+        <item>Legacy Classes and Interfaces</item>
+        <item>Miscellaneous</item>
+        <item>Java Multithreading</item>
+
+
+    </array>
+</resources>

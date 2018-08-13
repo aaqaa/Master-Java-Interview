@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CONCURRENCY AND MULTITHREADING</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+    <!--bootstrap-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!--custom css-->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!--component-css-->
+</head>
+<body>
+<div class="body-back"> <div class="first">Ques. : What is Concurrency ?<br>
+    Ans :	Concurrency is the ability of a program to execute several computations simultaneously. This can be achieved by distributing the computations over the available CPU cores of a machine or even over different machines within the same network.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is Multitasking ?<br>
+    Ans :	Multitasking is a concept of performing multiple tasks over a certain period of time by executing them concurrently.
+    Multi-tasking could be defined in two context :<br>
+    Process ? based multitasking. (a.k.a Multiprocessing)<br>
+    Thread ? based multitasking (a.k.a Multithreading)
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is Multiprocessing ?<br>
+    Ans :	There are many situations when A task (process) needs to be started while the resources it needs are occupied by some other executing process. So instead of interrupting the already running process , we can instead share processing resources with it (such as CPU) and carry on with the execution of both of them concurrently.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is a thread ? What is Multithreading ?
+    Ans :	Thread is alightweight subprocess whose task is to maintain an independent execution path for the subprocessit is attached with.<br>
+    A process can be divided into Subprocesses. Attaching threads to those subprocesses can provide us concurrent executionand reduce execution time. The concurrent execution of subprocesses also utilize processing resources at optimum level.<br>
+    Eg. : if one thread takes 100 millisecond to do a job, you can use 10 thread to reduce that task into 10 millisecond. Java provides excellent support for multi-threading at language level, and its also one of strong selling point.<br>
+    The process of executing multiple threads concurrentlyis called Multithreading.
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : Differentiate between Process and thread ?<br>
+    Ans :	Following are the differences between the two :<br>
+    <table>
+        <tr><th>Process / Multiprocessing</th><th>Thread / Multithreading</th></tr>
+        <tr><td>Each process have its own address in memory.</td><td>Threads share the same address space.</td></tr>
+        <tr><td>Process is heavyweight.</td><td>Thread is lightweight</td></tr>
+        <tr><td>Cost of communication between the process is high.</td><td>Cost of communication between the thread is low</td></tr>
+        <tr><td>Process context switch is slower because Switching from one process to another requires handling control to the OSwhich load registers, maps memory, updates lists etc</td><td>Thread context switch is faster because during a thread switch virtual memory remains same.</td></tr>
+    </table>
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is Runnable Interface?<br>
+    Ans :	Runnable interface should be implemented by any class whose instances are intended to be executed by a thread. It has only a single method run() declared inside it and the class implementing Runnable must provide implementation for the method.<br>
+    When an object implementingRunnable is used to create a thread, starting the thread causes the object's run() method to be called in that separately executing thread. <br>
+    The general contract of the method run is that it may take any action whatsoever.
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What is the difference between the two interfaces Runnable and Callable ?<br>
+    Ans :	The interface Runnable defines the method run() without any return value whereas the interface Callable allows the method call() to return a value and to throw an exception.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is Thread class in Java ?<br>
+    Ans :	Thread extends Object implements Runnable.<br>
+    1. A Thread class internally has 3 static fields<br>
+    (MAX_PRIORITY , MIN_PRIORITY , NORM_PRIORITY)<br>
+    i.eObjects of class Thread simply called as threadhas a priority. Threads with higher priority are executed in preference to threads with lower priority. Each thread may or may not also be marked as a daemon. When code running in some thread creates a new Thread object, the new thread has its priority initially set equal to the priority of the creating thread, and is a daemon thread if and only if the creating thread is a daemon.<br>
+    2. Following are the Constructors to create a thread.<br>
+    <table>
+        <tr><td>Thread()<br>Thread(Runnable target)<br>Thread(String name)<br>Thread(Runnable target , String name)<br>Thread(ThreadGroup group , Runnable target)<br>Thread(ThreadGroup group , String name)</td><td>All of them allocates a new Thread Object.</td></tr>
+        <tr><td>Thread(ThreadGroup group ,Runnable target ,String name )</td><td>Allocates a new Thread object so that it has target as its run object, has the specified name as its name, and belongs to the thread group referred to by group.</td></tr>
+        <tr><td>Thread(ThreadGroup group ,Runnable target ,String namelong stackSize)</td><td>Allocates a new Thread object so that it has target as its run object, has the specified name as its name, and belongs to the thread group referred to by group, and has the specified stack size.</td></tr></table>
+
+    3. Thread Class also has a Nested Classes Thread.Statewhich holds enum constants inside it that represents the state of a thread.<br>
+    They are NEW , RUNNABLE, BLOCKED, TERMINATED , WAITING and TIMED_WAITING.<br>
+    4. Thread Class also has a Nested Interface Thread.UncaughtExceptionHandler.<br>
+    Which provides a method which gets invoked automatically when a thread is terminated due to an uncaught exception. The method handles the uncaught exception and throws another exception which is ignored by JVM.
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. : What properties does each Java thread have ?<br>
+    Ans :	Following are the properties a Thread object will have :<br>
+    An Id of type long that is unique within the JVM<br>
+    A Name of type String<br>
+    A ThreadGroup that thread belongs to<br>
+    A Priority of type int<br>
+    A State of type Threat.State
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What are the ways to create a thread in Java?<br>
+    Ans :	There are two ways to create a thread:<br>
+    1. By extending Thread class<br>
+    2. By implementing Runnable interface<br>.
+
+    <div class="clearfix"></div>
+</div><div class="first">Ques. :  Which is better approach to create a thread Extending Thread Class or Implementing Runnable ?<br>
+    Ans : 	Extending Thread Class will bound us to extend any other class as Java doesnt support Multiple Inheritence. Implementing Runnable Interface will give us flexibility to extend some other also while at the same time we can implement another interface also if required. So from this point of view Implementing Runnable is a better approach.
+
+    <div class="clearfix"></div>
+</div><div class="second">Ques. : What is a Life Cycle of a thread ?<br>
+    Ans :	There are 4 states in a life cycle of a thread accourding to sun. But for better explanation we can consider one more state ?running?.
+    Following are the different states in a life cycle of a thread.<br>
+    <img src="images/image016.jpg" alt="java" width="180" height="180"/><br>
+    1. New : The thread is in new state if you create an instance of Thread class but before the invocation of start() method.<br>
+    2. Runnable : The thread is in runnable state after invocation of start() method, but the thread scheduler has not selected it to be the running thread.<br>
+    3. Running : The thread is in running state if the thread scheduler has selected it.<br>
+    4. Non-Runnable (Blocked) : This is the state when the thread is still alive, but is currently not eligible to run.<br>
+    5. Terminated (Dead) : A thread is in terminated or dead state when its run() method exits.<br>
+    Let us understand these state in depth by taking above example of MyThread.java and ThreadDemo.java.<br>
+    First we created a MyThread class which actually defines a template of tasks that a thread has to perform. There wasn?t any independent execution path attached to it. Also no thread object exists till this point.<br>
+    When we created the object of MyThread class using the constructors() , a thread object resembling the properties and behaviour described in MyThread class came into existence. This state of that new thread which just came into picture would be called in NEW state.<br>
+    When start() method got invoked an independent path of execution got createdand the thread started executing on thatindependent path. A thread in such an executing state is called to be in RUNNABLE state.<br>
+    Then while the thread was executing it encounters a sleep() method which causes thread to wait for a short period of time. This period during which it stopped executing would be said as NON-RUNNABLE state of a thread. This waiting state may occur due to a method invocation such as sleep() or due to absense of resources required to execute further.<br>
+    When a thread gets the resources for further execution or if the method that causes wait completes its execution , the thread comes back to RUNNABLE state.A thread may undergo non-runnable and then runnable states multiple times during execution.<br>
+    When a thread completes it execution or if stop() method is invoked during its execution , then thread becomes DEAD.
+
+    <div class="clearfix"></div>
+</div>
+    <div class="first">Ques. : What happen if we call run() method directly instead of calling start() method first ?<br>
+        Ans :	Though start() method internally invokes and execute the code inside run() method. But If run() method is invoked directly then it will execute under main thread only and no separate execution path will be given to it. It is the start() method that defines an independent path of execution and appoints that path for code inside run() method to be executed on it.<br>
+        <table>
+            <tr><td>public class TestThread extends Thread<br>
+                {<br>
+                public void run()<br>
+                {<br>
+                System.out.println(Thread.currentThread.getName()) ;<br>
+                }<br>
+                public static void main(String[] args)<br>
+                {<br>
+                TestThread Obj = new TestThread() ;<br>
+                Obj.run() ;<br>
+                }<br>
+                }<br>
+            </td></tr>
+
+        </table>
+        Output : main             // executing inside main thread itself<br>
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : What is main thread ? How many threads a java program have atleast?<br>
+        Ans :	When the JVM starts, it creates a thread called ?main?. Your program will run on this thread, unless you create additional threads yourself. The first thing the ?main? thread does is to look for is your static void main (String args[]) method and invoke it. That is the entry-point to your program. If you create additional threads in the main method those threads would be the child threads of main thread.
+        Each Java program is executed within the main thread; hence each Java application has at least one thread.
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : Is it possible to start a thread twice?<br>
+        Ans :	NO, after having started a thread by invoking start(), a second invocation of start() will throw an IllegalThreadStateException.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : What is Priority of a thread ? How does Priority affects execution of a thread ? What is Scheduling ?<br>
+        Ans :	A thread's priority is an integer value between MIN_PRIORITY i.e 1 and MAX_PRIORITY i.e 10. The default priority of a thread is NORM_PRIORITY and is equal to 5. These constants are defined in the Thread class.A thread?s priority is always set equals to the priority of its parent thread inside which it has been created. The priority of main thread is set to 5. However the priority of a thread can also be changed by setPriority() method.<br>
+        In a Multi-threaded environment , multiple threads do not always executes at the same time (or say share CPU resources). Instead they share the execution time based on availability of the CPU.<br>
+        Sharing execution time requires context switching between threads and the set of rules based on which this thread context switch happens is called Scheduling. Scheduling is performed by Java Runtime System based on the priority of a thread.
+        The standard Scheduling Java follows is pre-emptivescheduling i.e interruptive scheduling. Following are rules of thread context switching.<br>
+        1. A highest priority thread can execute at any instant of time.<br>
+        2. If A higher priority thread is executing and is in runnable state no other low-priority thread can interrupt its execution untill it enters non-runnable state , or become dead , or lower its priority , or a higher priority thread starts executing.<br>
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : What is thread Scheduler ?<br>
+        Ans :	A scheduler is the implementation of a scheduling-algorithm that manages access of processes and threads to some limited resource.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : How can a Java Application find out which thread is running at that instant of time?<br>
+        Ans :	We can fetch the id of the currently executing thread by using currentThread() method of Thread class.<br>
+        <table>
+            <tr><td>public class MainThread<br>
+                {<br>
+                public static void main(String[] args)<br>
+                {<br>
+                long id = Thread.currentThread().getId() ;<br>
+                String name =Thread.currentThread().getName() ;<br>
+                System.out.println(?Thread Id is : ? + id);<br>
+                System.out.println(?Thread Name is : ? + name) ;<br>
+                }<br>
+                }<br>
+            </td></tr>
+        </table>
+
+        Output :   Thread Id is : 1<br>
+        Thread Name is : main<br>
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : How do we Stop a thread in java ?<br>
+        Ans :	To stop a thread gracefully we can guard the run() method by a volatile flag that is initially set to true. Later in the program when we want a thread to stop we can set the volatile flag to false which eventually will make thread immidiately finish its execution and stop.<br>
+        <table><tr><td>class MyThread extends Thread<br>
+            {<br>
+            volatile boolean flag = true ;<br>
+            public void stopMe()<br>
+            {<br>
+            flag = false ;<br>
+            }<br>
+            public void run()<br>
+            {<br>
+            while (flag)<br>
+            {<br>
+            //do dirty work<br>
+            }<br>
+            }<br>
+            }
+        </td></tr></table>
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : Why a thread should not be stopped by using stop() ?<br>
+        Ans :	A thread should not be stopped by using the deprecated methods stop() of java.lang.Thread, as a call of this method causes the thread to unlock all monitors it has acquired. If any object protected by one of the released locks was in an inconsistent state, this state gets visible to all other threads. This can cause arbitrary behavior when other threads work this this inconsistent object.
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : What is join() method of Thread Class ?<br>
+        Ans :	There are two forms of this methods.<br>
+        public void join() throws InterruptedException<br>
+        public void join(long milliseconds) throws InterruptedException<br>
+        The invocation of join method causes the current thread to stop its execution untill the thread it joins with completes its execution.<br>
+        <table><tr><td>class MyThread extends Thread<br>
+            {<br>
+            public MyThread(String ThreadName)<br>
+            {<br>
+            super(ThreadName) ;<br>
+            }<br>
+            public void run()<br>
+            {<br>
+            for (int i=0 ; i<5 ; i++)<br><br>
+            {<br>
+            sleep(500) ;    // under try catch block<br>
+            System.out.println(Thread.currentThread.getName() + ? : ? + i );<br>
+            }<br>
+            }<br>
+            public static void main(String[] args)<br>
+            {<br>
+            MyThread th1 = new MyThread(?thread1?);<br>
+            MyThread th2 = new MyThread(?thread2?);<br>
+            MyThread th3 = new MyThread(?thread3?);<br>
+            th1.start() ;    // thread 1 starts executing concurrently with main().<br>
+            th1.join() ;     // main thread stop its execution untill thread1 finishes.<br>
+            // main thread resumes<br>
+            th2.start() ;     // thread 2 starts executing concurrently with main().<br>
+            th2.join() ;      // main thread stop its execution untill thread2 finishes.<br>
+            th3.start() ;    // thread 3 starts executing concurrently with main().<br>
+            th3.join() ;      // main thread stop its execution untill thread1 finishes.<br>
+            }<br>
+            }</td></tr></table>
+
+        <br>
+        Output : <br>thread1 : 1<br>
+        thread1 : 2<br>
+        thread1 : 3<br>
+        thread1 : 4<br>
+        thread1 : 5<br>
+        thread2 : 1<br>
+        thread2 : 2<br>
+        thread2 : 3<br>
+        thread2 : 4<br>
+        thread2 : 5<br>
+        thread3 : 1<br>
+        thread3 : 2<br>
+        thread3 : 3<br>
+        thread3 : 4<br>
+        thread3 : 5<br>
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : What is Daemon Thread ?<br>
+        Ans :	Daemon thread is a low priority thread (in context of JVM) that runs in background to perform tasks such as garbage collection (gc) etc.
+        JVM doesn?t wait for Daemon Threads to finish their execution in order to exit. JVM only waits for non-daemon threads to complete their execution
+        As soon as all non-daemon threads completes their execution while Daemon thread is still running (which is obvious) , JVM then terminate the Daemon thread and immidiately after that it shutdown itself.<br>
+        All the threads created inside main thread are non-daemon because main is non-daemon. However we can make a user thread Daemon using setDaemon() method of Thread Class. A Thread inherits its Daemon status from its parent. i.e a thread created inside a Daemon thread will be daemon.
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : What do you have to consider when passing object instances from one thread to another ?<br>
+        Ans :	When passing objects between threads, you will have to pay attention that these objects are not manipulated by two threads at the same time. An example would be considering a scenario of a Map implementation whose key/value pairs are modified by two concurrent threads. In order to avoid problems with concurrent modifications you either design an object to be immutable or introduce synchronization between threads.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : What is Synchronization ?<br>
+        Ans :	When multiple threads running concurrently share the common object. There is a need of co-ordination or synchronization in the way the common object is accessed by them.<br>
+        This Synchronization could be achieved by Synchronized methods and Synchronized statements.<br>
+        Let us say that multiple threads manipulate the common object using some individual methods of them. If we declare all those methods with synchronized keyword then no two synchronized methods will manipulate the common object used by them simultaneously.<br>
+        All classes and objects are associated with a unique monitor. The monitor is used to control the way in which synchronized methods are allowed to access the class or object. When a synchronized method is invoked for a given object, it is said to acquire the monitor for that object. No other synchronized method may be invoked for that object until the monitor is released. A monitor is automatically released when the method completes its execution and returns. A monitor may also be released when a synchronized method executes certain methods, such as wait(). The thread associated with the currently executing synchronized method becomes not runnable until the wait condition is satisfied and no other method has acquired the object's monitor.<br>
+        <table><tr><th>ThreadSynchronization.java</th></tr><tr><td>class ThreadSynchronization <br>
+            {<br>
+                public static void main(String args[]) <br>
+                {<br>
+                    MyThread thread1 = new MyThread("thread1: ");<br>
+                    MyThread thread2 = new MyThread("thread2: "); <br>
+                    thread1.start();<br>
+                    thread2.start();<br>
+                    boolean thread1IsAlive = true;<br>
+                    boolean thread2IsAlive = true;<br>
+                    do {<br>
+                       if (thread1IsAlive && !thread1.isAlive()) { <br>
+                           thread1IsAlive = false;<br>
+                           System.out.println("Thread 1 is dead.");<br>
+                       }<br>
+                       if (thread2IsAlive && !thread2.isAlive()) {<br>
+                           thread2IsAlive = false;<br>
+                           System.out.println("Thread 2 is dead.");<br>
+                       }<br>
+                    } while(thread1IsAlive || thread2IsAlive);<br>
+                }<br>
+            }</td></tr></table>
+        <table><tr><th>MyThread.java</th></tr><tr><td>public class MyThread extends Thread<br>
+            {<br>
+            static int CommonCouter ;<br>
+            public MyThread(String name)<br>
+            {<br>
+            super(name) ;<br>
+            }<br>
+            public void run()<br>
+            {<br>
+            IncrementCounter(Thread.currentThread().getName()) ;<br>
+            }<br>
+            public static synchronized void IncrementCounter(String ThreadName)<br>
+            {<br>
+            for (int i=1 ; i<=5 ; i++)<br>
+            {<br>
+            MyThread.CommonCouter ++ ;<br>
+            System.out.println<br>
+            (ThreadName + " : " + MyThread.CommonCouter) ;<br>
+            }<br>
+            }	<br>
+            }</td></tr></table>
+        <br>
+        Output :      <br>th1 : 1<br>
+        th1 : 2<br>
+        th1 : 3<br>
+        th1 : 4<br>
+        th1 : 5<br>
+        th2 : 6<br>
+        Thread 1 is dead.<br>
+        th2 : 7<br>
+        th2 : 8<br>
+        th2 : 9<br>
+        th2 : 10<br>
+        Thread 2 is dead.<br>
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : Can a constructor be synchronized ?<br>
+        Ans :	NO, a constructor cannot be synchronized. The reason why this leads to an syntax error is the fact that only the constructing thread should have access to the object being constructed.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : Explain wait() and notify() methods ? Also explain Producer-Consumer problem using wait() and notfiy() ?<br>
+        Ans :	When two process communicates with each other through a shared resource then such a communication is known as Inter-Process Communication. Such an IPC could be achieved using wait() and notify() methods of Object class.
+        * wait( ) tells the calling thread to give up the monitor and go to sleep until some other thread enters the same monitor and calls notify( ).
+        * notify( ) wakes up the first thread that called wait( ) on the same object.<br>
+        <table><tr><th>ProdCons.java</th></tr><tr><td>public class ProdCons<br>
+            {<br>
+            public static void main(String args[])<br>
+            {<br>
+            Vector sharedQueue = new Vector();<br>
+            int size = 4;<br>
+            // creating two threads by passing object and name with constructor<br>
+            Thread prodThread = new Thread(new Producer(sharedQueue, size), "Producer");<br>
+            Thread consThread = new Thread(new Consumer(sharedQueue, size), "Consumer");<br>
+            // starting the two threads<br>
+            prodThread.start();<br>
+            consThread.start();<br>
+            }<br>
+            }</td></tr></table>
+        <table><tr><th>Producer.java</th></tr><tr><td>class Producer implements Runnable<br>
+            {<br>
+            private final Vector sharedQueue ;<br>
+            private final int SIZE ;<br>
+            public Producer (Vector sharedQueue, int size)<br>
+            {<br>
+            this.sharedQueue = sharedQueue;<br>
+            this.SIZE = size;<br>
+            }<br>
+            @Override<br>
+            public void run()<br>
+            {<br>
+            for (int i = 0; i < 7; i++)<br>
+            {<br>
+            System.out.println("Produced: " + i) ;<br>
+            try {<br>
+            produce(i) ;<br>
+            } catch (InterruptedException ex){}<br>
+            }<br>
+            }<br>
+            private void produce(int i) throws InterruptedException<br>
+            {<br>
+            // if queue is full : print message and wait for consumer to consume<br>
+            while (sharedQueue.size() == SIZE) {<br>
+            synchronized (sharedQueue)<br>
+            {<br>
+            System.out.println("Queue is full "+  Thread.currentThread().getName()<br>+ " is waiting , size: " + sharedQueue.size());<br>
+            sharedQueue.wait();<br>
+            }<br>
+            }<br>
+            //producing element and notify consumers<br>
+            synchronized (sharedQueue)<br>
+            {<br>
+            sharedQueue.add(i);<br>
+            sharedQueue.notifyAll();<br>
+            }<br>
+            }<br>
+            }</td></tr></table>
+
+
+
+        <br>
+        <table><tr><th>Consumer.java</th></tr><tr><td>class Consumer implements Runnable<br>
+            {<br>
+            private final Vector sharedQueue;<br>
+            private final int SIZE;<br>
+            public Consumer(Vector sharedQueue, int size)<br>
+            {<br>
+            this.sharedQueue = sharedQueue;<br>
+            this.SIZE = size;<br>
+            }<br>
+            @Override<br>
+            public void run()<br>
+            {<br>
+            while (true)<br>
+            {<br>
+            try {<br>
+            System.out.println("Consumed: " + consume());<br>
+            Thread.sleep(50);<br>
+            } catch (InterruptedException ex) {}<br>
+            }<br>
+            }<br>
+            private int consume() throws InterruptedException<br>
+            {<br>
+            //wait if queue is empty<br>
+            while (sharedQueue.isEmpty())<br>
+            {<br>
+            synchronized (sharedQueue)<br>
+            {<br>
+            System.out.println("Queue is empty "<br>
+            + Thread.currentThread().getName()<br>
+            + " is waiting , size: " + sharedQueue.size());<br>
+            sharedQueue.wait();<br>
+            }<br>
+            }<br>
+            //Otherwise consume element and notify waiting producer<br>
+            synchronized (sharedQueue)<br>
+            {<br>
+            sharedQueue.notifyAll();<br>
+            return (Integer) sharedQueue.remove(0);<br>
+            }<br>
+            }<br>
+            }</td></tr></table>
+        <br>
+        Output :<br>         Produced: 0<br>
+        Queue is empty Consumer is waiting , size: 0<br>
+        Produced: 1<br>
+        Consumed: 0<br>
+        Produced: 2<br>
+        Produced: 3<br>
+        Produced: 4<br>
+        Produced: 5<br>
+        Queue is full Producer is waiting , size: 4<br>
+        Consumed: 1<br>
+        Produced: 6<br>
+        Queue is full Producer is waiting , size: 4<br>
+        Consumed: 2<br>
+        Consumed: 3<br>
+        Consumed: 4<br>
+        Consumed: 5<br>
+        Consumed: 6<br>
+        Queue is empty Consumer is waiting , size:
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : What is the difference between notify() and notifyAll() ?<br>
+        Ans :	Both methods are used to wake up one or more threads that have put themselves to sleep by calling wait(). While notify() only wakes up one of the waiting threads, notifyAll() wakes up all waiting threads.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : How it is determined which thread wakes up by calling notify() ?<br>
+        Ans :	We cannot specify a threads to be woken up by calling notify(). Also if multiple thread are waiting , we cant predict which thread will woke up if we call notify().
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : Is it possible to check whether a thread holds a monitor lock on some given object ?<br>
+        Ans :	The Thread class provides the static method Thread.holdsLock(Object) that returns true if and only if the current thread holds the lock on the object given as argument to the method invocation.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : What does the method Thread.yield() do ?<br>
+        Ans :	An invocation of the static method Thread.yield() gives the scheduler a hint that the current thread is willing to free the processor. The scheduler is free to ignore this hint. As it is not defined which thread will get the processor after the invocation of Thread.yield(), it may even happen that the current thread becomes the ?next? thread to be executed.
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : What is the difference between notify() and notifyAll() ?<br>
+        Ans :	Both methods are used to wake up one or more threads that have put themselves to sleep by calling wait(). While notify() only wakes up one of the waiting threads, notifyAll() wakes up all waiting threads.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : How it is determined which thread wakes up by calling notify() ?<br>
+        Ans :	It is not specified which threads will be woken up by calling notify() if more than one thread is waiting. Hence code should not rely on any concrete JVM implementation.
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : What is java.lang.ThreadLocal class used for ?<br>
+        Ans :	As memory is shared between different threads, ThreadLocal provides a way to store and retrieve values for each thread separately. Implementations of ThreadLocal store and retrieve the values for each thread independently such that when thread A stores the value A1 and thread B stores the value B1 in the same instance of ThreadLocal, thread A later on retrieves value A1 from this ThreadLocal instance and thread B retrieves value B1.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : What is the purpose of thread groups ?<br>
+        Ans :	Each thread belongs to a group of threads. The JDK class java.lang.ThreadGroup provides some methods to handle a whole group of Threads. With these methods we can, for example, interrupt all threads of a group or set their maximum priority.
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : How can a thread be woken up that has been put to sleep before using Thread.sleep() ? <br>
+        Ans :	The method interrupt() of Thread class interrupts a sleeping thread. The interrupted thread that has been put to sleep by calling Thread.sleep() is woken up by an InterruptedException.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : How can a thread query if it has been interrupted ?<br>
+        Ans :	If the thread is not within a method like Thread.sleep() that would throw an InterruptedException, the thread can query if it has been interrupted by calling either the static method Thread.interrupted() or the method isInterrupted() that it has inherited from java.lang.Thread.
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : What is a shutdown hook ?<br>
+        Ans :	A shutdown hook is a thread that gets executed when the JVM shuts down. It can be registered by invoking addShutdownHook(Runnable) on the Runtime instance:<br>
+        Runtime.getRuntime().assShutdownHook(new Thread() {<br>
+        @Override<br>
+        public void run() {}<br>
+        }) ;<br>
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : What do we understand by an atomic operation ?<br>
+        Ans :	An atomic operation is an operation that is either executed completely or not at all.<br>
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : What is a livelock ?<br>
+        Ans :	A livelock is a situation in which two or more threads block each other by responding to an action that is caused by another thread. In contrast to a deadlock situation, where two or more threads wait in one specific state, the threads that participate in a livelock change their state in a way that prevents progress on their regular work. An example would be a situation in which two threads try to acquire two locks, but release a lock they have acquired when they cannot acquire the second lock. It may now happen that both threads concurrently try to acquire the first thread. As only one thread succeeds, the second thread may succeed in acquiring the second lock. Now both threads hold two different locks, but as both want to have both locks, they release their lock and try again from the beginning. This situation may now happen again and again.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : What do we understand by a deadlock ?<br>
+        Ans : A deadlock is a situation in which two (or more) threads are each waiting on the other thread to free a resource that it has locked, while the thread itself has locked a resource the other thread is waiting on:<br>
+        Thread 1: locks resource A, waits for resource B<br>
+        Thread 2: locks resource B, waits for resource A
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : What are requirements for a deadlock situation ?<br>
+        Ans :	In general the following requirements for a deadlock can be identified:<br>
+        * Mutual exclusion: There is a resource which can be accessed only by one thread at any point in time.<br>
+        * Resource holding: While having locked one resource, the thread tries to acquire another lock on some other exclusive resource.<br>
+        * No preemption: There is no mechanism, which frees the resource if one thread holds the lock for a specific period of time.<br>
+        * Circular wait: During runtime a constellation occurs in which two (or more) threads are each waiting on the other thread to free a resource that it has locked.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : Is it possible to prevent deadlocks at all ?<br>
+        Ans :	In order to prevent deadlocks one (or more) of the requirements for a deadlock has to be eliminated:<br>
+        * Mutual exclusion: In some situation it is possible to prevent mutual exclusion by using optimistic locking.<br>
+        * Resource holding: A thread may release all its exclusive locks, when it does not succeed in obtaining all exclusive locks.<br>
+        * No preemption: Using a timeout for an exclusive lock frees the lock after a given amount of time.<br>
+        * Circular wait: When all exclusive locks are obtained by all threads in the same sequence, no circular wait occurs.
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : Is it possible to implement a deadlock detection ?<br>
+        Ans :	When all exclusive locks are monitored and modelled as a directed graph, a deadlock detection system can search for two threads that are each waiting on the other thread to free a resource that it has locked. The waiting threads can then be forced by some kind of exception to release the lock the other thread is waiting on.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : What do we understand by thread starvation ?<br>
+        Ans :	Threads with lower priority get less time for execution than threads with higher priority. When the threads with lower priority performs a long enduring computations, it may happen that these threads do not get enough time to finish their computations just in time. They seem to ?starve? away as threads with higher priority steal them their computation time.
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : Can a synchronized block cause thread starvation ?<br>
+        Ans :	The order in which threads can enter a synchronized block is not defined. So in theory it may happen that in case many threads are waiting for the entrance to a synchronized block, some threads have to wait longer than other threads. Hence they do not get enough computation time to finish their work in time.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : What is  race condition ?<br>
+        Ans :	A race condition describes constellations in which the outcome of some multi-threaded implementation depends on the exact timing behavior of the participating threads. In most cases it is not desirable to have such a kind of behavior, hence the term race condition also means that a bug due to missing thread synchronization leads to the differing outcome. A simple example for a race condition is the incrementation of an integer variable by two concurrent threads. As the operation consists of more than one single and atomic operation, it may happen that both threads read and increment the same value. After this concurrent incrementation the amount of the integer variable is not increased by two but only by one.
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : What do we understand by the term scalability ?<br>
+        Ans :	Scalability means the ability of a program to improve the performance by adding further resources to it.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : What is the purpose of the class java.lang.ThreadLocal ?<br>
+        Ans :	As memory is shared between different threads, ThreadLocal provides a way to store and retrieve values for each thread separately. Implementations of ThreadLocal store and retrieve the values for each thread independently such that when thread A stores the value A1 and thread B stores the value B1 in the same instance of ThreadLocal, thread A later on retrieves value A1 from this ThreadLocal instance and thread B retrieves value B1.
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : What are possible use cases for ThreadLocal class ?<br>
+        Ans :	Instances of ThreadLocal can be used to transport information throughout the application without the need to pass this from method to method. Examples would be the transportation of security/login information within an instance of ThreadLocal such that it is accessible by each method. Another use case would be to transport transaction information or in general objects that should be accessible in all methods without passing them from method to method.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : Is it possible to improve the performance of an application by the usage of multi-threading ?<br>
+        Ans :	If we have more than one CPU core available, the performance of an application can be improved by multi-threading if it is possible to parallelize the computations over the available CPU cores. An example would be an application that should scale all images that are stored within a local directory structure. Instead of iterating over all images one after the other, a producer/consumer implementation can use a single thread to scan the directory structure and a bunch of worker threads that perform the actual scaling operation. Another example would be an application that mirrors some web page. Instead of loading one HTML page after the other, a producer thread can parse the first HTML page and issue the links it found into a queue. The worker threads monitor the queue and load the web pages found by the parser. While the worker threads wait for the page to get loaded completely, other threads can use the CPU to parse the already loaded pages and issue new requests.
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : What is a Semaphore ?<br>
+        Ans :	A semaphore is a data structure that maintains a set of permits that have to be acquired by competing threads. Semaphores can therefore be used to control how many threads access a critical section or resource simultaneously. Hence the constructor of java.util.concurrent.Semaphore takes as first parameter the number of permits the threads compete about. Each invocation of its acquire() methods tries to obtain one of the available permits. The method acquire() without any parameter blocks until the next permit gets available. Later on, when the thread has finished its work on the critical resource, it can release the permit by invoking the method release() on an instance of Semaphore.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : What is thread pool ? Why should you thread pool in Java ?<br>
+        Ans :	Creating thread is expensive in terms of time and resource. If you create thread at time of request processing it will slow down your response time, also there is only a limited number of threads a process can create. To avoid both of these issue, a pool of thread is created when application starts-up and threads are reused for request processing. This pool of thread is known as "thread pool" and threads are known as worker thread. From JDK 1.5 release, Java API provides Executor framework, which allows you to create different types of thread pools e.g. single thread pool, which process one task at a time, fixed thread pool (a pool of fixed number of thread) or cached thread pool (an expandable thread pool suitable for applications with many short lived tasks).
+
+        <div class="clearfix"></div>
+    </div><div class="first">Ques. : What is busy spin in multi-threading ?<br>
+        Ans :	Busy spin is a technique which concurrent programmers employ to make a thread wait on certain condition. Unlike traditional methods e.g. wait(), sleep() or yield() which all involves relinquishing CPU control, this method does not relinquish CPU, instead it just runs empty loop. Why would someone do that? to preserve CPU caches. In multi core system, its possible for a paused thread to resume on different core, which means rebuilding cache again. To avoid cost of rebuilding cache, programmer prefer to wait for much smaller time doing busy spin.
+
+        <div class="clearfix"></div>
+    </div><div class="second">Ques. : What is difference between calling wait() and sleep() method in Java multi-threading ?<br>
+        Ans :	Though both wait and sleep introduce some form of pause in Java application, they are tool for different needs. Wait method is used for inter thread communication, it relinquish lock if waiting condition is true and wait for notification when due to action of another thread waiting condition becomes false. On the other hand sleep() method is just to relinquish CPU or stop execution of current thread for specified time duration. Calling sleep method doesn't release the lock held by current thread.
+
+        <div class="clearfix"></div>
+    </div></div>
+</body>
+</html>

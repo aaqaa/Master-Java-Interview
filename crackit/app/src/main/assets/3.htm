@@ -1,0 +1,198 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>looping and decision control</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+	<!--bootstrap-->
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<!--custom css-->
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<!--component-css-->
+</head>
+<body>
+<div class="body-back"> <div class="second">Ques. : What is for each loop used for ?<br>
+Ans :	As of Java 5, the enhanced for loop was introduced. This is mainly used for Arrays.<br><br>
+for(declaration : expression)<br>
+{<br>
+    //Statements<br>
+}<br><br>
+declaration:this would contain a variable that can hold values of array.<br>
+expression: This evaluates to the array you need to loop through. The expression can be an array variable or method call that returns an array.<br>
+    <table><tr><td>public classTest<br> 
+    {<br>
+public static void main(String args[])<br>
+    {<br>
+int[] numbers ={10,20,30,40,50,60,70,80};<br>
+for(int x : numbers )<br>
+    {<br>
+System.out.print( x );<br>
+System.out.print(",");<br>
+}<br>
+for(int z: numbers )<br>
+    {<br>
+if( z==30)<br>
+    {<br>
+	continue;<br>
+                 
+    }<br>
+if( z==70)<br>
+    {<br>
+	break ;<br>
+                                                             }
+System.out.print( z);<br>
+System.out.print(",");<br>
+}<br>
+String[] names ={"James","Larry","Tom","Lacy"};<br>
+for(String name : names )<br>
+    {<br>
+System.out.print( name );<br>
+System.out.print(",");<br>
+}<br>
+}<br>
+}</td></tr></table>
+<br>
+Output :<br>10,20,30,40,50,60,70,80<br>
+              10, 20, 40, 50, 60 <br>    
+              James , Larry , Tom , Lacy<br>
+
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. What methods are provided by java.util.Arrays for sorting and searching arrays ?<br>
+Ans :	Following are the methods available to search and sort an Array.<br>
+* public static int binarySearch (Array[] , SearchValue) ;<br>
+* public static boolean equals(Array1[] , Array2[]) ;<br>
+* public static void fill(Array[] , fillValue) ;<br>
+* public static void sort(Array[]);<br>
+    <table><tr><td>import java.util.Arrays ;<br><br>
+public class ArrayDemo<br>
+    {<br>
+public static void main(String[] args)<br>
+    {<br>
+int[]arr1=newint[]{10,12,5,6, 1, 3};<br>
+int[]arr2=newint[]{10,12,5,6, 1, 3};<br>
+int[]arr3=newint[]{10,5,6,12, 2, 4, 7};<br>
+   booleanretval= Arrays.equals(arr1, arr2);<br>
+System.out.println("arr1 and arr2 equal: "+ retval);<br>
+Arrays.sort(arr3);// Sorting the Array<br>
+ShowArray(arr3);                        // UserDefined method to display array<br>
+   int SearchValue = 12 ;<br>
+   int index = Arrays.binarySearch(arr3,SearchValue) ;<br>
+   System.out.println(“Value Found at index :” + index) ;<br>
+   index = Arrays.binarySearch(arr3,2,6,SearchValue) ;<br>
+   System.out.println(“Value Found at index :” + index) ;<br>
+Arrays.fill( arr3 , 99) ;                      // fill value 99 at all fields of array<br>
+   ShowArray(arr3) ;<br>
+Arrays.fill( arr3 , 2 , 5 , 55 ) ;          // fill value 55 from index 2 to 5<br>
+   ShowArray(arr3) ;<br>
+}<br>}</td></tr></table><br>
+Output : <br>arr1 and arr2 equal:true<br>
+              2 , 4 , 5 , 6 , 7 , 10 , 12<br>
+Value Found at index : 6<br>
+              Value Found at index : 6<br>
+              99 , 99 , 99 , 99 , 99 , 99 , 99<br>
+              99 , 99 , 55 , 55 , 55 , 55 , 99<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : How do we allocate an array dynamically in Java ? <br>
+Ans :	In Java object (that included array) gets allocated at runtime. However there are some limitation with array. Java does not offer arrays that can be extended at run time, for primitives or Objects, so it is common to use a Vector for a set of elements that needs to be able to grow.<br><br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Can you store String in an array of Integer in Java? compile time error or runtime exception ?<br>
+Ans :	This is a tricky question. Answer is both yes and no. You cannot store an String in an array of primitive int, it will result in compile time error as shown below, but if you create an array of Object and assign String[] to it and then try to store Integer object on it. Compiler won't be able to detect that and it will throw ArrayStoreExcpetion at runtime<br><br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is difference between ArrayIndexOutfOBounds and ArrayStoreException ?<br>
+Ans :	ArrayIndexOutOfBoundsException comes when your code tries to access an invalid index for a given array e.g. negative index or higher index than length - 1. While, ArrayStoreException comes when you have stored an element of type other than type of array, as shown in above example.<br><br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Can you use Generics with array ?<br>
+Ans :	No, you cannot use Generic with array, that's why sometime List is better choice over array in Java.<br><br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Do you have three dimensional array in Java?<br>
+Ans :	Yes, Java supports N dimensional array. Actually multi-dimensional array in Java is nothing but an array of array, for example, two dimensional array is just an array of one dimensional array.<br><br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Can you make array volatile in Java?<br>
+Ans :	This is another tricky question in Java. Yes, you can make an array volatile in Java, but you only make the variable which is pointing to array volatile. If array is changed by replacing individual elements than happens before guarantee provided by volatile variables will not held.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : How do you clone an array ?<br>
+Ans:	When the clone method is invoked upon an array, it returns a reference to a new array which contains same elements as the source array.<br><br>
+int[] a = {1,2,3};<br>
+int[] b = a.clone();<br>
+System.out.println(a == b ? "Same Instance":"Different Instance");<br><br>
+// Output : Different Instance<br><br>
+Changes to Clone Array will be reflected in the Source array if Array is of Objects. While Changes in Clone Array will not be reflected if Array is of primitive Type.<br>
+In above example If were to modify int[] b the changes would not be reflected on int[] a since the two are separate object instances. While in case of array of objects.<br>
+    <table><tr><td>public class Dog extends Animal<br>
+{<br>
+	publicint Age ;<br>
+	public Dog(inta)<br>
+	{<br>
+		super();<br>
+		Age = a;<br>
+	}<br>
+}<br><br>
+public class Animal<br>
+{	<br>
+	public static void main(String[] args)<br>
+	{<br>
+		Dog[] DogArray = new Dog[3] ;<br>
+		DogArray[0] = new Dog(10);<br>
+		DogArray[1] = new Dog(20);<br>
+		DogArray[2] = new Dog(30);<br>
+		Dog[] DogArrayClone = DogArray.clone() ;<br>
+		DogArrayClone[0].Age = 500 ;<br>
+		for (Dog d : DogArray)<br>
+		System.out.println(d.Age);<br>
+	}<br>
+}<br><br></td></tr></table><br>
+// Output : 500 20 30<br><br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Tell us about different Methods available with Array Class apart from one’s discussed above ?<br>
+Ans :Apart from equals , hashCode , toString , sort , fill. Following are the important methods available in Arrays Class. <br>
+    <table style="width:100%">
+  <tr>
+    <th>Method</th>
+    <th>Description</th> 
+  </tr>
+  <tr>
+    <td>Static T ListasList(T…a)</td> 
+    <td>Returns a fixed sized list backed by the specified array.</td>
+  </tr>
+  <tr>
+    <td>binarySearch(Arr_Ref , Search_Key)</td> 
+    <td>Use binary Search Algorithm to Search the key inside Array.</td>
+  </tr>
+        <tr>
+            <td>binarySearch(Arr_Ref , int StartIndex , int EndIndex , Search_Key)</td>
+            <td>Use binary Search Algorithm to Search the key inside Array.</td>
+    
+        </tr>
+    <tr>
+            <td>binarySearch(Arr_Ref , int StartIndex , int EndIndex , Search_Key)</td>
+            <td>Performs BinarySearch between specified index.</td>
+    
+        </tr>
+        
+    <tr>
+            <td>copyOf(Array_Ref , int New_Length)</td>
+            <td>Returns a copy of Array. Excess fields due to New Length would be filled with default value of that type , whie shorter length will result in truncation of elements.</td>
+    
+        </tr>
+      <  tr>
+            <td>copyOfRange(Array_Ref , int from , int to)</td>
+            <td>Returns a SubArray between specified range within an Array.</td>
+    
+        </tr>
+    
+</table>
+    
+
+<div class="clearfix"></div>   
+                  </div></div>
+          </body>
+         </html>

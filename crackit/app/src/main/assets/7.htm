@@ -1,0 +1,415 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Classes Objects & Methods</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--bootstrap-->
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<!--custom css-->
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<!--component-css-->
+</head>
+<body>
+<div class="body-back"> <div class="first">Ques. : What is Anonymous object ?<br>
+Ans :Anonymous simply means nameless. An object that have no reference is known as anonymous object. If you have to use an object only once, anonymous object is a good approach.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is Anonymous Class ?<br>
+Ans :	An Anonymous Class is a local class without any name which is defined and instantiate in a single statement using the new operator. Such classes could be included as a part of larger expression such as method call.<br>
+It could be a good idea to use Anonymous classes in place of inner classes when Only one instance of a class in needed.<br>
+Anonymous classes are used right after it is defined , which sometimes improves readability (if the class is not complex).<br>
+We can defining and instantiate an anonymous class using following syntax :<br><br>
+new class-name ( [ argument-list ] ) { class-body }<br>
+new interface-name () { class-body }<br><br>
+    <table><tr><td>abstract class Person<br>{<br>  
+  abstract void eat();  <br>
+                                }<br>
+class TestAnonymousInner<br>
+{  <br>
+ public static void main(String args[])<br>
+{ <br> // Instantiation of anonymous class using class-name expression<br>
+  Person P=new Person() {<br>
+                                              void eat()<br>
+ {<br>
+ System.out.println("nice fruits");<br>
+}  <br>
+                                              } ; <br> 
+  P.eat();  <br>
+ }  <br>
+} </td></tr></table>
+    <br>
+In the above example we have defined and instantiate an anonymous class which extends the abstract class person and providing the implementation of its eat() method. The instance of the anonymous class is refered by P , which is later used to call the eat() method.
+The name of this anonymous class is decided by the compiler. The Compiler internally transforms the class into this form when an anonymous class is incountered in a class.<br>
+    <table><tr><td>import java.io.PrintStream;  <br>
+static class TestAnonymousInner$1 extends Person<br>  
+{  <br>
+   TestAnonymousInner$1(){}<br>  
+   void eat()  <br>
+    {  <br>
+        System.out.println("nice fruits");<br>  
+    }  <br>
+}  </td></tr></table><br>
+Similar goes for defining and instantiating an anonymous class with syntax mentioning the interface. That basically means that we have defined an anonymous class which implements this interface and providing the implementation of interface's method.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What are the different ways to create an object?<br>
+Ans:		We can create object in different ways :<br>
+* Using new operator<br>
+* Using clone()<br>
+* Using Class.forName()<br>
+* Using getClassLoader()<br>
+* Using Object Deserialization.<br><br>
+// Using new operator<br>
+MyClass OBJ_1 = new MyClass() ;<br><br>
+// Using clone() : Creating Clone of OBJ_1<br>
+MyClass OBJ_2 = (MyClass)  OBJ_1.clone() ;    <br><br>
+//Using Class.forName<br>
+MyClass OBJ_3 = (MyClass) Class.forName("MyClass").newInstance() ;<br><br>
+// Using ClassLoader()<br>
+Object OBJ_4 = MyClass.class.getClassLoader().loadClass("MyClass").newInstance() ;<br><br>
+// Using Object Deserialization<br>
+ObjectInputStream inStream = new ObjectInputStream(anInputStream );<br><br> 
+MyObject OBJ_5 = (MyObject) inStream.readObject();<br><br>
+* Using new keyword is the most common way to create an object in java. Almost 99% of objects are created in this way.<br>
+* clone() method is used to create a copy of an existing Object.<br>
+* Class.forName actually loads the class in Java but doesn't create any Object. To Create an Object of the Class you have to use newInstance method of Class class.<br>
+* getClassLoader works similar to Class.forName i.e it loads the class and then we create an object using newInstance().<br>
+* Object deserialization is nothing but creating an object from its serialized form.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. Which is Superclass of all the classes ? What is the advantage of inheriting all classes from a superclass ?<br>
+Ans:		java.lang.Object is the root of the class hierarchy. Every class has Object as a superclass. All objects, including arrays, implement the methods of this class.<br>
+The advantage of having a universal base class is that we can pass around objects  without specifying type of that object using Object declaration.<br>
+    <table><tr><td>package com.javapapers.java;<br>
+public class SuperClass<br>
+{<br>
+public static void main(String... args)<br>
+{<br>
+String str =new String("Hi");<br>
+Class strClass = str.getClass();<br>
+System.out.println("Super class of String: "+strClass.getSuperclass());<br>
+Object obj =new Object();<br>
+Class objClass = obj.getClass();<br>
+System.out.println("Super class of Object: "+objClass.getSuperclass());<br>
+Class classClass = objClass.getClass();<br>
+System.out.println("Super class of Class: "+classClass.getSuperclass());<br>
+}<br>
+}</td></tr></table>
+Output :<br>
+Superclass of String:class java.lang.Object<br>
+Superclass of Object:null<br>
+Superclass of Class:class java.lang.Object
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is the difference between an object and an instance ?<br>
+Ans:		An Object May not have a class definition. While an instance may or may not have any class definition.<br>
+int a[] = {} ;                                             // a is an array<br>
+MyClass X = new MyClass() ;                      // X is an instance<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What are different Java Object class methods available ?<br>
+Ans:Following are the methods available within java Object Class.<br>
+    <table>
+        <tr><td>clone()</td><td>Creates and returns a copy of this object</td></tr>
+        <tr><td>equals()</td><td>Indicates whether some other object is "equal to" this one</td></tr>
+            <tr><td>finalize()</td><td>Called by the garbage collector on an object.</td></tr>
+            <tr><td>getClass()</td><td>Returns the runtime class of an object</td></tr>
+            <tr><td>hashCode()</td><td>Returns a hash code value for the object</td></tr>
+            <tr><td>notify()</td><td>Wakes up a single thread that is waiting on this object's monitor</td></tr>
+            <tr><td>notifyAll()</td><td>Wakes up all threads that are waiting on this object's monitor</td></tr>
+            <tr><td>toString()</td><td>Returns a string representation of the object</td></tr>
+            <tr><td>wait()</td><td>Causes current thread to wait until another thread invokes the notify() method</td></tr>
+        
+    </table>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : How to make a class of immutable objects in java ?<br>
+Ans :	Apply all the three constraints together to make a class of immutable objects.<br>
+* Mark all the instance variable of the class private and final. <br>
+* Provide constructer to initialize instance variables.<br>
+* Allow only getter method in your class.<br>
+Since all the instance member of this class are private. The only way to change their value is through setter method which is absent in the above case. Hence the objects of this class if once defined its impossible to change their value later in the program.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What are Nested Classes ? What are inner classes ?<br>
+Ans :	Nested Classes are the classes defined inside an interface or a Class. Similarly Nested Interface are the interfaces defined inside another interface or a class.<br>
+Static modifier can only be applied on Nested Interfaces & Nested Classes and not on Outer Interfaces or Outer Class. However it doesn't matter whether an Interface is static or non-static , they are same. But a static modifier on Nested Class makes it different from non-static nested class.<br>
+A non-static nested class which often incorrectly termed as Inner Classhasaccess to all the members of OuterClass including private members ; while a static nested class will only have access to static members of OuterClass. <br>
+    <table>
+        <tr><td>
+            class OuterClass<br>
+{  <br>
+private int PrivateField=100;<br>  
+   public static int StaticField= 200 ;<br>
+class NonStaticInnerClass<br>
+{ <br> 
+void msg()<br>
+{<br>
+System.out.println("This has access to PrivateField "+PrivateField);<br>
+System.out.println("This has access to StaticField "+StaticField);<br>
+}  <br>
+}<br><br>
+static class StaticInnerClass<br>
+{  <br>
+void msg()<br>
+{<br>
+System.out.println("This has access to StaticField"+StaticField);<br>
+}  <br>
+}<br>
+ public static void main(String args[])<br>
+{  <br>
+OuterClass obj=new OuterClass();  <br>
+OuterClass.NonStaticInnerClass X =obj.new NonStaticInnerClass();  <br>
+    X.msg();  <br>
+OuterClass.StaticInnerClass Y = new OuterClass.StaticInnerClass() ;<br>
+// No need of creating instance of OuterClass to create a StaticReference<br>
+Y.msg() ;<br>
+ }<br>
+} 
+            
+            </td></tr></table>
+<br>
+To create an object of a Non-Static Nested Class , we must have to create object of the OuterClass first (Tight Association / Composition). While in case of Static Nested Class , object can be created without an OuterClass object.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Can a top-level class be private or protected ?<br>
+Ans :	No. A class whose scope is private-to-package can be achieved through default modifier (package level) , So there's no need of private modifier on class.<br>
+A class declared protected (if allowed) should be available for inheritence outside the package. But the point why would we need it , its useless. Rather we can define that Subclass inside the same package instead of any other package.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is the difference between a public and a non-public class ?  <br>
+Ans :	Following are the differences :<br>
+
+
+    <table>
+        <tr><th>Specifiers</th><th>Allowed to define scope for</th></tr>
+        <tr><td>public</td><td>OuterClass / InnerClass</td></tr>
+    <tr><td>protected</td><td>InnerClass only</td></tr>
+        <tr><td>private</td><td>InnerClass only</td></tr>
+        <tr><td>no-modifier</td><td>OuterClass / InnerClass</td></tr>
+    </table>
+    
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is the difference between a static and a non-static inner class ?<br>
+Ans :	Differences between static classes and non-static classes:<br>
+A static inner class is like other regular classes. They need to be referred by the class name being it is static, e.g. OuterClass.InnerClass. A static inner class can have access even to the private members of the outer class.
+The non-static inner class has the reference that is not visible in the outer class. To utilize the non-static inner class attributes and methods, its instance is to be created in the outer class
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is the purpose of the Runtime class?<br>
+Ans :	The purpose of the Runtime class is to provide access to the Java runtime system.It returns the runtime information like memory availability.<br>
+* Runtime.freeMemory()<br>
+Returns JVM Free Memory<br>
+* Runtime.maxMemory()<br>
+Returns the maximum amount of memory that the JVM will attempt to use.<br>
+* Runtime.gc()<br>
+Runs the garbage collector<br>
+    
+    <table>
+        <tr><td>* Runtime.freeMemory()</td><td>Returns JVM Free Memory</td></tr>
+        <tr><td>* Runtime.maxMemory()</td><td>Returns the maximum amount of memory that the JVM will attempt to use.</td></tr>
+        <tr><td>* Runtime.gc()</td><td>Runs the garbage collector</td></tr>
+
+    </table>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is the Dictionary class ?<br>
+Ans :	The Dictionary class is an abstract class. The class maps keys to values. The classes such as HashTable are the sub classes of the abstract class Dictionary. The key and values are objects. The key and value are non-null objects.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is the purpose of the System class?<br>
+Ans :	The purpose of the System class is to provide access to system resources.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is the SimpleTimeZone class?<br>
+Ans :	SimpleTimeZone is a concrete subclass of TimeZone class. The TimeZone class represents a time zone that is to be used with Gregorian calendar. 
+The SimpleTimeZone is created by using the base time zone offset from GMT time zone ID and rules, for starting and ending the time of daylight.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is a bean? Where can it be used?<br>
+Ans :	A Bean is a reusable and self-contained software component. Beans created using java take advantage of all the security and platform independent features of java. Bean can be plugged into any software application. Bean is a simple class which has set and get methods. It could be used within a JSP using JSP tags to use them.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. How are parameters passed in java ? byValue or byReference ?<br>
+Ans:		Java is always pass-by-value. The difficult thing to understand is that Java passes objects as references and those references are passed by value.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is static import ?<br>
+Ans:		static import facilitate the java programmer to access any static member of a class directly. There is no need to qualify it by the class name.<br>
+   <table>
+        <tr><th>com.MyPackage.one</th><th>com.MyPackage.two</th></tr>
+        <tr><th>MyClass.java</th><th>Student.java</th></tr>
+        <tr><td>import static<br>
+com.MyPackage.two.Student.*<br>
+class MyClass<br>
+{<br>
+public static voidmain(String[] args)<br>
+{<br>
+System.out.println(Name);<br>
+   }<br>
+}// No need of Student.Name<br>
+</td>
+            <td>class Student<br>
+{<br>
+ public static String Name = "XYZ" ;<br>
+}</td></tr>
+    </table>
+    
+    
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is the difference between import and static import ?<br>
+Ans :	The import allows the java programmer to access classes of a package without package qualification whereas the static import feature allows to access the static members of a class without the class qualification. The import provides accessibility to classes and interface whereas static import provides accessibility to static members of the class.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can a private method of a superclass be declared within a subclass?<br>
+Ans :	Yes , but that would not be called overriding. Overriding is possible for visible methods only , where as a private method of a superclass is not at all visible to the subclass. However by doing so , you actually will be writing a separate method that has the same signature as one of the private methods of SuperClass but has no relation with it.<br>
+If it would have been overriding , applying @overriding annotation should not throw any error. But in this case it shows an error. Hence its not overriding.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is a native method?  <br>
+Ans :	A native method is a method which is implemented in a non-java language that is targeted for a single machine type. Native methods can pass or return Java objects. To implement the native method, the keyword native is used. The implementation is in another language such as C or C++. <br>
+To compile the program which has native method, the following is used:<br>
+>javac  -jni  Premium <br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What are Live and Dead Objects ?<br>
+Ans :	Live objects are accessible by the application and will not be a subject of garbage collection. <br>
+Dead objects are those which will never be accessible by the application but have not been collected yet by the garbage collector. Such objects occupy the heap memory space until they are eventually collected by the garbage collector. 
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is the purpose of garbage collection in Java, and when is it used ?<br>
+Ans:		The purpose of garbage collection is to identify and discard objects that are no longer needed by a program so that their resources can be reclaimed and reused. A Java object is subject to garbage collection when it becomes unreachable to the program in which it is used.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : How to resize Heap Memory for JRE ?<br>
+Ans :The JVM has a heap that is the runtime data area from which memory for all class instances and arrays are allocated. It is created at the JVM start-up. <br>
+When JVM starts, it reserves memory for the Heap. Sometime, not all the memory is used at the beginning. But it will not be used by others for sure. You can use -Xmx parameter to set the max JVM memory size and -Xms for initial memory size.<br>
+By default:<br><br>
+* Maximum heap size is 64 Mb.<br>
+* If empty heap size < 40%, JVM will increase heap size to -Xmx size.<br>
+* If empty heap size > 70%, JVM will decrease heap size to -Xms size.<br>
+You also can use -XX:MaxPermSize to set Non-Heap memory size.<br>
+Heap memory for objects is reclaimed by an automatic memory management system which is known as a garbage collector. The heap may be of a fixed size or may be expanded and shrunk, depending on the garbage collector's strategy.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : How is Age Algorithm applied on Heap Memory ?<br>
+Ans :	In JVM memory model, there are two parts in Heap. One is New Generation and the other is Old Generation. In New Generation, there is Eden part for new Object. there are two Survivor Spaces(from and to), which are alwayse the same size. They are used to store survival Objects after GC(Garbarge Collection). In Old Generation, long live time Objects stay there.<br>
+In New Generation, GC normally use Copying Algorithm, which is fast. Everytime, survival Objects are copied to one of the Survivor Space. If Survivor Space is full, rest live Objects are directly copied to Old Generation. So, after GC, Eden memory will be cleaned up. In Old Generation, GC nornally use Mark-Compact Algorithm, which is slow but requires less memory.<br>
+There are several level of GC, 0 level is Full, which clean garbage in OLD Generation, 1 or above levels are partial GC, which clean New Generation garbage. Out of Memory will happen where is no space for new Object even GC done for OLD or Permanent part.
+How to claim memory?<br>
+1. JVM tries to find space in Eden<br>
+2. if there is enough space, memory claim is done. Otherwise, go to next step<br>
+3. JVM tries to release not active objects (1 or higher level GC). If there is still not enough space, put active objects into Survivor.<br>
+4. Survivor part is used as exchange space for Eden and Old. If Old space is big enough, objects in Survivor will be moved into Old space.<br>
+5. if Old part does not have enough space, JVm will perform full GC (0 level)<br>
+6. after full GC, if Survivor and Old parts still can not hold the objects from Eden, there is the "Out of Memory Error".<br>
+<img src="images/image006.jpg" alt="java" width="180" height="180"/>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Explain How Garbage Collection follow Mark & Sweep Algorithm ?<br>
+Ans :	The mark-and- sweep / mark-and-compact algorithm consists of two phases: In the first phase, it finds and marks all live objects. The first phase is called the mark phase. In the second phase, the garbage collection algorithm compacts the heap by moving all the live objects into contiguous memory locations. The second phase is called the compaction / sweeping phase.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Compare Strong Reference , Weak Reference , Soft Reference and Phantom Reference ?<br>
+Ans :	There are four kind of reference in Java :<br>
+1. Strong reference<br>
+2. Weak Reference<br>
+3. Soft Reference<br>
+4. Phantom Reference<br><br>
+Strong Reference is most simple as we use it in our day to day programming life e.g. in the code, String s = "abc" , reference variable s has strong reference to String object "abc". Any object which has Strong reference attached to it is not eligible for garbage collection. 
+Weak Reference are represented using java.lang.ref.WeakReference class and you can create Weak Reference by using following code :<br>
+
+    <table><tr><td>Counter counter = new Counter() ;<br>
+WeakReference WeakCounter = newWeakReference(counter) ;<br>
+counter = null ;</td></tr></table>
+    
+Now as soon as you make strong reference counter = null, counter object created on line 1 becomes eligible for garbage collection; because it doesn't have any more Strong reference and Weak reference by reference variable weakCounter can not prevent Counter object from being garbage collected. <br>
+On the other hand, had this been Soft Reference, Counter object is not garbage collected until JVMabsolutely needs memory.Soft reference in Java is represented using java.lang.ref.SoftReference class. You can use following code to create a SoftReference in Java.<br>
+
+    <table><tr><td>Counter prime = new Counter() ;<br>
+SoftReference soft = newSoftReference(prime);<br>
+prime = null;</td></tr></table>
+    
+After making strong reference null, Counter object created on line 2 only has one soft reference which can not prevent it from being garbage collected but it can delay collection, which is eager in case of WeakReference. Due to this major difference between SoftReference and WeakReference, SoftReference are more suitable for caches and WeakReference are more suitable for storing meta data.<br>
+One convenient example of WeakReference is WeakHashMap, which is another implementation of Map interface like HashMap orTreeMap but with one unique feature. WeakHashMap wraps keys as WeakReference which means once strong reference to actual object removed, WeakReference present internally on WeakHashMap doesn't prevent them from being Garbage collected.<br>
+Phantom reference is represented by java.lang.ref.PhantomReference class. Object which only has Phantom reference pointing them can be collected whenever Garbage Collector likes it. Similar to WeakReference and SoftReference you can create PhantomReference by using following code :<br>
+
+    <table><tr><td>DigitalCounter digit = new DigitalCounter() ;<br>
+PhantomReference phantom = newPhantomReference(digit);<br>
+digit = null ;</td></tr></table>
+    
+As soon as you remove Strong reference, DigitalCounter object created at line 3 can be garbage collected at any time as it only has one more PhantomReference pointing towards it, which can not prevent it from GC'd.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. :  Which part of the memory is involved in Garbage Collection? Stack or Heap ?<br>
+Ans:Heap
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is responsibility of Garbage Collector ?<br>
+Ans:		Garbage collector frees the memory occupied by the unreachable objects during the java program by deleting these unreachable objects.
+It ensures that the available memory will be used efficiently, but does not guarantee that there will be sufficient memory for the program to run.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Is garbage collector a daemon thread ?<br>
+Ans:		Yes GC is a daemon thread. A daemon thread runs behind the application. It is started by JVM. The thread stops when all non-daemon threads stop.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : How is Garbage Collection managed ?
+Ans:		The JVM controls the Garbage Collector; it decides when to run the Garbage Collector. JVM runs the Garbage Collector when it realizes that the memory is running low. The behavior of GC can be tuned by passing parameters to JVM. One can request the Garbage Collection to happen from within the java program but there is no guarantee that this request will be taken care of by jvm.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : When does an object become eligible for garbage collection ?<br>
+Ans:		An object becomes eligible for Garbage Collection when no live thread can access it.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : How to make an object eligible for Garbage Collection when it is no longer needed ? <br>
+Ans:Set all available object references to null once the purpose of creating the object is served.<br>
+Make the reference variable to refer to another object : Decouple the reference variable from the object and set it refer to another object, so the object which it was referring to before reassigning is eligible for Garbage Collection.<br>
+Creating Islands of Isolation : If you have two instance reference variables which are referring to the instances of the same class, and these two reference variables refer to each other and the objects referred by these reference variables do not have any other valid reference then these two objects are said to form an Island of Isolation and are eligible for Garbage Collection.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can we force the Garbage Collection ?<br>
+Ans:		NO. The Garbage Collection cannot be forced, though there are few ways by which it can be requested there is no guarantee that these requests will be taken care of by JVM.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. :  How can the Garbage Collection be requested?<br>
+Ans:		There are two ways in which we can request the jvm to execute the Garbage Collection. <br>
+* The methods to perform the garbage collections are present in the Runtime class provided by java. The Runtime class is a Singleton for each java main program. The method getRuntime() returns a singleton instance of the Runtime class. The method gc() can be invoked using this instance of Runtime to request the garbage collection.<br>
+   i.eRuntime.getRuntime().gc().<br>
+* Call the System class System.gc() method which will request the jvm to perform GC.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is finalize() method?<br> 
+Ans :	It is possible to define a method that will be called just before an object's final destruction by the garbage collector. This method is called finalize( ), and it can be used to ensure that an object terminates cleanly.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Can an object's finalize() method be invoked while it is reachable ?<br>
+Ans :	An object's finalize() method cannot be invoked by the garbage collector while the object is still reachable. However, an object's finalize() method may be invoked by other objects.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can an unreachable object bcom reachable again ?<br>
+Ans :	Yes.This can happen when the object's finalize() method is invoked and the object performs an operation which causes it to become accessible to reachable object.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques.: Whats the purpose of overriding finalize() method?<br>
+Ans: The finalize() method should be overridden for an object to include the clean up code or to dispose of the system resources that should to be done before the object is garbage collected.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : How many times does the garbage collector calls the finalize() method for an object?<br>
+Ans:		Only once.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What happens if an uncaught exception is thrown from during the execution of the finalize() method of an object?<br>
+Ans:		The exception will be ignored and the garbage collection (finalization) of that object terminates.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : How to enable/disable call of finalize() method of exit of the application ?<br>
+Ans:		Passing the boolean value in below syntax will either disable or enable the finalize() call.<br>
+Runtime.getRuntime().runFinalizersOnExit(boolean value) ;
+
+
+<div class="clearfix"></div>
+                    </div></div>
+          </body>
+         </html>

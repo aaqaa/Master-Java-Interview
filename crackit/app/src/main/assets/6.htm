@@ -1,0 +1,379 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Java OOPs Concepts</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+	<!--bootstrap-->
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<!--custom css-->
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<!--component-css-->
+</head>
+<body>
+<div class="body-back"> <div class="first">Ques. : What are different OOPs concept in java?<br>
+Ans :	The different OOps concepts are : <br>
+* Polymorphism<br>
+* Inheritance<br>
+* Abstraction<br>
+* Encapsulation<br>
+* Aggreagation<br>
+* Composition<br>
+* Association<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is polymorphism? Explain the different forms of Polymorphism ?<br>
+Ans :	The ability to define a function in multiple forms is called Polymorphism. Polymorphism is briefly described as "one interface, many implementations." <br><br>
+There are two types of polymorphism <br>
+Compile time polymorphism – achieved using method overloading.<br>
+Runtime time polymorphism is done using inheritance and interface.<br>
+    
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : How is Polymorphism implemented in Java ?<br>
+Ans :	Inheritance, Overloading and Overriding are used to achieve Polymorphism in java.<br><br>
+* Method overloading.<br>
+* Method overriding through inheritance.<br>
+* Method overriding through the Java interface.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is method overloading ?<br>
+Ans :	Overloading is determined at compile time and occurs in java when methods in a same class or in child classes shares a same name with a<br>
+* difference in number of arguments or<br>
+* difference in argument type or<br>
+* difference is sequence of data type of arguments mentioned <br>
+* any one of above 3 , any two of above 3 or all of above 3.<br><br>
+add(int a)<br>
+add(float a)<br>
+add(int a, int b)<br>
+add(float a, int b)<br>
+add(int b ,float a)<br><br>
+All are valid overloaded methods providing declared inside the same class or in child class<br>.
+Difference inReturn Types or Access Specifierdoesn’t overload any methods declared with same argument structure.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is method overriding ?<br>
+Ans :	Method overriding occurs when sub class declares a method that has the same type arguments as a method declared by one of its superclass.Method declared in subclass would be called the Overriding method and the method inside the super class would be called the Overridden method. The key benefit of overriding is the ability to define behavior that’s specific to a particular subclass type.<br><br>
+* Argument list and return type of both overriding and overridden methods  should be the same.<br>
+* A method declared final can’t be overridden.<br>
+* A method declared static can’t be overridden but can be re-declared.<br>
+* If a method can’t be inherited, then it can’t be overridden.<br>
+* Constructors can’t be overridden.<br>
+* Instance methods can be overridden only if they are inherited by the subclass.
+    <br>* The access level cannot be more restrictive than the overridden method's access level. For example: if the superclass method is declared public then the overriding method in the sub class cannot be either private or protected.<br>
+* An overriding method can throw any uncheck exceptions, regardless of whether the overridden method throws exceptions or not.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. What is Co-variant Return Type in Java ?<br>
+Ans :	Before Java 5, it was not possible to override any method by changing the return type. But now, since Java5, it is possible to override method by changing the return type if subclass overrides any method whose return type is Non-Primitive but it changes its return type to subclass type.<br>
+Eg :The return type of the get() method of A class is A but the return type of the get() method of B class is B. Both methods have different return type but it is method overriding. This is known as covariant return type.<br><br>
+    <table><tr><td>class A <br>{<br>  
+A get(){return this;<br>}<br>  
+}  <br><br>
+class B1 extends A<br>
+{  <br>
+B1 get()<br>{<br>return this;<br>}  // method overriding<br>
+<br>void message()<br>{<br>
+System.out.println("HELLO");<br>
+}  <br><br>
+    
+public static void main(String args[])<br>{<br>  
+new B1().get().message();  <br>
+}  <br>
+}</td></tr></table><br>
+Output : HELLO<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What are the differences between method overloading and method overriding ? <br>
+Ans :	Following are the differences between method overloading and method overriding.<br>
+
+    <table>
+        <tr><th>Overloading Method</th><th>Overriding Method</th></tr>
+        <tr><td>Must Differ in argument list with overloaded method.</td><td>Must have same argument list as the overridden method.</td></tr>
+        <tr><td>May differ with overloaded method.</td><td>Must be same as overridden method except for covariant returns</td></tr>
+        <tr><td>May differ in exception throws by overloaded method.</td><td>May differ in exception throws by overloaded method.</td></tr>
+        <tr><td>May have different access specifier than overloaded method</td><td>Must not have access specifier more restrictive than overridden method.</td></tr>
+        <tr><td>Reference type determines which overloaded version is selected. Happens at compile time.</td><td>Object type determines which method is selected. Happens at runtime.</td></tr>
+    </table>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Can overloaded methods be override too ?<br>
+Ans :	Yes, derived classes still can override the overloaded methods. Polymorphism can still happen. Compiler will not binding the method calls since it is overloaded, because it might be overridden now or in the future.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Is it possible to override the main method ?<br>
+Ans :	NO, because main is a static method. A static method can't be overridden in Java.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : How do you prevent a method from being overridden ?<br>
+Ans :	To prevent a specific method from being overridden in a subclass, use the final modifier on the method declaration, which means "this is the final implementation of this method", the end of its inheritance hierarchy. <br>
+    <table><tr><td>public final void exampleMethod()<br>{<br>
+                          //  Method statements<br>
+                          }</td></tr></table>
+
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques.: What is runtime polymorphism or dynamic method dispatch? <br>
+Ans :	It’s a process in which a call to an overridden method is resolved at runtime rather than at compile-time. The overridden method is called through the reference variable of a superclass. The determination of the method to be called is based on the object being referred to by the reference variable.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is Dynamic Binding / Late Binding ?<br>
+Ans :	Binding refers to the linking of a procedure call to the code to be executed in response to the call. Dynamic binding means that the code associated with a given procedure call is not known until the time of the call at run-time. It is associated with runtime polymorphism and overriding.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is Abstraction ?<br>
+Ans :	GenerallyAbstraction refers to the act of representing essential features without including the background details or explanations.
+Technically Abstraction is a way of converting real world objects in terms of class. It’s a concept of defining an idea in terms of classes or interface. For example creating a class Vehicle and injecting properties into it.<br>
+How to achieve Abstraction in Java:<br>
+By using abstract classes or interfaces , we can achieve abstraction in Java.<br>
+By looking at the method declaration inside an interface or abstract class , we can estimate what exactly the method is doing, what it is going to return. But we don't know how exactly the abstract method will be implemented.<br>
+We came to know about the implementation, once we provided the method implementation in the classes which implement the corresponding abstract class or interface.
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. :What is Encapsulation ?<br>
+Ans :	Encapsulation is to have control over the accessibility of an entity. The encapsulation is achieved by combining the methods and attribute into a class. The class acts like a container encapsulating the properties. The users are exposed mainly public methods.The idea behind is to hide how things work and just exposing the requests a user can do.<br>
+Many design pattern in Java uses encapsulation concept, one of them is Factory pattern which is used to create objects. Factory pattern is better choice than new operator for creating object of those classes whose creation logic can vary and also for creating different implementation of same interface. <br>
+Singleton pattern in Java also encapsulate how you create instance by providing getInstance() method. since objectis created inside one class and not from any other place in code you can easily change how you create object withoutaffect other part of code.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is the difference between abstraction and encapsulation?<br>
+Ans :	Following are the differences b/w abstraction and encapsulation.<br>
+
+    <table>
+        <tr><th>Abstraction</th><th>Encapsulation</th></tr>
+        <tr><td>It’s a positive term that says “Display this entity”.</td><td>It’s a negative term that says “Hide this entity”.</td></tr>
+        <tr><td>Focuses on outside view of an object i.e interface.</td><td>Control what Client views.</td></tr>
+        <tr><td>Solves the problem in this design side.</td><td>Abstraction is the implementation</td></tr>
+    </table>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is Association , Aggregation & Composition ? Explain with a real life example ?
+Ans :	Consider a Scenario.
+
+    <table>
+        <tr><th>Address.java</th></tr>
+        <tr><td>class Address<br>
+{<br>
+int streetNum;<br>
+String city;<br>
+String state;<br><br>
+Address(int street,String c,String st)<br>
+{<br>
+this.streetNum=street;<br>
+this.city=c;<br>
+this.state= st;<br>
+}<br>
+}</td></tr>
+
+        <tr><th>Marks.java</th></tr>
+        <tr><td>class Marks<br>
+{<br>
+int Maths;<br>
+int Science;<br>
+int English;<br><br>
+Marks( int M ,int S , int E )<br>
+{<br>
+this.Maths = M;<br>
+this.Science= S;<br>
+this.English= E;<br>
+}<br>
+}
+</td></tr>
+
+        <tr><th>Student.java</th></tr>
+        <tr><td>class Student<br>
+{<br>
+int rollNum;<br>
+String studentName;<br>
+Address studentAddr;// instance of Address<br>
+   Marks Records ;// instance of Marks<br>
+// Constructor to set all the fields<br>
+Student(int roll,String name,Address addr , Marks R )<br>
+{<br>
+this.rollNum=roll;<br>
+this.studentName=name;<br>
+this.studentAddr= addr;<br>
+        this.Records = R ;<br>
+}<br>
+// Constructor without Marks<br>
+Student (int roll,String name,Address addr)<br>
+{<br>
+this.rollNum=roll;<br>
+this.studentName=name;<br>
+this.studentAddr= addr;<br>
+}<br>
+public static void main(String args[])<br>
+{<br>
+Address ad1=newAddress(55,"Agra","UP","India") ;<br>
+    Marks MM = new Marks( 80 , 90 , 75) ;<br>
+Student Obj1=newStudent(123,"Chaitanya", ad1 , MM);<br>
+    Address ad2 = new Address(594,"Indore","MP","India");<br>
+    Student Obj2 = new Student(38039,”Owais”,ad2);<br>
+    ……… // Code to print info<br>
+}<br>
+}
+</td></tr>
+    </table>
+    
+    <br>
+Association :<br>
+* Objects of Address and Marks associates to produce a Student objects.<br>
+* Objects of Address and Marks could exist without existence of the other (independent / without owner).<br>
+Such relationship between Address and Marks would be called an “Association”.<br><br>
+Aggregation :<br>
+One way Association / Loose Association is known as HAS A Relationship i.e Aggregation.<br>
+* Student has Marks.<br>
+* Although Student could exist without Marksalso.<br>
+Such relationship between Student-Markswould be called an “Aggregation” where Student is the Owner of Marks Objects.<br><br>
+Composition :<br>
+Strong Association is known as Composition.<br>
+* Student Objects needs Address objectto be exist first , then only creation of student object is possible.<br>
+* Objects of Address will exist. But they will always be a child objects of Student (owner).<br>
+Such relationship of Student with Address would be called a “Composition” where Student is the Owner of Marks and Address’s Objects.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. What is the difference between Association , Aggregation and Composition ?<br>
+Ans :	Following are the differences between the 3.<br>
+    <table>
+        <tr>
+            <th></th>
+            <th>Association</th>
+            <th>Aggregation</th>
+            <th>Composition</th>
+            
+        </tr>
+        <tr>
+            <td>Owner</td>
+            <td>No owner</td>
+            <td>Single owner</td>
+            <td>Single owner</td>
+        </tr>
+        <tr>
+            <td>Life time</td>
+            <td>Have their own lifetime</td>
+            <td>Have their own lifetime</td>
+            <td>Owner's life time</td>
+        </tr>
+        <tr>
+            <td>Child object</td>
+            <td>Child objects all are independent</td>
+            <td>Child objects belong to a single parent</td>
+            <td>Child objects belong to a single parent</td>
+        </tr>
+    </table>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is Coupling ? Define Loose and Tight Coupling ?<br>
+Ans :Coupling is the degree to which one class knows about another class.<br>
+Tight Coupling :If class A relies on parts of class B that are not part of class B's interface, then the coupling between the classes is tighten that is not a good thing. In other words, if A knows more than it should about the way in which B was implemented, then A and B are tightly coupled.<br>
+
+
+    
+    <table>
+        <tr>
+            <td>class A<br>{<br>
+public void SpeakTo(B b)<br>{<br>}<br>
+}</td>
+            <td>class B<br>{<br>
+public void ListenTo(Aa)<br>{<br>}<br>
+}</td>
+        </tr>
+    
+    </table>
+    
+    
+    <table>
+        <tr><td colspan="2">TIGHT COUPLING</td></tr>
+        <tr><td>class Car<br>
+{<br>
+   public void MoveThisVehicle()<br>
+  {<br>
+// Logic of Car Movement<br>
+   }<br>
+}</td>
+            <td> class Traveler<br>
+{<br>
+    CarBMW =new Car();<br>
+    void startJourney()<br>
+    {<br>
+       BMW.MoveThisVehicle();<br>
+     }<br>
+}</td></tr>
+    </table>
+    
+
+<br>
+In the example above the class Traveler is tightly coupled with Car. If an object of AnotherClass is created inside a CurrentClass. Then the CurrentClass becomes dependent on AnotherClass. Such dependency is termed as tight coupling. Thus in the above scenario if method inside Car is changed then we need to do changing in class Traveler also.<br>
+Loose Coupling :If the only knowledge that class A has about class B, is what class B has exposed through its interface, then class A and class B are said to be loosely coupled that is a a good thing.<br><br>
+    <table>
+        <tr>
+            <td>class A implements IA<br>{<br>
+public void SpeakTo(IB b);<br>
+}
+</td>
+            <td>class B implements IB<br>{<br>
+public void ListenTo(IA a);<br>
+}<br></td>
+        </tr>
+    </table>
+    
+
+<br>
+    
+    <table>
+        <tr><th colspan="2">LOOSE COUPLING</th></tr>
+        <tr><td>interface Vehicle<br>
+{<br>
+public void MoveThisVehicle() ;<br>
+}
+</td>
+        <td rowspan="3">class Traveler<br>
+{<br>
+Vehicle v ;<br>
+public void setV(Vehicle v)<br>
+    {<br>
+         this.v = v ;<br>
+     }<br>
+    void StartJourney()<br>
+    {<br>
+       v.MoveThisVehicle() ;<br>
+    }<br>
+}
+            </td>
+        </tr>
+        <tr>
+            <td>class Car implements Vehicle<br>
+{<br>
+   public void MoveThisVehicle()<br>
+  {<br>
+// Logic of Car Movement<br>
+   }<br>
+}
+</td>
+        </tr>
+        <tr>
+            <td>class Bike implements Vehicle<br>
+{<br>
+  public void MoveThisVehicle()<br>
+  {<br>
+// Logic of Bike Movement<br>
+   }<br>
+}</td>
+        </tr>
+    </table>
+
+<br>
+In the example above the class Traveler is loosely coupled with Bike and Car. The only thing class Traveller knows about Car or Bike is that they are Vehicles and they Move. It doesn’t know / care how they actually move internally. Even if moving mechanism changes , we need not to make any changes to Traveler class.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Why is Tight Coupling a Bad Idea ?<br>
+Ans :	Suppose the developer changes the class B‘s non-interface part i.e non API stuff then in case of loose coupling class A does not breakdown but tight coupling causes the class A to break.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is Cohesion ?<br>
+Ans :	The term cohesion is used to indicate the degree to which a class has a single, well-focused purpose.
+
+
+<div class="clearfix"></div>
+                    </div></div>
+          </body>
+         </html>

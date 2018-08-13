@@ -1,0 +1,322 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Data Types</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+    <!--bootstrap-->
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<!--custom css-->
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<!--component-css-->
+</head>
+<body>
+<div class="body-back"> <div class="first">Ques. :  What is Unicode ?<br>
+Ans: A way of encoding characters as binary numbers. It is a universal international standard character set containing most of the world's written languages.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Why Java uses Unicode ?<br>
+Ans :	Before Unicode, there were many language standards:<br>
+* ASCII (American Standard Code for Information Interchange) for the United States.<br>
+* ISO 8859-1 for Western European Language.<br>
+* KOI-8 for Russian.<br>
+* GB18030 and BIG-5 for chinese, and so on.<br><br>
+This caused two problems:<br>
+1. A particular code value corresponds to different letters in the various language standards.<br>
+2. The encodings for languages with large character sets have variable length. Some common characters are encoded as single bytes, other require two or more byte.<br>
+To solve these problems, a new language standard was developed i.e. Unicode System.<br>
+In unicode, character holds 2 byte, so java also uses 2 byte for characters.<br>
+lowest value:\u0000<br>
+highest value:\uFFFF<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. :  How many bits are used to represent Unicode, ASCII, UTF-16, and UTF-8 characters ?<br>
+Ans :	Unicode requires 16 bits and ASCII require 7 bits. Although the ASCII character set uses only 7 bits, it is usually represented as 8 bits. UTF-8 represents characters using 8, 16, and 18 bit patterns. UTF-16 uses 16-bit and larger bit patterns.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What are primitive data types in java?  <br>
+Ans :	There are eight primitive data types supported by Java. Primitive data types are predefined by the language and named by a keyword.
+<br>    
+*byte<br>    
+*short<br>    
+*int<br>    
+*long<br>    
+*float<br>    
+*double<br>    
+*char<br>    
+*boolean<br>    
+    
+<br>    
+Apart from these, Java also provides a String data type which is defined as a Class (java.lang.String). It contains alpha numeric values.<br>
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What are Reference Data Types in Java ?<br>
+Ans :	When you create an object from a class, Java allocates the amount of memory the object requires to store the object. Then, if you assign the object to a variable, the variable is actually assigned a referenceto the object, not the object itself. This reference is the address of the memory location where the object is stored.<br>
+To declare a variable using a reference type, you simply list the class name as the data type.<br>
+BIKEBullet = new BIKE() ;<br>
+Vehicle Jeep = new CAR() ;<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is the difference between Primitive & Reference Data Types in Java ?<br>
+Ans :	Primitive & Reference are the only data types available in java. Following are the differences between them.<br>
+
+    <table>
+        <th>Primitive Data Types</th>
+        <th>Reference Data Types</th>
+        <tr>
+            <td>It store primitive values.</td>
+            <td>It store addresses.</td>
+        </tr>
+        <tr>
+            <td>When used with assignment operator – value in RHS gets copied into variable in LHS.</td>
+            <td>When used with assignment operator – Not the object but its reference gets copied.</td>
+        </tr>
+        <tr>
+            <td>When used with comparison operator == , Values are compared.</td>
+            <td>When used with comparison operator == , Addresses are compared.</td>
+        </tr>
+    </table>
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Difference between String literal and New String object in java ?<br>
+Ans : Both expression gives you String object. But there’s a slight difference.<br>
+String StrObj = new String(“Owais”) ;<br>
+String StrLitr = “Owais” ;<br>
+When you create String object using new() operator, it always create a new object in heap memory. On the other hand, if you create object using String literal syntax e.g. "Java", it may return an existing object from String pool , if it's already exists. Otherwise it will create a new string object and put in string pool for future re-use.<br><br>
+String a = “Java” ;<br>
+String b = “Java” ;<br>
+System.out.println(a==b) ;                    // TRUE<br>
+String a = new String(“Java”) ;<br>
+String b = new String(“Java”) ;<br>
+System.out.println(a==b) ;                    // FALSE<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. :  What are wrapper classes ?<br>
+Ans :	Everything in java is an object, except primitives. In order to use primitive values as an object in java , we use wrapper classes. They allow us to return primitive values as objects or collection of object and support many other functionalities to keep programming object oriented.<br>
+Following are the wrapper classes available to hold primitive values inside their objects.<br>
+    <table>
+        <th>Primitive Types</th>
+        <th>Wrapper Class</th>
+        <tr>
+            <td>byte</td>
+            <td>java.lang.Byte</td>
+        </tr>   
+        <tr><td colspan=2>Byte var = new Byte(100) ;</td></tr>
+        
+        <tr>
+            <td>short</td>
+            <td>java.lang.Short</td>
+        </tr>   
+        <tr><td colspan=2>Short var = new Short(100) ;</td></tr>
+        
+        <tr>
+            <td>int</td>
+            <td>java.lang.Integer</td>
+        </tr>   
+        <tr><td colspan=2>Integer var = new Integer(100) ;</td></tr>
+        <tr>
+            <td>long</td>
+            <td>java.lang.Long</td>
+        </tr>   
+        <tr><td colspan=2>Long var = new Long(100) ;</td></tr>
+        <tr>
+            <td>float</td>
+            <td>java.lang.Float</td>
+        </tr>   
+        <tr><td colspan=2>Float var = new Float(12.34f) ;</td></tr>
+        <tr>
+            <td>double</td>
+            <td>java.lang.Double</td>
+        </tr>   
+        <tr><td colspan=2>Double var = new Double(12.56d) ;</td></tr>
+        <tr>
+            <td>char</td>
+            <td>java.lang.Character</td>
+        </tr>   
+        <tr><td colspan=2>Character var = new Character(‘z’) ;</td></tr>
+        <tr>
+            <td>boolean</td>
+            <td>java.lang.Boolean</td>
+        </tr>   
+        <tr><td colspan=2>Boolean var = new Boolean(false) ;</td></tr>
+        <tr>
+            <td>void</td>
+            <td>java.lang.Void</td>
+        </tr>   
+        <tr><td colspan=2>It doesn’t hold values , it is used to get the return type of a method as void.</td></tr>
+        
+    </table>
+    <br>
+The above primitive values mentioned inside the constructor’s argument can also be passed with double quotes except for character argument.<br>
+Byte var = new Byte(“100”) ; is same as Byte var = new Byte(100) ;<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Explain the difference between Integer and int in java ?<br>
+Ans :	The following are the differences:<br><br>
+* Integer is a wrapper class, where as int is a primitive data type.<br>
+* Integer can be used as an argument to a method which requires an object, where as int can be used as an argument to a method which requires an integer value, that can be used for arithmetic expression.<br>
+* The variable of int type is mutable, unless it is marked as final. Integer class contains one int value and are immutable.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is AutoBoxing and UnBoxing in Java 5.0 ?<br>
+Ans :	Autoboxing is the automatic conversion that the Java compiler makes between the primitive types and their corresponding object wrapper classes.<br>
+ Java compiler applies autoboxing when a primitive value is:<br>
+* Passed as a parameter to a method that expects an object of the corresponding wrapper class.<br>
+* Assigned to a variable of the corresponding wrapper class.<br>
+<br>ListMyList = new ArrayList<>();<br>
+for (int i = 1; i < 50; i += 2)<br>
+    MyList.add(i);<br>
+Here , The compiler would automatically convert primitive int into Integer object and add it to MyList.<br>
+Unboxing : Automatic conversion of Wrapper Class Object into corresponding primitive type at runtime is known as Unboxing. It’s a reverse process of Autoboxing.<br><br>
+public static int sumEven( ListMyList) {<br>
+int sum = 0;<br>
+for ( Integer i : MyList )<br>
+        if (i % 2 == 0)<br>
+            sum += i ;<br>
+        return sum;<br>
+}<br><br>
+We know that % operator can’t be applied on an Integer Object , still compile would not flash any error instead it will automatically convert Integer object to primitive int at runtime.
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. :  What is casting?<br>
+Ans :There are two types of casting in Java.<br><br>
+* Casting between numeric types: It is same in Java as in C i.e Implicit and Explicit.<br>
+* Casting between Object References :<br>
+One object reference can be type cast into another object reference. The cast can be to its own class type or to one of its subclass or superclass types or interfaces.<br>
+When we cast an object reference of a class from its root class towards any subclass. Then it is said to be Downcasting. While casting an object reference of a class from its root class towards any superclass is said to be Upcasting.<br>
+When we try to attempt casts on objects that are totally unrelated (that is not subclass super class relationship or a class-interface relationship) At runtime a ClassCastException is thrown if the object being cast is not compatible with the new type it is being cast to.<br>
+// X is a supper class of Y and Z which are siblings.<br>
+    <table><tr><td>public class RunTimeCastDemo{<br>
+public static void main(String args[]){<br>
+	X x =newX();<br>
+	Y y =newY();<br>
+	Z z =newZ();<br>
+	X xy =newY();// compiles ok (up the hierarchy)<br>
+	X xz =newZ();// compiles ok (up the hierarchy)<br>
+		//		Y yz = new Z();   incompatible type (siblings)<br>
+		//		Y y1 = new X();   X is not a Y<br>
+		//		Z z1 = new X();   X is not a Z<br>
+	X x1 =y;// compiles ok (y is subclass of X)<br>
+	X x2 = z;// compiles ok (z is subclass of X)<br>
+	Y y1 =(Y) x;// compiles ok but produces runtime error<br>
+	Z z1 =(Z) x;// compiles ok but produces runtime error<br>
+	Y y2 =(Y) x1;// compiles and runs ok (x1 is type Y)<br>
+	Z z2 =(Z) x2;// compiles and runs ok (x2 is type Z)<br>
+		//		Y y3 = (Y) z;     inconvertible types (siblings)<br>
+		//		Z z3 = (Z) y;     inconvertible types (siblings)<br>
+	Object o = z;<br>
+	Object o1 =(Y) o;// compiles ok but produces runtime error<br>
+	}<br>
+}</td></tr></table>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : Why do we assign a SuperClass reference to a SubClass Object ?<br>
+Ans :To achieve Runtime Polymorphism.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : Why do we assign a Interface Reference to its Implementing Class Object ?<br>
+Ans : For flexibility of changing the implementation later.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : How does Java handle integer overflows and underflows?<br>
+Ans :	Java does not handle integer overflows and underflows. The values gets rounded off to minimum value after reaching maximum range.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What happens if you don’t initialize an instance variable of any of the primitive types in Java ?<br>
+Ans:		Java by default initializes it to the default value for that primitive type. Thus an int will be initialized to 0, a boolean will be initialized to false.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What will be the initial value of an object reference which is defined as an instance variable ?<br> 
+Ans:		The object references are all initialized to null in Java. If use assign them before initializing them we get NullPointerExceptions .<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is the default value of the local variables ?  <br>
+Ans:		The local variables are not initialized to any default value, If used before initializing we will get a compiler error about the local variable not being initialized.<br>
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What are the different scopes for Java variables ? <br>
+Ans:		A java variable can have one of the three scopes at any given point in time.<br><br>
+1. Instance : <br>
+* Instance variables are declared in a class, but outside a method, constructor or any block.<br>
+* When a space is allocated for an object in the heap, a slot for each instance variable value is created.<br>
+* Instance variables are created when an object is created with the use of the keyword 'new' and destroyed when the object is destroyed.<br>
+* Instance variables hold values that must be referenced by more than one method, constructor or block, or essential parts of an object's state that must be present throughout the class.
+* Instance variables can be declared in class level before or after use.<br>
+* Access modifiers can be given for instance variables.<br>
+* Instance variables have default values.<br>
+* Instance variables can be accessed directly by calling the variable name inside the class. However within static methods and different class ( when instance variables are given accessibility) should be called using the fully qualified name .<br><br>
+2. Local :<br>
+* Local variables are declared in methods, constructors, or blocks.<br>
+* Local variables are created as soon as the block gets control and destroyed as the block looses the control.<br>
+* Access modifiers cannot be used for local variables.<br>
+* Local variables are implemented at stack level internally.<br>
+* There is no default value for local variables so local variables should be declared and an initial value should be assigned before the first use.<br><br>
+3. Class / Static:<br>
+* Class variables also known as static variables are declared with the static keyword in a class, but outside a method. <br>
+* There would only be one copy of each class variable per class, regardless of how many objects are created from it.<br>
+* Static variables are stored in static memory.<br>
+* Static variables are created when the program starts and destroyed when the program stops.<br>
+* Visibility is similar to instance variables. However, most static variables are declared public since they must be available for users of the class.<br>
+* Default values are same as instance variables<br>
+* Static variables can be accessed by calling with the class name. ClassName.VariableName.<br>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is the difference between the >> and >>> operators ? <br>
+Ans :	Following are the basic differences between the two operators<br>
+    <table style="width:100%">
+  <tr>
+    <th>>></th>
+    <th>>>></th> 
+  </tr>
+  <tr>
+    <td>>> is a signed right shift</td> 
+    <td>>>> is an unsigned right shift.</td>
+  </tr>
+  <tr>
+    <td>If >> applied on –ve number , gives negative result.</td> 
+    <td>>>> ignores sign of the number and always results in a +ve number.</td>
+  </tr>
+        <tr>
+        <td>>> fills left most bit with either 0 or 1 after shift depending upon the sign.</td>
+        <td>>>> always fills left most bit with zero after shift.</td>
+        </tr>
+</table>
+    
+
+<div class="clearfix"></div>   
+                  </div><div class="second">Ques. : What is the difference between the Boolean & operator and the && operator ?<br>
+Ans : Following are the basic differences between the two operators<br>
+
+    <table style="width:100%">
+  <tr>
+    <th>&</th>
+    <th>&&(Short Circuit Operator)</th> 
+  </tr>
+  <tr>
+    <td>& is the "bit-wise AND" operator.</td> 
+    <td>&& - conditional logical AND operator</td>
+  </tr>
+  <tr>
+    <td>For Boolean arguments , it evaluates both the sides irrespective of the result.</td> 
+    <td>For Boolean argument , it first argument evaluates to zero , it skips checking the second argument.</td>
+  </tr>
+</table>
+
+<div class="clearfix"></div>
+                    </div><div class="first">Ques. : What is instanceof operator in java ? Where is it used ?<br>
+Ans :instanceof keyword is a binary operator used to test if an object (instance) is a subtype of a given Type.<br><br>
+interfaceDomestic{}<br>
+classAnimal{}<br>
+classDogextendsAnimalimplementsDomestic{}<br>
+classCatextendsAnimalimplementsDomestic{}<br><br>
+Object dog = new Dog() ;<br>
+doginstanceofDomestic ;// true - Dog implements Domestic<br>
+doginstanceofAnimal ;// true - Dog extends Animal<br>
+doginstanceofDog ;// true - Dog is Dog<br>
+doginstanceofObject ;// true - Object is the parent type of all objects<br>
+doginstanceofCat// Compiler ERROR , Siblings<br>
+animalinstanceofDog// false , Supertype<br>
+
+
+<div class="clearfix"></div>   
+                  </div></div>
+          </body>
+         </html>
